@@ -1,6 +1,6 @@
 # CS182_RL_Project
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1kA4u0UYD-FE11WhwgbJ98IsnST6NGe2l?usp=sharing)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/maxhchen/CS182_RL_Project/blob/main/Setup.ipynb)
 
 Reinforcement Learning Project for CS W182/282A: Designing, Visualizing and Understanding Deep Neural Networks @ UC Berkeley
 
