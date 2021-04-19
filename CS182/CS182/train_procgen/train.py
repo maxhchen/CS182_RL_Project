@@ -24,7 +24,7 @@ def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, tim
     clip_range = .2
     use_vf_clipping = True
 
-    mpi_rank_weight = 0 if is_test_worker else 1i
+    mpi_rank_weight = 0 if is_test_worker else 1
     num_levels = 0 if is_test_worker else num_levels
 
     if log_dir is not None:
