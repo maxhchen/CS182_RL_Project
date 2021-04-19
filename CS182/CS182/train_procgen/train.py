@@ -13,7 +13,7 @@ from baselines import logger
 from mpi4py import MPI
 import argparse
 
-def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, timesteps_per_proc, is_test_worker=False, log_dir='./model1test', comm=None):
+def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, timesteps_per_proc, is_test_worker=False, log_dir='./model4', comm=None):
     learning_rate = 5e-4
     ent_coef = .01
     gamma = .999
@@ -24,7 +24,7 @@ def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, tim
     clip_range = .2
     use_vf_clipping = True
 
-    mpi_rank_weight = 0 if is_test_worker else 1
+    mpi_rank_weight = 0 if is_test_worker else 1i
     num_levels = 0 if is_test_worker else num_levels
 
     if log_dir is not None:
@@ -73,15 +73,14 @@ def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, tim
         init_fn=None,
         vf_coef=0.5,
         max_grad_norm=0.5,
-        load_path='./model1/checkpoints/00073'
     )
 
 def main():
     parser = argparse.ArgumentParser(description='Process procgen training arguments.')
     parser.add_argument('--env_name', type=str, default='fruitbot')
     parser.add_argument('--num_envs', type=int, default=64)
-    parser.add_argument('--distribution_mode', type=str, default='hard', choices=["easy", "hard", "exploration", "memory", "extreme"])
-    parser.add_argument('--num_levels', type=int, default=0)
+    parser.add_argument('--distribution_mode', type=str, default='easy', choices=["easy", "hard", "exploration", "memory", "extreme"])
+    parser.add_argument('--num_levels', type=int, default=500)
     parser.add_argument('--start_level', type=int, default=0)
     parser.add_argument('--test_worker_interval', type=int, default=0)
     parser.add_argument('--timesteps_per_proc', type=int, default=50_000_000)
