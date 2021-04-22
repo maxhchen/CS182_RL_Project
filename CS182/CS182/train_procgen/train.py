@@ -13,7 +13,7 @@ from baselines import logger
 from mpi4py import MPI
 import argparse
 
-def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, timesteps_per_proc, is_test_worker=False, log_dir='./model4', comm=None):
+def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, timesteps_per_proc, is_test_worker=False, log_dir='./model5', comm=None):
     learning_rate = 5e-4
     ent_coef = .01
     gamma = .999
@@ -82,7 +82,7 @@ def main():
     parser.add_argument('--distribution_mode', type=str, default='easy', choices=["easy", "hard", "exploration", "memory", "extreme"])
     parser.add_argument('--num_levels', type=int, default=500)
     parser.add_argument('--start_level', type=int, default=0)
-    parser.add_argument('--test_worker_interval', type=int, default=0)
+    parser.add_argument('--test_worker_interval', type=int, default=2)
     parser.add_argument('--timesteps_per_proc', type=int, default=50_000_000)
 
     args = parser.parse_args()
