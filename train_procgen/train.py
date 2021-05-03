@@ -1,3 +1,4 @@
+import time
 import tensorflow as tf
 from baselines.ppo2 import ppo2
 from baselines.common.models import build_impala_cnn
@@ -98,6 +99,8 @@ def main():
     if test_worker_interval > 0:
         is_test_worker = rank % test_worker_interval == (test_worker_interval - 1)
 
+    tic = time.perf_counter()
+
     train_fn(args.env_name,
         args.num_envs,
         args.distribution_mode,
@@ -106,6 +109,12 @@ def main():
         args.timesteps_per_proc,
         is_test_worker=is_test_worker,
         comm=comm)
+
+    toc = time.perf_counter()
+    num_hours = (toc - tic) // 3600
+    num_minutes = ((toc - tic) % 3600) // 60
+    num_seconds = ((toc - tic) % 3600) % 60
+    print(f"Train time: {num_hours} hours, {num_minutes} minutes, {num_seconds} seconds")
 
 if __name__ == '__main__':
     main()
