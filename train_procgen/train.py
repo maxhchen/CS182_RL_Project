@@ -12,8 +12,6 @@ from baselines.common.vec_env import (
 from baselines import logger
 from mpi4py import MPI
 
-from ppo_decay import PPO2_DECAY
-
 import argparse
 
 def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, timesteps_per_proc, is_test_worker=False, log_dir='./model6-maxwell', comm=None):
@@ -55,7 +53,8 @@ def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, tim
     conv_fn = lambda x: build_impala_cnn(x, depths=[16,32,32], emb_size=256)
 
     logger.info("training")
-    PPO2_DECAY.learn(
+    ppo2.learn(
+    # PPO2_DECAY.learn(
         env=venv,
         network=conv_fn,
         total_timesteps=timesteps_per_proc,
