@@ -12,7 +12,7 @@ from baselines.common.vec_env import (
 from baselines import logger
 from mpi4py import MPI
 
-from stable-baselines.ppo-decay import PPO2_DECAY
+from stable_baselines.ppo_decay import PPO2_DECAY
 
 import argparse
 
