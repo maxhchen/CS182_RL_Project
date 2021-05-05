@@ -1,4 +1,5 @@
-import time
+import gym
+# import time
 import tensorflow as tf
 from baselines.ppo2 import ppo2
 from baselines.common.models import build_impala_cnn
@@ -54,10 +55,11 @@ def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, tim
     conv_fn = lambda x: build_impala_cnn(x, depths=[16,32,32], emb_size=256)
 
     logger.info("training")
-    ppo2.learn(
-    # PPO2_DECAY.learn(
+    # ppo2.learn(
+    PPO2_DECAY.learn(
         env=venv,
-        network=conv_fn,
+        policy=conv_fn,
+        # network=conv_fn,                        # actually policy
         total_timesteps=timesteps_per_proc,
         save_interval=1,
         nsteps=nsteps,
@@ -76,6 +78,7 @@ def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, tim
         init_fn=None,
         vf_coef=0.5,
         max_grad_norm=0.5,
+        tensorboard_log = "./tensorboard_logs/"
     )
 
 def main():
