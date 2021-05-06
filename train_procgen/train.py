@@ -77,7 +77,9 @@ def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, tim
         # log_interval=1,
         ent_coef=ent_coef,
         # mpi_rank_weight=mpi_rank_weight,
-        clip_vf=use_vf_clipping,
+
+        # clip_vf=use_vf_clipping,
+        
         # comm=comm,
         # lr=learning_rate,
         learning_rate=learning_rate,
