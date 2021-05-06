@@ -17,13 +17,13 @@ from mpi4py import MPI
 # from stable_baselines.common.schedules import PiecewiseSchedule, LinearSchedule, linear_interpolation
 # from baselines.common.schedules import LinearSchedule, PiecewiseSchedule, linear_interpolation
 
-from ppo_decay import PPO2_DECAY
+# from ppo_decay import PPO2_DECAY
 
 import argparse
 
 def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, timesteps_per_proc, scheduler, is_test_worker=False, log_dir='./model-high-ent-coef-v2', comm=None):
     learning_rate = 5e-4
-    # if scheduler is None:
+    # if scheduler == "none":
     #     ent_coef = .01
     # elif scheduler == "linear":
     #     print("linear")
@@ -135,7 +135,7 @@ def main():
     parser.add_argument('--start_level', type=int, default=0)
     parser.add_argument('--test_worker_interval', type=int, default=2)
     parser.add_argument('--timesteps_per_proc', type=int, default=5_000_000)
-    parser.add_argument('--scheduler', type=str, default=None, choices=["linear", "piecewise"])
+    parser.add_argument('--scheduler', type=str, default="none", choices=["none", "linear", "piecewise"])
 
     args = parser.parse_args()
 
