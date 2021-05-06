@@ -98,7 +98,7 @@ def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, tim
     
     model = PPO2_DECAY(
         env=venv,
-        policy=conv_fn,
+        policy="impala_cnn",
         # policy="impala_cnn",
         # network=conv_fn,                        # 'network' for baselines, 'policy' for stable-baselines
         # total_timesteps=timesteps_per_proc,
