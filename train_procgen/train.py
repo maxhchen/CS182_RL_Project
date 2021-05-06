@@ -66,7 +66,7 @@ def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, tim
         env=venv,
         policy=conv_fn,
         # network=conv_fn,                        # 'network' for baselines, 'policy' for stable-baselines
-        total_timesteps=timesteps_per_proc,
+        # total_timesteps=timesteps_per_proc,
         save_interval=1,
         nsteps=nsteps,
         nminibatches=nminibatches,
