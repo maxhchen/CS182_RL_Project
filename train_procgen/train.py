@@ -27,10 +27,10 @@ def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, tim
         ent_coef = .01
     elif scheduler == "linear":
         print("linear")
-        ent_coef = LinearSchedule(timesteps_per_proc, 1e-2, 1e-5).value,
+        ent_coef = LinearSchedule(timesteps_per_proc, 1e-2, 1e-5),
     elif scheduler == "piecewise":
         print("piecewise")
-        ent_coef = PiecewiseSchedule([1e-2, 1e-5]).value,
+        ent_coef = PiecewiseSchedule([1e-2, 1e-5]),
     gamma = .999
     lam = .95
     nsteps = 256
