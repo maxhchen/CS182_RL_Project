@@ -16,6 +16,8 @@ from mpi4py import MPI
 
 from stable_baselines.common.schedules import PiecewiseSchedule, LinearSchedule
 
+from ppo_decay import PPO2_DECAY
+
 import argparse
 
 def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, timesteps_per_proc, is_test_worker=False, log_dir='./model7-linear-decay', comm=None):
