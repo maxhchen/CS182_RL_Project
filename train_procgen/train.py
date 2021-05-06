@@ -14,16 +14,23 @@ from baselines.common.vec_env import (
 from baselines import logger
 from mpi4py import MPI
 
-from stable_baselines.common.schedules import PiecewiseSchedule, LinearSchedule
+# from stable_baselines.common.schedules import PiecewiseSchedule, LinearSchedule
+from baselines.common.schedules import LinearSchedule, PiecewiseSchedule, linear_interpolation
 
 from ppo_decay import PPO2_DECAY
 
 import argparse
 
-def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, timesteps_per_proc, is_test_worker=False, log_dir='./model7-linear-decay', comm=None):
+def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, timesteps_per_proc, is_test_worker=False, log_dir='./model7-linear-decay', comm=None, scheduler):
     learning_rate = 5e-4
-    # ent_coef = .01
-    ent_coef = LinearSchedule(timesteps_per_proc, 1e-2, 1e-5).value,
+    if scheduler is None:
+        ent_coef = .01
+    elif scheduler == "linear":
+        print("linear")
+        ent_coef = LinearSchedule(timesteps_per_proc, 1e-2, 1e-5).value,
+    elif scheduler == "piecewise":
+        print("piecewise")
+        ent_coef = PiecewiseSchedule([1e-2, 1e-5]).value,
     gamma = .999
     lam = .95
     nsteps = 256
@@ -57,41 +64,69 @@ def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, tim
     sess = tf.Session(config=config)
     sess.__enter__()
 
+    # @register("impala_cnn")
     conv_fn = lambda x: build_impala_cnn(x, depths=[16,32,32], emb_size=256)
 
     logger.info("training")
-    # ppo2.learn(
-    # PPO2_DECAY.learn(
-    model = PPO2_DECAY(
+    ppo2.learn(
         env=venv,
-        policy=conv_fn,
-        # network=conv_fn,                        # 'network' for baselines, 'policy' for stable-baselines
-        # total_timesteps=timesteps_per_proc,
-        # save_interval=1,
-        # nsteps=nsteps,
-        n_steps=nsteps,
+        # policy=conv_fn,
+        # policy="impala_cnn"
+        network=conv_fn,                        # 'network' for baselines, 'policy' for stable-baselines
+        total_timesteps=timesteps_per_proc,
+        save_interval=1,
+        nsteps=nsteps,
+        # n_steps=nsteps,
         nminibatches=nminibatches,
         lam=lam,
         gamma=gamma,
         noptepochs=ppo_epochs,
-        # log_interval=1,
+        log_interval=1,
         ent_coef=ent_coef,
-        # mpi_rank_weight=mpi_rank_weight,
-
-        # clip_vf=use_vf_clipping,
-        
-        # comm=comm,
-        # lr=learning_rate,
-        learning_rate=learning_rate,
+        mpi_rank_weight=mpi_rank_weight,
+        clip_vf=use_vf_clipping,
+        comm=comm,
+        lr=learning_rate,
+        # learning_rate=learning_rate,
         cliprange=clip_range,
-        # update_fn=None,
-        # init_fn=None,
+        update_fn=None,
+        init_fn=None,
         vf_coef=0.5,
         max_grad_norm=0.5,
         tensorboard_log = "./tensorboard_logs/"
     )
+    
+    # model = PPO2_DECAY(
+    #     env=venv,
+    #     # policy=conv_fn,
+    #     policy="impala_cnn"
+    #     # network=conv_fn,                        # 'network' for baselines, 'policy' for stable-baselines
+    #     # total_timesteps=timesteps_per_proc,
+    #     # save_interval=1,
+    #     # nsteps=nsteps,
+    #     n_steps=nsteps,
+    #     nminibatches=nminibatches,
+    #     lam=lam,
+    #     gamma=gamma,
+    #     noptepochs=ppo_epochs,
+    #     # log_interval=1,
+    #     ent_coef=ent_coef,
+    #     # mpi_rank_weight=mpi_rank_weight,
 
-    model.learn(timesteps_per_proc)
+    #     # clip_vf=use_vf_clipping,
+
+    #     # comm=comm,
+    #     # lr=learning_rate,
+    #     learning_rate=learning_rate,
+    #     cliprange=clip_range,
+    #     # update_fn=None,
+    #     # init_fn=None,
+    #     vf_coef=0.5,
+    #     max_grad_norm=0.5,
+    #     tensorboard_log = "./tensorboard_logs/"
+    # )
+
+    # model.learn(timesteps_per_proc)
 
 def main():
     parser = argparse.ArgumentParser(description='Process procgen training arguments.')
@@ -102,6 +137,7 @@ def main():
     parser.add_argument('--start_level', type=int, default=0)
     parser.add_argument('--test_worker_interval', type=int, default=2)
     parser.add_argument('--timesteps_per_proc', type=int, default=5_000_000)
+    parser.add_argument('--scheduler', type=str, choices=["linear", "piecewise"])
 
     args = parser.parse_args()
 
@@ -116,6 +152,8 @@ def main():
 
     tic = time.perf_counter()
 
+    print("USING ", args.scheduler)
+
     train_fn(args.env_name,
         args.num_envs,
         args.distribution_mode,
@@ -123,7 +161,8 @@ def main():
         args.start_level,
         args.timesteps_per_proc,
         is_test_worker=is_test_worker,
-        comm=comm)
+        comm=comm,
+        args.scheduler)
 
     toc = time.perf_counter()
     num_hours = (toc - tic) // 3600
