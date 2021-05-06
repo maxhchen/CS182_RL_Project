@@ -1,5 +1,5 @@
 import gym
-# import time
+import time
 import tensorflow as tf
 from baselines.ppo2 import ppo2
 from baselines.common.models import build_impala_cnn
