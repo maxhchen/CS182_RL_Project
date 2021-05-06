@@ -1,5 +1,5 @@
 import gym
-import time
+# import time
 import tensorflow as tf
 from baselines.ppo2 import ppo2
 from baselines.common.models import build_impala_cnn, impala_cnn
@@ -14,14 +14,14 @@ from baselines.common.vec_env import (
 from baselines import logger
 from mpi4py import MPI
 
-from stable_baselines.common.schedules import PiecewiseSchedule, LinearSchedule, linear_interpolation
+# from stable_baselines.common.schedules import PiecewiseSchedule, LinearSchedule, linear_interpolation
 # from baselines.common.schedules import LinearSchedule, PiecewiseSchedule, linear_interpolation
 
 from ppo_decay import PPO2_DECAY
 
 import argparse
 
-def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, timesteps_per_proc, scheduler, is_test_worker=False, log_dir='./model-high-ent-coef', comm=None):
+def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, timesteps_per_proc, scheduler, is_test_worker=False, log_dir='./model-high-ent-coef-v2', comm=None):
     learning_rate = 5e-4
     # if scheduler is None:
     #     ent_coef = .01
@@ -65,7 +65,6 @@ def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, tim
     sess = tf.Session(config=config)
     sess.__enter__()
 
-    # @register("impala_cnn")
     conv_fn = lambda x: build_impala_cnn(x, depths=[16,32,32], emb_size=256)
 
     logger.info("training")
@@ -136,7 +135,7 @@ def main():
     parser.add_argument('--start_level', type=int, default=0)
     parser.add_argument('--test_worker_interval', type=int, default=2)
     parser.add_argument('--timesteps_per_proc', type=int, default=5_000_000)
-    parser.add_argument('--scheduler', type=str, choices=["linear", "piecewise"])
+    parser.add_argument('--scheduler', type=str, default=None, choices=["linear", "piecewise"])
 
     args = parser.parse_args()
 
@@ -149,7 +148,7 @@ def main():
     if test_worker_interval > 0:
         is_test_worker = rank % test_worker_interval == (test_worker_interval - 1)
 
-    tic = time.perf_counter()
+    # tic = time.perf_counter()
 
     print("Using", args.scheduler, "Entropy Scheduler")
 
@@ -166,11 +165,11 @@ def main():
         comm=comm,
         )
 
-    toc = time.perf_counter()
-    num_hours = (toc - tic) // 3600
-    num_minutes = ((toc - tic) % 3600) // 60
-    num_seconds = ((toc - tic) % 3600) % 60
-    print(f"Train time: {num_hours} hours, {num_minutes} minutes, {num_seconds} seconds")
+    # toc = time.perf_counter()
+    # num_hours = (toc - tic) // 3600
+    # num_minutes = ((toc - tic) % 3600) // 60
+    # num_seconds = ((toc - tic) % 3600) % 60
+    # print(f"Train time: {num_hours} hours, {num_minutes} minutes, {num_seconds} seconds")
 
 if __name__ == '__main__':
     main()
