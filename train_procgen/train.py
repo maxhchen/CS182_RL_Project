@@ -14,11 +14,14 @@ from baselines.common.vec_env import (
 from baselines import logger
 from mpi4py import MPI
 
+from stable_baselines.common.schedules import PiecewiseSchedule, LinearSchedule
+
 import argparse
 
-def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, timesteps_per_proc, is_test_worker=False, log_dir='./model6-maxwell', comm=None):
+def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, timesteps_per_proc, is_test_worker=False, log_dir='./model7-linear-decay', comm=None):
     learning_rate = 5e-4
-    ent_coef = .01
+    # ent_coef = .01
+    ent_coef = LinearSchedule(5000000, 1e-2, 1e-5).value,
     gamma = .999
     lam = .95
     nsteps = 256
@@ -59,7 +62,7 @@ def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, tim
     PPO2_DECAY.learn(
         env=venv,
         policy=conv_fn,
-        # network=conv_fn,                        # actually policy
+        # network=conv_fn,                        # 'network' for baselines, 'policy' for stable-baselines
         total_timesteps=timesteps_per_proc,
         save_interval=1,
         nsteps=nsteps,
