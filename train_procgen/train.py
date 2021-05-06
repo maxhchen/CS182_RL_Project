@@ -21,7 +21,7 @@ from ppo_decay import PPO2_DECAY
 
 import argparse
 
-def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, timesteps_per_proc, is_test_worker=False, log_dir='./model7-linear-decay', comm=None, scheduler):
+def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, timesteps_per_proc, scheduler, is_test_worker=False, log_dir='./model7-linear-decay', comm=None):
     learning_rate = 5e-4
     if scheduler is None:
         ent_coef = .01
@@ -160,9 +160,12 @@ def main():
         args.num_levels,
         args.start_level,
         args.timesteps_per_proc,
+        ##
+        args.scheduler,
+        ##
         is_test_worker=is_test_worker,
         comm=comm,
-        args.scheduler)
+        )
 
     toc = time.perf_counter()
     num_hours = (toc - tic) // 3600
