@@ -64,7 +64,7 @@ def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, tim
     sess = tf.Session(config=config)
     sess.__enter__()
 
-    @register("impala_cnn")
+    # @register("impala_cnn")
     conv_fn = lambda x: build_impala_cnn(x, depths=[16,32,32], emb_size=256)
 
     logger.info("training")
@@ -98,8 +98,8 @@ def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, tim
     
     model = PPO2_DECAY(
         env=venv,
-        # policy=conv_fn,
-        policy="impala_cnn",
+        policy=conv_fn,
+        # policy="impala_cnn",
         # network=conv_fn,                        # 'network' for baselines, 'policy' for stable-baselines
         # total_timesteps=timesteps_per_proc,
         # save_interval=1,
