@@ -23,7 +23,7 @@ import argparse
 def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, timesteps_per_proc, is_test_worker=False, log_dir='./model7-linear-decay', comm=None):
     learning_rate = 5e-4
     # ent_coef = .01
-    ent_coef = LinearSchedule(5000000, 1e-2, 1e-5).value,
+    ent_coef = LinearSchedule(timesteps_per_proc, 1e-2, 1e-5).value,
     gamma = .999
     lam = .95
     nsteps = 256
@@ -61,7 +61,8 @@ def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, tim
 
     logger.info("training")
     # ppo2.learn(
-    PPO2_DECAY.learn(
+    # PPO2_DECAY.learn(
+    model = PPO2_DECAY(
         env=venv,
         policy=conv_fn,
         # network=conv_fn,                        # 'network' for baselines, 'policy' for stable-baselines
@@ -85,6 +86,8 @@ def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, tim
         max_grad_norm=0.5,
         tensorboard_log = "./tensorboard_logs/"
     )
+
+    model.learn(timesteps_per_proc)
 
 def main():
     parser = argparse.ArgumentParser(description='Process procgen training arguments.')
