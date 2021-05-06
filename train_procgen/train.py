@@ -14,8 +14,8 @@ from baselines.common.vec_env import (
 from baselines import logger
 from mpi4py import MPI
 
-# from stable_baselines.common.schedules import PiecewiseSchedule, LinearSchedule
-from baselines.common.schedules import LinearSchedule, PiecewiseSchedule, linear_interpolation
+from stable_baselines.common.schedules import PiecewiseSchedule, LinearSchedule, linear_interpolation
+# from baselines.common.schedules import LinearSchedule, PiecewiseSchedule, linear_interpolation
 
 from ppo_decay import PPO2_DECAY
 
@@ -27,10 +27,10 @@ def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, tim
         ent_coef = .01
     elif scheduler == "linear":
         print("linear")
-        ent_coef = LinearSchedule(timesteps_per_proc, 1e-2, 1e-5),
+        ent_coef = LinearSchedule(timesteps_per_proc, 1e-2, 1e-5)
     elif scheduler == "piecewise":
         print("piecewise")
-        ent_coef = PiecewiseSchedule([1e-2, 1e-5]),
+        ent_coef = PiecewiseSchedule([1e-2, 1e-5])
     gamma = .999
     lam = .95
     nsteps = 256
@@ -68,65 +68,65 @@ def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, tim
     conv_fn = lambda x: build_impala_cnn(x, depths=[16,32,32], emb_size=256)
 
     logger.info("training")
-    ppo2.learn(
-        env=venv,
-        # policy=conv_fn,
-        # policy="impala_cnn"
-        network=conv_fn,                        # 'network' for baselines, 'policy' for stable-baselines
-        total_timesteps=timesteps_per_proc,
-        save_interval=1,
-        nsteps=nsteps,
-        # n_steps=nsteps,
-        nminibatches=nminibatches,
-        lam=lam,
-        gamma=gamma,
-        noptepochs=ppo_epochs,
-        log_interval=1,
-        ent_coef=ent_coef,
-        mpi_rank_weight=mpi_rank_weight,
-        clip_vf=use_vf_clipping,
-        comm=comm,
-        lr=learning_rate,
-        # learning_rate=learning_rate,
-        cliprange=clip_range,
-        update_fn=None,
-        init_fn=None,
-        vf_coef=0.5,
-        max_grad_norm=0.5,
-        tensorboard_log = "./tensorboard_logs/"
-    )
-    
-    # model = PPO2_DECAY(
+    # ppo2.learn(
     #     env=venv,
     #     # policy=conv_fn,
-    #     policy="impala_cnn"
-    #     # network=conv_fn,                        # 'network' for baselines, 'policy' for stable-baselines
-    #     # total_timesteps=timesteps_per_proc,
-    #     # save_interval=1,
-    #     # nsteps=nsteps,
-    #     n_steps=nsteps,
+    #     # policy="impala_cnn"
+    #     network=conv_fn,                        # 'network' for baselines, 'policy' for stable-baselines
+    #     total_timesteps=timesteps_per_proc,
+    #     save_interval=1,
+    #     nsteps=nsteps,
+    #     # n_steps=nsteps,
     #     nminibatches=nminibatches,
     #     lam=lam,
     #     gamma=gamma,
     #     noptepochs=ppo_epochs,
-    #     # log_interval=1,
+    #     log_interval=1,
     #     ent_coef=ent_coef,
-    #     # mpi_rank_weight=mpi_rank_weight,
-
-    #     # clip_vf=use_vf_clipping,
-
-    #     # comm=comm,
-    #     # lr=learning_rate,
-    #     learning_rate=learning_rate,
+    #     mpi_rank_weight=mpi_rank_weight,
+    #     clip_vf=use_vf_clipping,
+    #     comm=comm,
+    #     lr=learning_rate,
+    #     # learning_rate=learning_rate,
     #     cliprange=clip_range,
-    #     # update_fn=None,
-    #     # init_fn=None,
+    #     update_fn=None,
+    #     init_fn=None,
     #     vf_coef=0.5,
     #     max_grad_norm=0.5,
     #     tensorboard_log = "./tensorboard_logs/"
     # )
+    
+    model = PPO2_DECAY(
+        env=venv,
+        # policy=conv_fn,
+        policy="impala_cnn"
+        # network=conv_fn,                        # 'network' for baselines, 'policy' for stable-baselines
+        # total_timesteps=timesteps_per_proc,
+        # save_interval=1,
+        # nsteps=nsteps,
+        n_steps=nsteps,
+        nminibatches=nminibatches,
+        lam=lam,
+        gamma=gamma,
+        noptepochs=ppo_epochs,
+        # log_interval=1,
+        ent_coef=ent_coef,
+        # mpi_rank_weight=mpi_rank_weight,
 
-    # model.learn(timesteps_per_proc)
+        # clip_vf=use_vf_clipping,
+
+        # comm=comm,
+        # lr=learning_rate,
+        learning_rate=learning_rate,
+        cliprange=clip_range,
+        # update_fn=None,
+        # init_fn=None,
+        vf_coef=0.5,
+        max_grad_norm=0.5,
+        tensorboard_log = "./tensorboard_logs/"
+    )
+
+    model.learn(timesteps_per_proc)
 
 def main():
     parser = argparse.ArgumentParser(description='Process procgen training arguments.')
