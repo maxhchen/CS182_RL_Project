@@ -97,10 +97,10 @@ def learn(*, network, env, total_timesteps, eval_env = None, seed=None, nsteps=2
 
 
     #################################################################################
-    ent_temp = ent_coef(1.0 - (1 - 1.0) / (total_timesteps // nbatch))
+    ent_init = ent_coef(1.0 - (1 - 1.0) / (total_timesteps // nbatch))
     
     model = model_fn(policy=policy, ob_space=ob_space, ac_space=ac_space, nbatch_act=nenvs, nbatch_train=nbatch_train,
-                    nsteps=nsteps, ent_coef=ent_temp, vf_coef=vf_coef,
+                    nsteps=nsteps, ent_coef=ent_init, vf_coef=vf_coef,
                     max_grad_norm=max_grad_norm, comm=comm, mpi_rank_weight=mpi_rank_weight)
     #################################################################################
 
@@ -133,6 +133,7 @@ def learn(*, network, env, total_timesteps, eval_env = None, seed=None, nsteps=2
         cliprangenow = cliprange(frac)
         # Calculate the entropy
         ent_coef_now = ent_coef(frac)
+        print("ENT_COEF_NOW VALUE:", ent_coef_now)
 
         if update % log_interval == 0 and is_mpi_root: logger.info('Stepping environment...')
 

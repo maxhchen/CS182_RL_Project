@@ -54,6 +54,7 @@ class Alt_Model(object):
         #################################################################################
         # ENT COEF
         self.ENT_COEF = ent_coef = tf.placeholder(tf.float32, [])
+        print("ENT_COEF VALUE:", ent_coef)
         #################################################################################
 
         neglogpac = train_model.pd.neglogp(A)
