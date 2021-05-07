@@ -1,4 +1,4 @@
-import gym
+# import gym
 # import time
 import tensorflow as tf
 from baselines.ppo2 import ppo2
