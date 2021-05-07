@@ -15,23 +15,23 @@ from baselines import logger
 from mpi4py import MPI
 
 # from stable_baselines.common.schedules import PiecewiseSchedule, LinearSchedule, linear_interpolation
-# from baselines.common.schedules import LinearSchedule, PiecewiseSchedule, linear_interpolation
+from baselines.common.schedules import LinearSchedule, PiecewiseSchedule, linear_interpolation
 
 # from ppo_decay import PPO2_DECAY
 
 import argparse
 
-def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, timesteps_per_proc, scheduler, is_test_worker=False, log_dir='./model-high-ent-coef-v2', comm=None):
+def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, timesteps_per_proc, scheduler, is_test_worker=False, log_dir='./model-9-linear', comm=None):
     learning_rate = 5e-4
-    # if scheduler == "none":
-    #     ent_coef = .01
-    # elif scheduler == "linear":
-    #     print("linear")
-    #     ent_coef = LinearSchedule(timesteps_per_proc, 1e-2, 1e-5)
-    # elif scheduler == "piecewise":
-    #     print("piecewise")
-    #     ent_coef = PiecewiseSchedule([1e-2, 1e-5])
-    ent_coef = .1
+    if scheduler == "none":
+        ent_coef = 1e-2
+    elif scheduler == "linear":
+        print("linear...")
+        ent_coef = LinearSchedule(timesteps_per_proc, 1e-2, 1e-5)
+    elif scheduler == "piecewise":
+        print("piecewise...")
+        ent_coef = PiecewiseSchedule([1e-2, 1e-5])
+    # ent_coef = .1
     gamma = .999
     lam = .95
     nsteps = 256
@@ -68,7 +68,7 @@ def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, tim
     conv_fn = lambda x: build_impala_cnn(x, depths=[16,32,32], emb_size=256)
 
     logger.info("training")
-    ppo2.learn(
+    ppo_decay2.learn(
         env=venv,
         network=conv_fn,                        # 'network' for baselines, 'policy' for stable-baselines
         total_timesteps=timesteps_per_proc,
@@ -80,7 +80,9 @@ def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, tim
         gamma=gamma,
         noptepochs=ppo_epochs,
         log_interval=1,
+        ##
         ent_coef=ent_coef,
+        ##
         mpi_rank_weight=mpi_rank_weight,
         clip_vf=use_vf_clipping,
         comm=comm,
