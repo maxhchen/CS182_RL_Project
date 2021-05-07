@@ -170,7 +170,7 @@ def learn(*, network, env, total_timesteps, eval_env = None, seed=None, nsteps=2
                     slices = (arr[mbflatinds] for arr in (obs, returns, masks, actions, values, neglogpacs))
                     mbstates = states[mbenvinds]
                     #################################################################################
-                    mblossvals.append(model.train(lrnow, cliprangenow, *slices, ent_coef = ent_coef_now, mbstates))
+                    mblossvals.append(model.train(lrnow, cliprangenow, *slices, mbstates, ent_coef = ent_coef_now))
                     #################################################################################
 
         # Feedforward --> get losses --> update
