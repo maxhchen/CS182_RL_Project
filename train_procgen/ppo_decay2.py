@@ -87,9 +87,13 @@ def learn(*, network, env, total_timesteps, eval_env = None, seed=None, nsteps=2
     if model_fn is None:
         from baselines.ppo2.model import Model
         model_fn = Model
-
-    logger.logkv("ENT COEF VALUE:", ent_coef.value)
     
+    ## REMOVE LATER #################################################################
+    logger.logkv("ENT COEF VALUE:", ent_coef.value)
+    #################################################################################
+
+
+
     #################################################################################
     model = model_fn(policy=policy, ob_space=ob_space, ac_space=ac_space, nbatch_act=nenvs, nbatch_train=nbatch_train,
                     nsteps=nsteps, ent_coef=ent_coef.value, vf_coef=vf_coef,
