@@ -86,9 +86,8 @@ def learn(*, network, env, total_timesteps, eval_env = None, seed=None, nsteps=2
     if model_fn is None:
         #################################################################################
         # from baselines.ppo2.model import Model
-        # model_fn = Model/
-        from alt_model import Alt_Model
-        model_fn = Alt_Model/
+        from alt_model import Model
+        model_fn = Model/
         #################################################################################
     
     ## REMOVE LATER #################################################################

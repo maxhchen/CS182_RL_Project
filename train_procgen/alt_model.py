@@ -11,7 +11,7 @@ try:
 except ImportError:
     MPI = None
 
-class Alt_Model(object):
+class Model(object):
     """
     We use this object to :
     __init__:
