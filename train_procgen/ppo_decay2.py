@@ -149,7 +149,9 @@ def learn(*, network, env, total_timesteps, eval_env = None, seed=None, nsteps=2
                     end = start + nbatch_train
                     mbinds = inds[start:end]
                     slices = (arr[mbinds] for arr in (obs, returns, masks, actions, values, neglogpacs))
-                    mblossvals.append(model.train(lrnow, cliprangenow, *slices))
+                    #################################################################################
+                    mblossvals.append(model.train(lrnow, cliprangenow, *slices, ent_coef = ent_coef_now))
+                    #################################################################################
         else: # recurrent version
             assert nenvs % nminibatches == 0
             envsperbatch = nenvs // nminibatches
@@ -163,7 +165,9 @@ def learn(*, network, env, total_timesteps, eval_env = None, seed=None, nsteps=2
                     mbflatinds = flatinds[mbenvinds].ravel()
                     slices = (arr[mbflatinds] for arr in (obs, returns, masks, actions, values, neglogpacs))
                     mbstates = states[mbenvinds]
-                    mblossvals.append(model.train(lrnow, cliprangenow, *slices, mbstates))
+                    #################################################################################
+                    mblossvals.append(model.train(lrnow, cliprangenow, *slices, ent_coef = ent_coef_now, mbstates))
+                    #################################################################################
 
         # Feedforward --> get losses --> update
         lossvals = np.mean(mblossvals, axis=0)

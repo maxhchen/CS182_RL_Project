@@ -51,6 +51,10 @@ class Model(object):
         self.LR = LR = tf.placeholder(tf.float32, [])
         # Cliprange
         self.CLIPRANGE = CLIPRANGE = tf.placeholder(tf.float32, [])
+        #################################################################################
+        # ENT COEF
+        self.ENT_COEF = ent_coef = tf.placeholder(tf.float32, [])
+        #################################################################################
 
         neglogpac = train_model.pd.neglogp(A)
 
@@ -128,7 +132,7 @@ class Model(object):
         if MPI is not None:
             sync_from_root(sess, global_variables, comm=comm) #pylint: disable=E1101
 
-    def train(self, lr, cliprange, obs, returns, masks, actions, values, neglogpacs, states=None):
+    def train(self, lr, cliprange, obs, returns, masks, actions, values, neglogpacs, ent_coef, states=None):
         # Here we calculate advantage A(s,a) = R + yV(s') - V(s)
         # Returns = R + yV(s')
         advs = returns - values
@@ -145,6 +149,7 @@ class Model(object):
             self.CLIPRANGE : cliprange,
             self.OLDNEGLOGPAC : neglogpacs,
             self.OLDVPRED : values
+            self.ENT_COEF = ent_coef,
         }
         if states is not None:
             td_map[self.train_model.S] = states
