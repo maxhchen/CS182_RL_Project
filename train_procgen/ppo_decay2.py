@@ -60,8 +60,13 @@ def learn(*, network, env, total_timesteps, eval_env = None, seed=None, nsteps=2
 
     if isinstance(lr, float): lr = constfn(lr)
     else: assert callable(lr)
+    
     if isinstance(cliprange, float): cliprange = constfn(cliprange)
     else: assert callable(cliprange)
+    
+    if isinstance(ent_coef, float): cliprange = constfn(ent_coef)
+    else: assert callable(ent_coef)
+
     total_timesteps = int(total_timesteps)
 
     policy = build_policy(env, network, **network_kwargs)
