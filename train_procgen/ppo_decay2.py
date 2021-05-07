@@ -83,12 +83,12 @@ def learn(*, network, env, total_timesteps, eval_env = None, seed=None, nsteps=2
     is_mpi_root = (MPI is None or MPI.COMM_WORLD.Get_rank() == 0)
 
     # Instantiate the model object (that creates act_model and train_model)
+    #################################################################################
     if model_fn is None:
-        #################################################################################
         # from baselines.ppo2.model import Model
-        from alt_model import Model
-        model_fn = Model/
-        #################################################################################
+        from alt_model import Alt_Model
+        model_fn = Alt_Model
+    #################################################################################
     
     ## REMOVE LATER #################################################################
     # logger.logkv("ENT COEF VALUE:", ent_coef.value)
