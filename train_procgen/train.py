@@ -33,6 +33,12 @@ def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, tim
         print("piecewise...")
         ent_coef = PiecewiseSchedule([1e-2, 1e-5])
     # ent_coef = .1
+
+    print(type(ent_coef))
+    print(type(ent_coef.value))
+    print(ent_coef)
+    print(ent_coef.value)
+
     gamma = .999
     lam = .95
     nsteps = 256
