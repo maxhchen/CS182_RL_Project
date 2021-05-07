@@ -148,7 +148,7 @@ class Alt_Model(object):
             self.LR : lr,
             self.CLIPRANGE : cliprange,
             self.OLDNEGLOGPAC : neglogpacs,
-            self.OLDVPRED : values
+            self.OLDVPRED : values,
             self.ENT_COEF = ent_coef,
         }
         if states is not None:
