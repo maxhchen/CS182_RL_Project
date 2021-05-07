@@ -149,7 +149,7 @@ class Alt_Model(object):
             self.CLIPRANGE : cliprange,
             self.OLDNEGLOGPAC : neglogpacs,
             self.OLDVPRED : values,
-            self.ENT_COEF = ent_coef,
+            self.ENT_COEF : ent_coef,
         }
         if states is not None:
             td_map[self.train_model.S] = states
