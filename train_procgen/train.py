@@ -145,6 +145,7 @@ def main():
     parser.add_argument('--test_worker_interval', type=int, default=2)
     parser.add_argument('--timesteps_per_proc', type=int, default=5_000_000)
     parser.add_argument('--scheduler', type=str, default="none", choices=["none", "linear", "piecewise"])
+    parser.add_argument('--log_dir', type=str, default="TEST")
 
     args = parser.parse_args()
 
@@ -159,7 +160,8 @@ def main():
 
     # tic = time.perf_counter()
 
-    print("Using", args.scheduler, "Entropy Scheduler")
+    print(args.scheduler, "Entropy Scheduler")
+    print("Saving to:", args.log_dir)
 
     train_fn(args.env_name,
         args.num_envs,
@@ -167,10 +169,13 @@ def main():
         args.num_levels,
         args.start_level,
         args.timesteps_per_proc,
-        ##
+        ####################################
         args.scheduler,
-        ##
+        ####################################
         is_test_worker=is_test_worker,
+        ####################################
+        args.log_dir,
+        ####################################
         comm=comm,
         )
 
