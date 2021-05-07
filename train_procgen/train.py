@@ -15,29 +15,84 @@ from baselines import logger
 from mpi4py import MPI
 import ppo_decay2
 
-# from stable_baselines.common.schedules import PiecewiseSchedule, LinearSchedule, linear_interpolation
 from baselines.common.schedules import LinearSchedule, PiecewiseSchedule, linear_interpolation
 
 # from ppo_decay import PPO2_DECAY
 
 import argparse
 
-def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, timesteps_per_proc, scheduler, is_test_worker=False, log_dir='./model-9-linear', comm=None):
+class ExponentialSchedule(object):
+    def __init__(self, schedule_timesteps, final_p, initial_p=1.0):
+        """Exponential interpolation between initial_p and final_p over
+        schedule_timesteps. After this many timesteps pass final_p is
+        returned.
+        """
+        self.schedule_timesteps = schedule_timesteps
+        self.final_p = final_p
+        self.initial_p = initial_p
+        self.endpoint = -np.log(self.final_p / self.initial_p)
+
+    def value(self, t):
+        fraction = min(float(t) / self.schedule_timesteps, 1.0) * self.endpoint
+        return self.initial_p * np.exp(-fraction)
+
+def zoh_interpolation(l, r, alpha):
+    return l
+
+def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, timesteps_per_proc, scheduler, high_entropy, is_test_worker=False, log_dir='./model-9-linear', comm=None):
     learning_rate = 5e-4
-    if scheduler == "none":
-        ent_coef = 1e-2
-    elif scheduler == "linear":
-        print("linear...")
-        ent_coef = LinearSchedule(timesteps_per_proc, 1e-2, 1e-5)
-    elif scheduler == "piecewise":
-        print("piecewise...")
-        ent_coef = PiecewiseSchedule([1e-2, 1e-5])
+    if high_entropy == False:
+        if scheduler == "none":
+            print("Constant Entropy Coeff")
+            ent_coef = 1e-2
+        elif scheduler == "linear":
+            print("Linear Scheduler -- creating function...")
+            ent_coef = LinearSchedule(schedule_timesteps = timesteps_per_proc, final_p = 1e-5, initial_p = 1e-2)
+        elif scheduler == "exponential":
+            print("Exponential Scheduler -- creating function...")
+            ent_coef = ExponentialSchedule(schedule_timesteps = timesteps_per_proc, final_p = 1e-5, initial_p = 1e-2)
+        elif scheduler == "piecewise":
+            print("Piecewise Scheduler -- creating function...")
+            ent_coef = PiecewiseSchedule(endpoints = [(0, 1e-2),
+                                                        (timesteps_per_proc // 10, 7e-3),
+                                                        (timesteps_per_proc // 10 * 2, 4e-3),
+                                                        (timesteps_per_proc // 10 * 3, 1e-3),
+                                                        (timesteps_per_proc // 10 * 4, 7e-4),
+                                                        (timesteps_per_proc // 10 * 5, 4e-4),
+                                                        (timesteps_per_proc // 10 * 6, 1e-4),
+                                                        (timesteps_per_proc // 10 * 7, 7e-5),
+                                                        (timesteps_per_proc // 10 * 8, 4e-5),
+                                                        (timesteps_per_proc, 1e-5)],
+                                            interpolation = zoh_interpolation)
+    else:
+        if scheduler == "none":
+            print("Constant Entropy Coeff")
+            ent_coef = 1e-1
+        elif scheduler == "linear":
+            print("Linear Scheduler -- creating function...")
+            ent_coef = LinearSchedule(schedule_timesteps = timesteps_per_proc, final_p = 1e-4, initial_p = 1e-1)
+        elif scheduler == "exponential":
+            print("Exponential Scheduler -- creating function...")
+            ent_coef = ExponentialSchedule(schedule_timesteps = timesteps_per_proc, final_p = 1e-4, initial_p = 1e-1)
+        elif scheduler == "piecewise":
+            print("Piecewise Scheduler -- creating function...")
+            ent_coef = PiecewiseSchedule(endpoints = [(0, 1e-1),
+                                                        (timesteps_per_proc // 10, 7e-2),
+                                                        (timesteps_per_proc // 10 * 2, 4e-2),
+                                                        (timesteps_per_proc // 10 * 3, 1e-2),
+                                                        (timesteps_per_proc // 10 * 4, 7e-3),
+                                                        (timesteps_per_proc // 10 * 5, 4e-3),
+                                                        (timesteps_per_proc // 10 * 6, 1e-3),
+                                                        (timesteps_per_proc // 10 * 7, 7e-4),
+                                                        (timesteps_per_proc // 10 * 8, 4e-4),
+                                                        (timesteps_per_proc, 1e-4)],
+                                            interpolation = zoh_interpolation)
     # ent_coef = .1
 
-    print(type(ent_coef))
-    print(type(ent_coef.value))
-    print(ent_coef)
-    print(ent_coef.value)
+    # print(type(ent_coef))
+    # print(type(ent_coef.value))
+    # print(ent_coef)
+    # print(ent_coef.value)
 
     gamma = .999
     lam = .95
@@ -144,8 +199,9 @@ def main():
     parser.add_argument('--start_level', type=int, default=0)
     parser.add_argument('--test_worker_interval', type=int, default=2)
     parser.add_argument('--timesteps_per_proc', type=int, default=5_000_000)
-    parser.add_argument('--scheduler', type=str, default="none", choices=["none", "linear", "piecewise"])
+    parser.add_argument('--scheduler', type=str, default="none", choices=["none", "linear", "exponential", "piecewise"])
     parser.add_argument('--log_dir', type=str, default="TEST")
+    parser.add_argument('--high_entropy', type=bool, default=False)
 
     args = parser.parse_args()
 
@@ -160,8 +216,9 @@ def main():
 
     # tic = time.perf_counter()
 
-    print(args.scheduler, "Entropy Scheduler")
-    print("Saving to:", args.log_dir)
+    print("Using", args.scheduler, "Scheduler for Entropy Decay")
+    print("Saving to dir:", args.log_dir)
+    print("Using high entropy?", args.high_entropy)
 
     train_fn(args.env_name,
         args.num_envs,
@@ -171,6 +228,7 @@ def main():
         args.timesteps_per_proc,
         ####################################
         args.scheduler,
+        args.high_entropy,
         ####################################
         is_test_worker=is_test_worker,
         ####################################
