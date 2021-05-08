@@ -13,7 +13,7 @@ from baselines.common.vec_env import (
 )
 from baselines import logger
 from mpi4py import MPI
-import ppo_decay2
+import ppo_adamw
 
 from baselines.common.schedules import LinearSchedule, PiecewiseSchedule, linear_interpolation
 
@@ -39,7 +39,7 @@ class ExponentialSchedule(object):
 def zoh_interpolation(l, r, alpha):
     return l
 
-def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, timesteps_per_proc, scheduler, high_entropy, is_test_worker=False, log_dir='./model-11-high-entropy-linear', comm=None):
+def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, timesteps_per_proc, scheduler, high_entropy, is_test_worker=False, log_dir='./model-12-adamw', comm=None):
     learning_rate = 5e-4
     if high_entropy == False:
         if scheduler == "none":
@@ -143,7 +143,7 @@ def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, tim
         noptepochs=ppo_epochs,
         log_interval=1,
         #################################################################################
-        ent_coef=ent_coef.value,
+        ent_coef=ent_coef,
         #################################################################################
         mpi_rank_weight=mpi_rank_weight,
         clip_vf=use_vf_clipping,
