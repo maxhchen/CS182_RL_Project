@@ -1,4 +1,5 @@
 import tensorflow as tf
+import tensorflow_addons as tfa
 import functools
 
 from baselines.common.tf_util import get_session, save_variables, load_variables
@@ -98,7 +99,7 @@ class AdamW_Model(object):
         if comm is not None and comm.Get_size() > 1:
             self.trainer = MpiAdamWOptimizer(comm, learning_rate=LR, mpi_rank_weight=mpi_rank_weight, epsilon=1e-5)
         else:
-            self.trainer = tf.train.AdamWOptimizer(learning_rate=LR, epsilon=1e-5)
+            self.trainer = tfa.optimizers.AdamW(learning_rate=LR, epsilon=1e-5)
         # 3. Calculate the gradients
         grads_and_var = self.trainer.compute_gradients(loss, params)
         grads, var = zip(*grads_and_var)
