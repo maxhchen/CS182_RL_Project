@@ -39,7 +39,7 @@ class ExponentialSchedule(object):
 def zoh_interpolation(l, r, alpha):
     return l
 
-def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, timesteps_per_proc, scheduler, high_entropy, is_test_worker=False, log_dir='./model-9-linear', comm=None):
+def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, timesteps_per_proc, scheduler, high_entropy, is_test_worker=False, log_dir='./model-11-high-entropy-linear', comm=None):
     learning_rate = 5e-4
     if high_entropy == False:
         if scheduler == "none":
