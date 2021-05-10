@@ -41,7 +41,8 @@ def zoh_interpolation(l, r, alpha):
 
 def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, timesteps_per_proc, scheduler, high_entropy, is_test_worker=False, log_dir='./model-11-high-entropy-linear', comm=None):
     learning_rate = 5e-4
-    if high_entropy == False:
+
+    if high_entropy == False:   # 0.01
         if scheduler == "none":
             print("Constant Entropy Coeff")
             ent_coef = 1e-2
@@ -64,7 +65,7 @@ def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, tim
                                                         (timesteps_per_proc // 10 * 8, 4e-5),
                                                         (timesteps_per_proc, 1e-5)],
                                             interpolation = zoh_interpolation)
-    else:
+    else:   # 0.1
         if scheduler == "none":
             print("Constant Entropy Coeff")
             ent_coef = 1e-1
@@ -200,7 +201,7 @@ def main():
     parser.add_argument('--test_worker_interval', type=int, default=2)
     parser.add_argument('--timesteps_per_proc', type=int, default=5_000_000)
     parser.add_argument('--scheduler', type=str, default="none", choices=["none", "linear", "exponential", "piecewise"])
-    parser.add_argument('--log_dir', type=str, default="TEST")
+    # parser.add_argument('--log_dir', type=str, default="TEST")
     parser.add_argument('--high_entropy', type=bool, default=False)
 
     args = parser.parse_args()
@@ -232,7 +233,7 @@ def main():
         ####################################
         is_test_worker=is_test_worker,
         ####################################
-        log_dir = args.log_dir,
+        # log_dir = args.log_dir,
         ####################################
         comm=comm,
         )
