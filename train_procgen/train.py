@@ -234,7 +234,7 @@ def main():
         ####################################
         is_test_worker=is_test_worker,
         ####################################
-        # log_dir = args.log_dir,
+        log_dir = args.log_dir,
         ####################################
         comm=comm,
         )

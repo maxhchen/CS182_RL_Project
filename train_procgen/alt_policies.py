@@ -45,7 +45,10 @@ class PolicyWithValue(object):
         self.pd, self.pi = self.pdtype.pdfromlatent(latent, init_scale=0.01)
 
         # Take an action
-        self.pd.preturb(50)
+        print("LOGITS BEFORE:", self.pd.logits)
+        print("DOING PRETURBATION")
+        self.pd.preturb(0.01)
+        print("LOGITS AFTER:", self.pd.logits)
         self.action = self.pd.sample()
 
         # Calculate the neg log of our probability
