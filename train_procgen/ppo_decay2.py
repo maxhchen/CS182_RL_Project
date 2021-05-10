@@ -66,7 +66,7 @@ def learn(*, network, env, total_timesteps, eval_env = None, seed=None, nsteps=2
     if isinstance(cliprange, float): cliprange = constfn(cliprange)
     else: assert callable(cliprange)
     
-    if isinstance(ent_coef, float): cliprange = constfn(ent_coef)
+    if isinstance(ent_coef, float): ent_coef = constfn(ent_coef)
     else: assert callable(ent_coef)
 
     total_timesteps = int(total_timesteps)
