@@ -145,7 +145,7 @@ def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, tim
         noptepochs=ppo_epochs,
         log_interval=1,
         #################################################################################
-        ent_coef=ent_coef.value,
+        ent_coef=ent_coef,
         #################################################################################
         mpi_rank_weight=mpi_rank_weight,
         clip_vf=use_vf_clipping,
@@ -202,7 +202,7 @@ def main():
     parser.add_argument('--test_worker_interval', type=int, default=2)
     parser.add_argument('--timesteps_per_proc', type=int, default=5_000_000)
     parser.add_argument('--scheduler', type=str, default="none", choices=["none", "linear", "exponential", "piecewise"])
-    # parser.add_argument('--log_dir', type=str, default="TEST")
+    parser.add_argument('--log_dir', type=str, default="TEST")
     parser.add_argument('--high_entropy', type=bool, default=False)
 
     args = parser.parse_args()
