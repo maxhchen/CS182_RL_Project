@@ -79,18 +79,16 @@ def plot_values(ax, all_values, title=None, max_x=0, label=None, **kwargs):
     return all_values
 
 def plot_experiment(run_directory_prefix, titles=None, suffixes=[''], normalization_ranges=None, key_name='eprewmean', **kwargs):
-    run_folders = [f'{run_directory_prefix}{x}' for x in range(3)]
+    # run_folders = [f'{run_directory_prefix}{x}' for x in range(3)]
+    run_folders = [run_directory_prefix]
+    # print("RUN_FOLDERS:", run_folders)
 
     num_envs = len(ENV_NAMES)
     will_normalize_and_reduce = normalization_ranges is not None
 
-    if will_normalize_and_reduce:
-        num_visible_plots = 1
-        f, axarr = plt.subplots()
-    else:
-        num_visible_plots = num_envs
-        dimx = dimy = ceil(np.sqrt(num_visible_plots))
-        f, axarr = plt.subplots(dimx, dimy, sharex=True)
+    num_visible_plots = 1
+    dimx = dimy = ceil(np.sqrt(num_visible_plots))
+    f, axarr = plt.subplots(dimx, dimy, sharex=True)
 
     for suffix_idx, suffix in enumerate(suffixes):
         all_values = []
@@ -98,6 +96,10 @@ def plot_experiment(run_directory_prefix, titles=None, suffixes=[''], normalizat
 
         for env_idx in range(num_envs):
             env_name = ENV_NAMES[env_idx]
+            
+            if env_name != "fruitbot":
+                continue
+
             label = suffix if env_idx == 0 else None # only label the first graph to avoid legend duplicates
             print(f'loading results from {env_name}...')
 
@@ -107,25 +109,12 @@ def plot_experiment(run_directory_prefix, titles=None, suffixes=[''], normalizat
                 dimy = len(axarr[0])
                 ax = axarr[env_idx // dimy][env_idx % dimy]
 
-            csv_files = [f"results/{resid}/progress-{env_name}{'-' if len(suffix) > 0 else ''}{suffix}.csv" for resid in run_folders]
+            # csv_files = [f"results/{resid}/progress-{env_name}{'-' if len(suffix) > 0 else ''}{suffix}.csv" for resid in run_folders]
+            csv_files = [f"{resid}/progress.csv" for resid in run_folders]
             curr_ax = None if will_normalize_and_reduce else ax
 
             raw_data = np.array([read_csv(file, key_name) for file in csv_files])
-            values = plot_values(curr_ax, raw_data, title=env_name, color_idx=suffix_idx, label=label, **kwargs)
-
-            if will_normalize_and_reduce:
-                game_range = normalization_ranges[env_name]
-                game_min = game_range[0]
-                game_max = game_range[1]
-                game_delta = game_max - game_min
-                sub_values = game_weights[env_idx] * (np.array(values) - game_min) / (game_delta)
-                all_values.append(sub_values)
-
-        if will_normalize_and_reduce:
-            normalized_data = np.sum(all_values, axis=0)
-            normalized_data = normalized_data / np.sum(game_weights)
-            title = 'Mean Normalized Score'
-            plot_values(ax, normalized_data, title=None, color_idx=suffix_idx, label=suffix, **kwargs)
+            values = plot_values(curr_ax, raw_data, title=run_directory_prefix, color_idx=suffix_idx, label=label, **kwargs)
 
     if len(suffixes) > 1:
         if num_visible_plots == 1:

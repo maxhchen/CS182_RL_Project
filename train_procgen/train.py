@@ -91,11 +91,6 @@ def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, tim
                                             interpolation = zoh_interpolation)
     # ent_coef = .1
 
-    # print(type(ent_coef))
-    # print(type(ent_coef.value))
-    # print(ent_coef)
-    # print(ent_coef.value)
-
     gamma = .999
     lam = .95
     nsteps = 256
@@ -218,6 +213,7 @@ def main():
 
     # tic = time.perf_counter()
 
+    tf.compat.v1.logging.set_verbosity(tf.compat.v1.logging.ERROR)
     print("Using", args.scheduler, "Scheduler for Entropy Decay")
     print("Saving to dir:", args.log_dir)
     print("Using high entropy?", args.high_entropy)

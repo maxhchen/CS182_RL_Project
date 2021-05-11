@@ -10,7 +10,7 @@ except ImportError:
     MPI = None
 
 class MpiAdamWOptimizer(tfa.optimizers.AdamW):
-    """Adam optimizer that averages gradients across mpi processes."""
+    """AdamW optimizer that averages gradients across mpi processes."""
     def __init__(self, comm, grad_clip=None, mpi_rank_weight=1, **kwargs):
         self.comm = comm
         self.grad_clip = grad_clip

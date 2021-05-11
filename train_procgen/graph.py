@@ -8,10 +8,10 @@ import argparse
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--distribution_mode', type=str, default='easy', help="Environment distribution_mode ('easy' or 'hard')")
-    parser.add_argument('--normalize_and_reduce', dest='normalize_and_reduce', action='store_true')
-    parser.add_argument('--restrict_training_set', dest='restrict_training_set', action='store_true')
-    parser.add_argument('--save', dest='save', action='store_true')
+    parser.add_argument('--distribution_mode', type=str, default='easy', help="Environment distribution_mode ('easy' or 'hard')") # EASY
+    parser.add_argument('--normalize_and_reduce', dest='normalize_and_reduce', action='store_true') # FALSE
+    parser.add_argument('--restrict_training_set', dest='restrict_training_set', action='store_true') # FALSE
+    parser.add_argument('--save', dest='save', action='store_false') # SET TO TRUE
     args = parser.parse_args()
 
     run_directory_prefix = main_pcg_sample_entry(args.distribution_mode, args.normalize_and_reduce, args.restrict_training_set)
@@ -20,7 +20,8 @@ def main():
 
     if args.save:
         suffix = '-mean' if args.normalize_and_reduce else ''
-        plt.savefig(f'results/{run_directory_prefix}{suffix}.pdf')
+        # plt.savefig(f'results/{run_directory_prefix}{suffix}.pdf')
+        plt.savefig(f'results/{run_directory_prefix}{suffix}.jpg')
     else:
         plt.show()
 
@@ -39,20 +40,17 @@ def main_pcg_sample_entry(distribution_mode, normalize_and_reduce, restrict_trai
 
     if distribution_mode == 'easy':
         kwargs['x_scale'] = 1 * 256 * 64 / 1e6 # num_workers * num_steps_per_rollout * num_envs_per_worker / graph_scaling
-        num_train_levels = 200
-        normalization_ranges = EASY_GAME_RANGES
-    elif distribution_mode == 'hard':
-        kwargs['x_scale'] = 4 * 256 * 64 / 1e6 # num_workers * num_steps_per_rollout * num_envs_per_worker / graph_scaling
         num_train_levels = 500
-        normalization_ranges = HARD_GAME_RANGES
-    else:
-        assert False, "specify distribution_mode as 'easy' or 'hard'"
+        normalization_ranges = EASY_GAME_RANGES
 
-    y_label = 'Score'
-    x_label = 'Timesteps (M)'
+    y_label = 'Reward'
+    x_label = 'Timesteps (M = 1e6)'
 
-    run_directory_prefix = f"{distribution_mode}-{num_train_levels if restrict_training_set else 'all'}"
-    kwargs['run_directory_prefix'] = f"{run_directory_prefix}-run"
+    # run_directory_prefix = f"{distribution_mode}-{num_train_levels if restrict_training_set else 'all'}"
+    run_directory_prefix = "model-14-high-entropy-piecewise"
+    
+    # kwargs['run_directory_prefix'] = f"{run_directory_prefix}-run"
+    kwargs['run_directory_prefix'] = run_directory_prefix
 
     # We throw out the first few datapoints to give the episodic reward buffers time to fill up
     # Otherwise, there could be a short-episode bias
