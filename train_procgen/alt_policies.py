@@ -49,6 +49,7 @@ class PolicyWithValue(object):
         print("DOING PRETURBATION")
         self.pd.preturb(1)
         print("LOGITS AFTER:", self.pd.logits)
+
         self.action = self.pd.sample()
 
         # Calculate the neg log of our probability

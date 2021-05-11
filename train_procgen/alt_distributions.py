@@ -1,5 +1,5 @@
 import tensorflow as tf
-import tensorflow_probability as tfp
+# import tensorflow_probability as tfp
 import numpy as np
 import baselines.common.tf_util as U
 from baselines.a2c.utils import fc
@@ -202,7 +202,11 @@ class CategoricalPd(Pd):
         return tf.argmax(self.logits - tf.log(-tf.log(u)), axis=-1)
     ##################################################################################################
     def preturb(self, a0):
-        self.logits = tfp.distributions.Dirichlet(self.logits * a0).sample()
+        ## print("Before preturbing:", self.logits)
+        self.logits = tf.Print(self.logits, [self.logits], message='Before preturbing:')
+        self.logits = tf.compat.v1.distributions.Dirichlet(self.logits * a0).sample()
+        self.logits = tf.Print(self.logits, [self.logits], message='After preturbing:')
+        ## print("After preturbing:", self.logits)
     ##################################################################################################
     @classmethod
     def fromflat(cls, flat):
