@@ -91,11 +91,6 @@ def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, tim
                                             interpolation = zoh_interpolation)
     # ent_coef = .1
 
-    # print(type(ent_coef))
-    # print(type(ent_coef.value))
-    # print(ent_coef)
-    # print(ent_coef.value)
-
     gamma = .999
     lam = .95
     nsteps = 256
@@ -124,9 +119,9 @@ def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, tim
 
     logger.info("creating tf session")
     setup_mpi_gpus()
-    config = tf.compat.v1.ConfigProto()
+    config = tf.ConfigProto()
     config.gpu_options.allow_growth = True #pylint: disable=E1101
-    sess = tf.compat.v1.Session(config=config)
+    sess = tf.Session(config=config)
     sess.__enter__()
 
     conv_fn = lambda x: build_impala_cnn(x, depths=[16,32,32], emb_size=256)
@@ -200,7 +195,7 @@ def main():
     parser.add_argument('--num_levels', type=int, default=500)
     parser.add_argument('--start_level', type=int, default=0)
     parser.add_argument('--test_worker_interval', type=int, default=2)
-    parser.add_argument('--timesteps_per_proc', type=int, default=5_000_000)
+    parser.add_argument('--timesteps_per_proc', type=int, default=50000)
     parser.add_argument('--scheduler', type=str, default="none", choices=["none", "linear", "exponential", "piecewise"])
     parser.add_argument('--log_dir', type=str, default="TEST")
     parser.add_argument('--high_entropy', type=bool, default=False)
