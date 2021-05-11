@@ -159,7 +159,6 @@ def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, tim
     )
 
 def main():
-    def main():
     parser = argparse.ArgumentParser(description='Process procgen training arguments.')
     parser.add_argument('--env_name', type=str, default='fruitbot')
     parser.add_argument('--num_envs', type=int, default=64)
@@ -167,7 +166,7 @@ def main():
     parser.add_argument('--num_levels', type=int, default=500)
     parser.add_argument('--start_level', type=int, default=0)
     parser.add_argument('--test_worker_interval', type=int, default=2)
-    parser.add_argument('--timesteps_per_proc', type=int, default=100000)
+    parser.add_argument('--timesteps_per_proc', type=int, default=5_000_000)
     parser.add_argument('--scheduler', type=str, default="none", choices=["none", "linear", "exponential", "piecewise"])
     parser.add_argument('--log_dir', type=str, default="TEST")
     parser.add_argument('--high_entropy', type=bool, default=False)
@@ -185,7 +184,6 @@ def main():
 
     # tic = time.perf_counter()
 
-    tf.compat.v1.logging.set_verbosity(tf.compat.v1.logging.ERROR)
     print("Using", args.scheduler, "Scheduler for Entropy Decay")
     print("Saving to dir:", args.log_dir)
     print("Using high entropy?", args.high_entropy)
