@@ -202,11 +202,18 @@ class CategoricalPd(Pd):
         return tf.argmax(self.logits - tf.log(-tf.log(u)), axis=-1)
     ##################################################################################################
     def preturb(self, a0):
-        ## print("Before preturbing:", self.logits)
+        print("GOT HEREEEEEEE")
+        print("Before preturbing:", self.logits)
         self.logits = tf.Print(self.logits, [self.logits], message='Before preturbing:')
-        self.logits = tf.compat.v1.distributions.Dirichlet(self.logits * a0).sample()
+        exp_logits = tf.exp(self.logits)
+        exp_sums = tf.reshape(tf.reduce_sum(exp_logits, axis=-1), (-1, 1))
+        dists = exp_logits / exp_sums 
+        pret_dists = tf.compat.v1.distributions.Dirichlet(dists * a0, allow_nan_stats=False).sample()
+        self.logits = tf.log(pret_dists * exp_sums)
+        ### self.logits = tf.compat.v1.distributions.Dirichlet(self.logits * a0, allow_nan_stats=False).sample()
+        ## self.logits = tf.math.reduce_mean(self.logits, axis=-1)
         self.logits = tf.Print(self.logits, [self.logits], message='After preturbing:')
-        ## print("After preturbing:", self.logits)
+        print("After preturbing:", self.logits)
     ##################################################################################################
     @classmethod
     def fromflat(cls, flat):
