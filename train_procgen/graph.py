@@ -46,9 +46,8 @@ def main_pcg_sample_entry(distribution_mode, normalize_and_reduce, restrict_trai
     y_label = 'Reward'
     x_label = 'Timesteps (M = 1e6)'
 
-    # Change line 54 --> Folder name #####
     # run_directory_prefix = f"{distribution_mode}-{num_train_levels if restrict_training_set else 'all'}"
-    run_directory_prefix = "model-high-ent-coef-v2"
+    run_directory_prefix = "model-9-high-entropy"
     
     # kwargs['run_directory_prefix'] = f"{run_directory_prefix}-run"
     kwargs['run_directory_prefix'] = run_directory_prefix
