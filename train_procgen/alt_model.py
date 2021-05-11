@@ -11,6 +11,13 @@ try:
 except ImportError:
     MPI = None
 
+def get_session(config=None):
+    """Get default session or create one with a given config"""
+    sess = tf.compat.v1.get_default_session()
+    if sess is None:
+        sess = make_session(config=config, make_default=True)
+    return sess
+
 class Alt_Model(object):
     """
     We use this object to :
@@ -29,7 +36,7 @@ class Alt_Model(object):
         if MPI is not None and comm is None:
             comm = MPI.COMM_WORLD
 
-        with tf.variable_scope('ppo2_model', reuse=tf.AUTO_REUSE):
+        with tf.compat.v1.variable_scope('ppo2_model', reuse=tf.compat.v1.AUTO_REUSE):
             # CREATE OUR TWO MODELS
             # act_model that is used for sampling
             act_model = policy(nbatch_act, 1, sess)
