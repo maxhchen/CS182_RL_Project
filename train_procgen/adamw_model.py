@@ -6,7 +6,8 @@ from baselines.common.tf_util import get_session, save_variables, load_variables
 from baselines.common.tf_util import initialize
 
 try:
-    from mpi_adamw_optimizer import MpiAdamWOptimizer
+    # from mpi_adamW_optimizer import MpiAdamWOptimizer
+    from spinup.utils.mpi_tf import MpiAdamWOptimizer
     from mpi4py import MPI
     from baselines.common.mpi_util import sync_from_root
 except ImportError:

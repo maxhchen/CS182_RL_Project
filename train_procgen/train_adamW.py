@@ -13,7 +13,7 @@ from baselines.common.vec_env import (
 )
 from baselines import logger
 from mpi4py import MPI
-import ppo_adamw
+import ppo_adamW
 
 from baselines.common.schedules import LinearSchedule, PiecewiseSchedule, linear_interpolation
 
@@ -39,7 +39,7 @@ class ExponentialSchedule(object):
 def zoh_interpolation(l, r, alpha):
     return l
 
-def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, timesteps_per_proc, scheduler, high_entropy, is_test_worker=False, log_dir='./model-12-adamw', comm=None):
+def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, timesteps_per_proc, scheduler, high_entropy, is_test_worker=False, log_dir='./model-16-adamW', comm=None):
     learning_rate = 5e-4
     if high_entropy == False:
         if scheduler == "none":
@@ -130,7 +130,7 @@ def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, tim
     conv_fn = lambda x: build_impala_cnn(x, depths=[16,32,32], emb_size=256)
 
     logger.info("training")
-    ppo_adamw.learn(
+    ppo_adamW.learn(
         env=venv,
         network=conv_fn,                        # 'network' for baselines, 'policy' for stable-baselines
         total_timesteps=timesteps_per_proc,
@@ -157,40 +157,9 @@ def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, tim
         max_grad_norm=0.5,
         tensorboard_log = "./tensorboard_logs/"
     )
-    
-    # model = PPO2_DECAY(
-    #     env=venv,
-    #     policy="impala_cnn",
-    #     # policy="impala_cnn",
-    #     # network=conv_fn,                        # 'network' for baselines, 'policy' for stable-baselines
-    #     # total_timesteps=timesteps_per_proc,
-    #     # save_interval=1,
-    #     # nsteps=nsteps,
-    #     n_steps=nsteps,
-    #     nminibatches=nminibatches,
-    #     lam=lam,
-    #     gamma=gamma,
-    #     noptepochs=ppo_epochs,
-    #     # log_interval=1,
-    #     ent_coef=ent_coef,
-    #     # mpi_rank_weight=mpi_rank_weight,
-
-    #     # clip_vf=use_vf_clipping,
-
-    #     # comm=comm,
-    #     # lr=learning_rate,
-    #     learning_rate=learning_rate,
-    #     cliprange=clip_range,
-    #     # update_fn=None,
-    #     # init_fn=None,
-    #     vf_coef=0.5,
-    #     max_grad_norm=0.5,
-    #     tensorboard_log = "./tensorboard_logs/"
-    # )
-
-    # model.learn(timesteps_per_proc)
 
 def main():
+    def main():
     parser = argparse.ArgumentParser(description='Process procgen training arguments.')
     parser.add_argument('--env_name', type=str, default='fruitbot')
     parser.add_argument('--num_envs', type=int, default=64)
@@ -198,7 +167,7 @@ def main():
     parser.add_argument('--num_levels', type=int, default=500)
     parser.add_argument('--start_level', type=int, default=0)
     parser.add_argument('--test_worker_interval', type=int, default=2)
-    parser.add_argument('--timesteps_per_proc', type=int, default=5_000_000)
+    parser.add_argument('--timesteps_per_proc', type=int, default=100000)
     parser.add_argument('--scheduler', type=str, default="none", choices=["none", "linear", "exponential", "piecewise"])
     parser.add_argument('--log_dir', type=str, default="TEST")
     parser.add_argument('--high_entropy', type=bool, default=False)
@@ -216,6 +185,7 @@ def main():
 
     # tic = time.perf_counter()
 
+    tf.compat.v1.logging.set_verbosity(tf.compat.v1.logging.ERROR)
     print("Using", args.scheduler, "Scheduler for Entropy Decay")
     print("Saving to dir:", args.log_dir)
     print("Using high entropy?", args.high_entropy)
