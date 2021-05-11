@@ -13,6 +13,22 @@ except ImportError:
     MPI = None
 from baselines.ppo2.runner import Runner
 
+def set_global_seeds(i):
+    try:
+        import MPI
+        rank = MPI.COMM_WORLD.Get_rank()
+    except ImportError:
+        rank = 0
+            
+    myseed = i  + 1000 * rank if i is not None else None
+    try:
+        import tensorflow as tf
+        tf.compat.v1.set_random_seed(myseed)
+    except ImportError:
+        pass
+    np.random.seed(myseed)
+    random.seed(myseed)
+
 def constfn(val):
     def f(_):
         return val
@@ -86,7 +102,7 @@ def learn(*, network, env, total_timesteps, eval_env = None, seed=None, nsteps=2
     #################################################################################
     if model_fn is None:
         # from baselines.ppo2.model import Model
-        from adamw_model import AdamW_Model
+        from adamW_model import AdamW_Model
         model_fn = AdamW_Model
     #################################################################################
     

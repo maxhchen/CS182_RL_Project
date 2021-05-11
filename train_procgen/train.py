@@ -40,6 +40,49 @@ class ExponentialSchedule(object):
 def zoh_interpolation(l, r, alpha):
     return l
 
+def build_impala_cnn(unscaled_images, depths=[16,32,32], **conv_kwargs):
+    """
+    Model used in the paper "IMPALA: Scalable Distributed Deep-RL with
+    Importance Weighted Actor-Learner Architectures" https://arxiv.org/abs/1802.01561
+    """
+
+layer_num = 0
+
+def get_layer_num_str():
+    nonlocal layer_num
+    num_str = str(layer_num)
+    layer_num += 1
+    return num_str
+
+def conv_layer(out, depth):
+    return tf.compat.v1.layers.conv2d(out, depth, 3, padding='same', name='layer_' + get_layer_num_str())
+
+def residual_block(inputs):
+    depth = inputs.get_shape()[-1].value
+
+out = tf.nn.relu(inputs)
+
+out = conv_layer(out, depth)
+out = tf.nn.relu(out)
+out = conv_layer(out, depth)
+return out + inputs
+
+def conv_sequence(inputs, depth):
+    out = conv_layer(inputs, depth)
+    out = tf.layers.max_pooling2d(out, pool_size=3, strides=2, padding='same')
+    out = residual_block(out)
+    out = residual_block(out)
+    return out
+
+out = tf.cast(unscaled_images, tf.float32) / 255.
+
+for depth in depths:
+    out = conv_sequence(out, depth)
+out = tf.layers.flatten(out)
+out = tf.nn.relu(out)
+out = tf.layers.dense(out, 256, activation=tf.nn.relu, name='layer_' + get_layer_num_str())
+return out
+
 def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, timesteps_per_proc, scheduler, high_entropy, is_test_worker=False, log_dir='./model-11-high-entropy-linear', comm=None):
     learning_rate = 5e-4
 
@@ -124,9 +167,9 @@ def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, tim
 
     logger.info("creating tf session")
     setup_mpi_gpus()
-    config = tf.ConfigProto()
+    config = tf.compat.v1.ConfigProto()
     config.gpu_options.allow_growth = True #pylint: disable=E1101
-    sess = tf.Session(config=config)
+    sess = tf.compat.v1.Session(config=config)
     sess.__enter__()
 
     conv_fn = lambda x: build_impala_cnn(x, depths=[16,32,32], emb_size=256)
@@ -218,7 +261,7 @@ def main():
 
     # tic = time.perf_counter()
 
-    tf.logging.set_verbosity(tf.logging.ERROR)
+    tf.compat.v1.logging.set_verbosity(tf.compat.v1.logging.ERROR)
     print("Using", args.scheduler, "Scheduler for Entropy Decay")
     print("Saving to dir:", args.log_dir)
     print("Using high entropy?", args.high_entropy)

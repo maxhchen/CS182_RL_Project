@@ -10,7 +10,49 @@ from baselines.common.mpi_running_mean_std import RunningMeanStd
 from baselines.common.models import get_network_builder
 
 import gym
+from gym.spaces import Discrete, Box, MultiDiscrete
+import numpy as np
 
+def observation_placeholder(ob_space, batch_size=None, name='Ob'):
+    '''
+    Create placeholder to feed observations into of the size appropriate to the observation space
+    Parameters:
+    ----------
+    ob_space: gym.Space     observation space
+    batch_size: int         size of the batch to be fed into input. Can be left None in most cases.
+    name: str               name of the placeholder
+    Returns:
+    -------
+    tensorflow placeholder tensor
+    '''
+
+    assert isinstance(ob_space, Discrete) or isinstance(ob_space, Box) or isinstance(ob_space, MultiDiscrete), \
+    'Can only deal with Discrete and Box observation spaces for now'
+
+    dtype = ob_space.dtype
+    if dtype == np.int8:
+        dtype = np.uint8
+
+    return tf.compat.v1.placeholder(shape=(batch_size,) + ob_space.shape, dtype=dtype, name=name)
+
+def encode_observation(ob_space, placeholder):
+    '''
+    Encode input in the way that is appropriate to the observation space
+    Parameters:
+    ----------
+    ob_space: gym.Space             observation space
+    placeholder: tf.placeholder     observation input placeholder
+    '''
+    if isinstance(ob_space, Discrete):
+        return tf.compat.v1.to_float(tf.one_hot(placeholder, ob_space.n))
+    elif isinstance(ob_space, Box):
+        return tf.compat.v1.to_float(placeholder)
+    elif isinstance(ob_space, MultiDiscrete):
+        placeholder = tf.compat.v1.cast(placeholder, tf.int32)
+        one_hots = [tf.compat.to_float(tf.one_hot(placeholder[..., i], ob_space.nvec[i])) for i in range(placeholder.shape[-1])]
+        return tf.concat(one_hots, axis=-1)
+    else:
+        raise NotImplementedError
 
 class PolicyWithValue(object):
     """
@@ -45,10 +87,11 @@ class PolicyWithValue(object):
         self.pd, self.pi = self.pdtype.pdfromlatent(latent, init_scale=0.01)
 
         # Take an action
-        ## print("LOGITS BEFORE:", self.pd.logits)
-        ## print("DOING PRETURBATION")
-        self.pd.preturb(100)
-        ## print("LOGITS AFTER:", self.pd.logits)
+        # print("LOGITS BEFORE:", self.pd.logits)
+        # print("DOING PRETURBATION")
+        self.pd.preturb(1)
+        # print("LOGITS AFTER:", self.pd.logits)
+
         self.action = self.pd.sample()
 
         # Calculate the neg log of our probability
@@ -130,7 +173,7 @@ def build_policy(env, policy_network, value_network=None,  normalize_observation
 
         encoded_x = encode_observation(ob_space, encoded_x)
 
-        with tf.variable_scope('pi', reuse=tf.AUTO_REUSE):
+        with tf.compat.v1.variable_scope('pi', reuse=tf.compat.v1.AUTO_REUSE):
             policy_latent = policy_network(encoded_x)
             if isinstance(policy_latent, tuple):
                 policy_latent, recurrent_tensors = policy_latent
