@@ -114,7 +114,7 @@ def plot_experiment(run_directory_prefix, titles=None, suffixes=[''], normalizat
             curr_ax = None if will_normalize_and_reduce else ax
 
             raw_data = np.array([read_csv(file, key_name) for file in csv_files])
-            values = plot_values(curr_ax, raw_data, title=env_name, color_idx=suffix_idx, label=label, **kwargs)
+            values = plot_values(curr_ax, raw_data, title=run_directory_prefix, color_idx=suffix_idx, label=label, **kwargs)
 
     if len(suffixes) > 1:
         if num_visible_plots == 1:
