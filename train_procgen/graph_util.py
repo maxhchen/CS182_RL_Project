@@ -7,7 +7,8 @@ from constants import ENV_NAMES
 
 import seaborn # sets some style parameters automatically
 
-COLORS = [(57, 106, 177), (218, 124, 48)]
+COLORS = [(57, 106, 177), (218, 124, 48), (230, 96, 0), (0, 186, 74), (131, 0, 145)]
+#              blue            yellow        orange        green          purple
 
 def switch_to_outer_plot(fig):
     ax0 = fig.add_subplot(111, frame_on=False)
@@ -31,9 +32,11 @@ def ema(data_in, smoothing=0):
 
     return data_out
 
-def plot_data_mean_std(ax, data_y, color_idx=0, data_x=None, x_scale=1, smoothing=0, first_valid=0, label=None):
+def plot_data_mean_std(ax, data_y, color_idx=0, data_x=None, x_scale=1, smoothing=0, first_valid=0, label=None, id=0):
     color = COLORS[color_idx]
-    hexcolor = '#%02x%02x%02x' % color
+    # hexcolor1 = '#%02x%02x%02x' % color
+    # hexcolor2 = '#%02x%02x%02x' % COLORS[1]
+    plot_colors = ['#%02x%02x%02x' % i for i in COLORS]
 
     data_y = data_y[:,first_valid:]
     nx, num_datapoint = np.shape(data_y)
@@ -47,9 +50,37 @@ def plot_data_mean_std(ax, data_y, color_idx=0, data_x=None, x_scale=1, smoothin
 
     data_mean = np.mean(data_y, axis=0)
     data_std = np.std(data_y, axis=0, ddof=1)
+    
 
-    ax.plot(data_x, data_mean, color=hexcolor, label=label, linestyle='solid', alpha=1, rasterized=True)
-    ax.fill_between(data_x, data_mean - data_std, data_mean + data_std, color=hexcolor, alpha=.25, linewidth=0.0, rasterized=True)
+    if id == 0:
+        ax.plot(data_x, data_mean, color=plot_colors[0], label="Baseline", linestyle='-', alpha=1, rasterized=True)
+    
+    elif id == 1:
+        ax.plot(data_x, data_mean, color=plot_colors[3], label="Baseline Linear", linestyle='-', alpha=1, rasterized=True)
+    elif id == 2:
+        ax.plot(data_x, data_mean, color=plot_colors[4], label="Baseline Piecewise", linestyle='-', alpha=1, rasterized=True)
+    elif id == 3:
+        ax.plot(data_x, data_mean, color=plot_colors[2], label="Baseline Exponential", linestyle='-', alpha=1, rasterized=True)
+    elif id == 4:
+        ax.plot(data_x, data_mean, color=plot_colors[0], label="High Entropy", linestyle=':', alpha=1, rasterized=True)
+    elif id == 5:
+        ax.plot(data_x, data_mean, color=plot_colors[3], label="High Entropy Linear", linestyle=':', alpha=1, rasterized=True)
+    elif id == 6:
+        ax.plot(data_x, data_mean, color=plot_colors[4], label="High Entropy Piecewise", linestyle=':', alpha=1, rasterized=True)
+    elif id == 7:
+        ax.plot(data_x, data_mean, color=plot_colors[2], label="High Entropy Exponential", linestyle=':', alpha=1, rasterized=True)
+    
+    # elif id == 1:
+    #     ax.plot(data_x, data_mean, color=plot_colors[0], label="High Entropy", linestyle=':', alpha=1, rasterized=True)
+    # elif id == 2:
+    #     ax.plot(data_x, data_mean, color=plot_colors[3], label="High Entropy Linear", linestyle=':', alpha=1, rasterized=True)
+    # elif id == 3:
+    #     ax.plot(data_x, data_mean, color=plot_colors[4], label="High Entropy Piecewise", linestyle=':', alpha=1, rasterized=True)
+    # elif id == 4:
+    #     ax.plot(data_x, data_mean, color=plot_colors[2], label="High Entropy Exponential", linestyle=':', alpha=1, rasterized=True)
+
+    # ax.fill_between(data_x, data_mean - data_std, data_mean + data_std, color=hexcolor1, alpha=.25, linewidth=0.0, rasterized=True)
+    ax.legend(loc='best')
 
 def read_csv(filename, key_name):
     with open(filename) as csv_file:
@@ -73,7 +104,8 @@ def plot_values(ax, all_values, title=None, max_x=0, label=None, **kwargs):
         all_values = all_values[...,:max_x]
 
     if ax is not None:
-        plot_data_mean_std(ax, all_values, label=label, **kwargs)
+        for i in range(len(all_values)):
+            plot_data_mean_std(ax, all_values[i, :].reshape((1, len(all_values[0]))), label=label, id=i, **kwargs)
         ax.set_title(title)
         ax.set_ylim([0, 30])
 
@@ -81,8 +113,11 @@ def plot_values(ax, all_values, title=None, max_x=0, label=None, **kwargs):
 
 def plot_experiment(run_directory_prefix, titles=None, suffixes=[''], normalization_ranges=None, key_name='eprewmean', **kwargs):
     # run_folders = [f'{run_directory_prefix}{x}' for x in range(3)]
-    run_folders = [run_directory_prefix]
-    # print("RUN_FOLDERS:", run_folders)
+    if type(run_directory_prefix) is list:
+        run_folders = run_directory_prefix
+    else:
+        run_folders = [run_directory_prefix]
+    print("RUN_FOLDERS:", run_folders)
 
     num_envs = len(ENV_NAMES)
     will_normalize_and_reduce = normalization_ranges is not None
@@ -114,8 +149,15 @@ def plot_experiment(run_directory_prefix, titles=None, suffixes=[''], normalizat
             csv_files = [f"{resid}/progress.csv" for resid in run_folders]
             curr_ax = None if will_normalize_and_reduce else ax
 
+            print(csv_files)
+
             raw_data = np.array([read_csv(file, key_name) for file in csv_files])
-            values = plot_values(curr_ax, raw_data, title=run_directory_prefix, color_idx=suffix_idx, label=label, **kwargs)
+            if type(run_directory_prefix) is list:
+                print(raw_data.shape[0])
+                values = plot_values(curr_ax, raw_data, title="Baseline Runs", color_idx=suffix_idx, label=label, **kwargs)
+            else:
+                print(raw_data.shape[0])
+                values = plot_values(curr_ax, raw_data, title=run_directory_prefix, color_idx=suffix_idx, label=label, **kwargs)
 
     if len(suffixes) > 1:
         if num_visible_plots == 1:

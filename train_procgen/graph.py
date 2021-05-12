@@ -21,7 +21,12 @@ def main():
     if args.save:
         suffix = '-mean' if args.normalize_and_reduce else ''
         # plt.savefig(f'results/{run_directory_prefix}{suffix}.pdf')
-        plt.savefig(f'results/{run_directory_prefix}{suffix}.jpg')
+
+        if type(run_directory_prefix) is list:
+            plt.savefig(f'results/Baseline_Reward{suffix}.jpg')
+        else:
+            plt.savefig(f'results/{run_directory_prefix}{suffix}.jpg')
+        
     else:
         plt.show()
 
@@ -31,7 +36,7 @@ def main_pcg_sample_entry(distribution_mode, normalize_and_reduce, restrict_trai
         'ytick.labelsize': 12,
         'axes.titlesize': 16,
         'axes.labelsize': 24,
-        'legend.fontsize': 18,
+        'legend.fontsize': 16,
         'figure.figsize': [9, 9]
     }
     matplotlib.rcParams.update(params)
@@ -44,12 +49,35 @@ def main_pcg_sample_entry(distribution_mode, normalize_and_reduce, restrict_trai
         normalization_ranges = EASY_GAME_RANGES
 
     y_label = 'Reward'
+    # y_label = 'Loss due to Entropy'
     x_label = 'Timesteps (M = 1e6)'
 
     # run_directory_prefix = f"{distribution_mode}-{num_train_levels if restrict_training_set else 'all'}"
-    run_directory_prefix = "model-14-high-entropy-piecewise"
+    run_directory_prefix = "model-14-baseline-piecewise"
     
-    # kwargs['run_directory_prefix'] = f"{run_directory_prefix}-run"
+    # run_directory_prefix = ["model-5-baseline",
+    #                                   "model-12-baseline-linear",
+    #                                   "model-14-baseline-piecewise",
+    #                                   "model-13-baseline-exponential",
+    #                                   "model-9-high-entropy",
+    #                                   "model-11-high-entropy-linear",
+    #                                   "model-15-high-entropy-piecewise",
+    #                                   "model-10-high-entropy-exponential"
+    #                                   ]
+
+    run_directory_prefix = ["model-5-baseline",
+                                      "model-12-baseline-linear",
+                                      "model-14-baseline-piecewise",
+                                      "model-13-baseline-exponential"
+                                      ]
+
+    # run_directory_prefix = ["model-5-baseline",
+    #                                   "model-9-high-entropy",
+    #                                   "model-11-high-entropy-linear",
+    #                                   "model-15-high-entropy-piecewise",
+    #                                   "model-10-high-entropy-exponential"
+    #                                   ]
+
     kwargs['run_directory_prefix'] = run_directory_prefix
 
     # We throw out the first few datapoints to give the episodic reward buffers time to fill up
@@ -63,7 +91,8 @@ def main_pcg_sample_entry(distribution_mode, normalize_and_reduce, restrict_trai
         kwargs['normalization_ranges'] = normalization_ranges
         y_label = 'Mean Normalized Score'
 
-    fig, axarr = plot_experiment(**kwargs)
+    fig, axarr = plot_experiment(key_name = 'eprewmean', **kwargs)
+    # fig, axarr = plot_experiment(key_name = 'loss/policy_entropy', **kwargs)
 
     if normalize_and_reduce:
         axarr.set_xlabel(x_label, labelpad=20)
