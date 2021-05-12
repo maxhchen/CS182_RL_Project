@@ -40,7 +40,9 @@ class ExponentialSchedule(object):
 def zoh_interpolation(l, r, alpha):
     return l
 
-def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, timesteps_per_proc, scheduler, high_entropy, is_test_worker=False, log_dir='./model-11-high-entropy-linear', comm=None):
+def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, timesteps_per_proc, scheduler, high_entropy, load_path=None, is_test_worker=False, log_dir='./model-11-high-entropy-linear', comm=None):
+    print("loading from model/checkpoint:", load_path)
+    
     # print("HIGH learning rate")
     # learning_rate = 5e-3 # HIGH
     
@@ -160,9 +162,10 @@ def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, tim
         init_fn=None,
         vf_coef=0.5,
         max_grad_norm=0.5,
+        load_path=load_path,
         tensorboard_log = "./tensorboard_logs/"
     )
-    
+
 def main():
     parser = argparse.ArgumentParser(description='Process procgen training arguments.')
     parser.add_argument('--env_name', type=str, default='fruitbot')
@@ -175,6 +178,7 @@ def main():
     parser.add_argument('--scheduler', type=str, default="none", choices=["none", "linear", "exponential", "piecewise"])
     parser.add_argument('--log_dir', type=str, default="TEST")
     parser.add_argument('--high_entropy', type=bool, default=False)
+    parser.add_argument('--load_path', type=str, default=None)
 
     args = parser.parse_args()
 
@@ -193,6 +197,7 @@ def main():
     print("Using", args.scheduler, "Scheduler for Entropy Decay")
     print("Saving to dir:", args.log_dir)
     print("Using high entropy?", args.high_entropy)
+    print("loading from model/checkpoint:", args.load_path)
 
     train_fn(args.env_name,
         args.num_envs,
@@ -203,6 +208,7 @@ def main():
         ####################################
         args.scheduler,
         args.high_entropy,
+        args.load_path,
         ####################################
         is_test_worker=is_test_worker,
         ####################################
