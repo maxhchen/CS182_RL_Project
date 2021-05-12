@@ -41,9 +41,17 @@ def zoh_interpolation(l, r, alpha):
     return l
 
 def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, timesteps_per_proc, scheduler, high_entropy, is_test_worker=False, log_dir='./model-11-high-entropy-linear', comm=None):
+    # print("HIGH learning rate")
+    # learning_rate = 5e-3 # HIGH
+    
+    print("NORMAL learning rate")
     learning_rate = 5e-4
+    
+    # print("LOW learning rate")
+    # learning_rate = 5e-5 # LOW
 
     if high_entropy == False:   # 0.01
+        print("Starting LOW at ent_coeff = 0.01")
         if scheduler == "none":
             print("Constant Entropy Coeff")
             ent_coef = 1e-2
@@ -67,6 +75,7 @@ def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, tim
                                                         (timesteps_per_proc, 1e-5)],
                                             interpolation = zoh_interpolation)
     else:   # 0.1
+        print("Starting HIGH at ent_coeff = 0.1")
         if scheduler == "none":
             print("Constant Entropy Coeff")
             ent_coef = 1e-1
@@ -195,7 +204,7 @@ def main():
     parser.add_argument('--num_levels', type=int, default=500)
     parser.add_argument('--start_level', type=int, default=0)
     parser.add_argument('--test_worker_interval', type=int, default=2)
-    parser.add_argument('--timesteps_per_proc', type=int, default=5_000_000)
+    parser.add_argument('--timesteps_per_proc', type=int, default=4_000_000)
     parser.add_argument('--scheduler', type=str, default="none", choices=["none", "linear", "exponential", "piecewise"])
     parser.add_argument('--log_dir', type=str, default="TEST")
     parser.add_argument('--high_entropy', type=bool, default=False)
