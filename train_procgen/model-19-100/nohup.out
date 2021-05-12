@@ -1,0 +1,1525 @@
+Using none Scheduler for Entropy Decay
+Saving to dir: model-19-100
+Using high entropy? False
+Constant Entropy Coeff
+Logging to model-19-100
+creating environment
+creating tf session
+2021-05-11 22:36:12.512360: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2021-05-11 22:36:12.517209: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2299995000 Hz
+2021-05-11 22:36:12.517550: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x15ad690 executing computations on platform Host. Devices:
+2021-05-11 22:36:12.517579: I tensorflow/compiler/xla/service/service.cc:175]   StreamExecutor device (0): <undefined>, <undefined>
+training
+2021-05-11 22:36:15.584197: W tensorflow/compiler/jit/mark_for_compilation_pass.cc:1412] (One-time warning): Not using XLA:CPU for cluster because envvar TF_XLA_FLAGS=--tf_xla_cpu_global_jit was not set.  If you want XLA:CPU, either set that envvar, or use experimental_jit_scope to enable XLA:CPU.  To confirm that XLA is active, pass --vmodule=xla_compilation_cache=1 (as a proper command-line flag, not via TF_XLA_FLAGS) or set the envvar XLA_FLAGS=--xla_hlo_profile.
+perturbing...
+perturbing...
+ENT_COEF VALUE: Tensor("Placeholder_7:0", shape=(), dtype=float32)
+ENT_COEF_NOW VALUE: 0.01 1.0 1 305
+Stepping environment...
+Done.
+2021-05-11 22:36:35.882079: W tensorflow/core/framework/allocator.cc:107] Allocation of 536870912 exceeds 10% of system memory.
+2021-05-11 22:36:44.942530: W tensorflow/core/framework/allocator.cc:107] Allocation of 536870912 exceeds 10% of system memory.
+2021-05-11 22:36:53.888528: W tensorflow/core/framework/allocator.cc:107] Allocation of 536870912 exceeds 10% of system memory.
+2021-05-11 22:37:02.760544: W tensorflow/core/framework/allocator.cc:107] Allocation of 536870912 exceeds 10% of system memory.
+2021-05-11 22:37:11.549615: W tensorflow/core/framework/allocator.cc:107] Allocation of 536870912 exceeds 10% of system memory.
+--------------------------------------
+| eplenmean               | 90.1     |
+| eprewmean               | -2.11    |
+| fps                     | 70       |
+| loss/approxkl           | 0.152    |
+| loss/clipfrac           | 0.705    |
+| loss/policy_entropy     | 2.64     |
+| loss/policy_loss        | 0.0718   |
+| loss/value_loss         | 0.375    |
+| misc/explained_variance | 0.0139   |
+| misc/nupdates           | 1        |
+| misc/serial_timesteps   | 256      |
+| misc/time_elapsed       | 232      |
+| misc/total_timesteps    | 1.64e+04 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00001
+ENT_COEF_NOW VALUE: 0.01 0.9967213114754099 2 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 88.1     |
+| eprewmean               | -1.78    |
+| fps                     | 70       |
+| loss/approxkl           | 0.15     |
+| loss/clipfrac           | 0.702    |
+| loss/policy_entropy     | 2.64     |
+| loss/policy_loss        | 0.0882   |
+| loss/value_loss         | 0.156    |
+| misc/explained_variance | 0.0561   |
+| misc/nupdates           | 2        |
+| misc/serial_timesteps   | 512      |
+| misc/time_elapsed       | 463      |
+| misc/total_timesteps    | 3.28e+04 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00002
+ENT_COEF_NOW VALUE: 0.01 0.9934426229508196 3 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 79.5     |
+| eprewmean               | -2.03    |
+| fps                     | 71       |
+| loss/approxkl           | 0.151    |
+| loss/clipfrac           | 0.706    |
+| loss/policy_entropy     | 2.64     |
+| loss/policy_loss        | 0.0856   |
+| loss/value_loss         | 0.143    |
+| misc/explained_variance | 0.189    |
+| misc/nupdates           | 3        |
+| misc/serial_timesteps   | 768      |
+| misc/time_elapsed       | 694      |
+| misc/total_timesteps    | 4.92e+04 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00003
+ENT_COEF_NOW VALUE: 0.01 0.9901639344262295 4 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 80.1     |
+| eprewmean               | -2.35    |
+| fps                     | 69       |
+| loss/approxkl           | 0.15     |
+| loss/clipfrac           | 0.701    |
+| loss/policy_entropy     | 2.64     |
+| loss/policy_loss        | 0.0938   |
+| loss/value_loss         | 0.139    |
+| misc/explained_variance | 0.308    |
+| misc/nupdates           | 4        |
+| misc/serial_timesteps   | 1.02e+03 |
+| misc/time_elapsed       | 929      |
+| misc/total_timesteps    | 6.55e+04 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00004
+ENT_COEF_NOW VALUE: 0.01 0.9868852459016394 5 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 83.5     |
+| eprewmean               | -2.71    |
+| fps                     | 71       |
+| loss/approxkl           | 0.15     |
+| loss/clipfrac           | 0.702    |
+| loss/policy_entropy     | 2.64     |
+| loss/policy_loss        | 0.086    |
+| loss/value_loss         | 0.16     |
+| misc/explained_variance | 0.361    |
+| misc/nupdates           | 5        |
+| misc/serial_timesteps   | 1.28e+03 |
+| misc/time_elapsed       | 1.16e+03 |
+| misc/total_timesteps    | 8.19e+04 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00005
+ENT_COEF_NOW VALUE: 0.01 0.9836065573770492 6 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 79.9     |
+| eprewmean               | -1.98    |
+| fps                     | 71       |
+| loss/approxkl           | 0.152    |
+| loss/clipfrac           | 0.701    |
+| loss/policy_entropy     | 2.63     |
+| loss/policy_loss        | 0.0816   |
+| loss/value_loss         | 0.114    |
+| misc/explained_variance | 0.468    |
+| misc/nupdates           | 6        |
+| misc/serial_timesteps   | 1.54e+03 |
+| misc/time_elapsed       | 1.39e+03 |
+| misc/total_timesteps    | 9.83e+04 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00006
+ENT_COEF_NOW VALUE: 0.01 0.980327868852459 7 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 83       |
+| eprewmean               | -1.63    |
+| fps                     | 71       |
+| loss/approxkl           | 0.152    |
+| loss/clipfrac           | 0.701    |
+| loss/policy_entropy     | 2.63     |
+| loss/policy_loss        | 0.0827   |
+| loss/value_loss         | 0.137    |
+| misc/explained_variance | 0.467    |
+| misc/nupdates           | 7        |
+| misc/serial_timesteps   | 1.79e+03 |
+| misc/time_elapsed       | 1.62e+03 |
+| misc/total_timesteps    | 1.15e+05 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00007
+ENT_COEF_NOW VALUE: 0.01 0.9770491803278688 8 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 84.6     |
+| eprewmean               | -2.05    |
+| fps                     | 71       |
+| loss/approxkl           | 0.153    |
+| loss/clipfrac           | 0.702    |
+| loss/policy_entropy     | 2.63     |
+| loss/policy_loss        | 0.087    |
+| loss/value_loss         | 0.121    |
+| misc/explained_variance | 0.435    |
+| misc/nupdates           | 8        |
+| misc/serial_timesteps   | 2.05e+03 |
+| misc/time_elapsed       | 1.85e+03 |
+| misc/total_timesteps    | 1.31e+05 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00008
+ENT_COEF_NOW VALUE: 0.01 0.9737704918032787 9 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 80       |
+| eprewmean               | -1.82    |
+| fps                     | 71       |
+| loss/approxkl           | 0.152    |
+| loss/clipfrac           | 0.699    |
+| loss/policy_entropy     | 2.63     |
+| loss/policy_loss        | 0.0805   |
+| loss/value_loss         | 0.119    |
+| misc/explained_variance | 0.485    |
+| misc/nupdates           | 9        |
+| misc/serial_timesteps   | 2.3e+03  |
+| misc/time_elapsed       | 2.07e+03 |
+| misc/total_timesteps    | 1.47e+05 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00009
+ENT_COEF_NOW VALUE: 0.01 0.9704918032786886 10 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 82.1     |
+| eprewmean               | -1.48    |
+| fps                     | 71       |
+| loss/approxkl           | 0.155    |
+| loss/clipfrac           | 0.7      |
+| loss/policy_entropy     | 2.62     |
+| loss/policy_loss        | 0.0833   |
+| loss/value_loss         | 0.0957   |
+| misc/explained_variance | 0.525    |
+| misc/nupdates           | 10       |
+| misc/serial_timesteps   | 2.56e+03 |
+| misc/time_elapsed       | 2.3e+03  |
+| misc/total_timesteps    | 1.64e+05 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00010
+ENT_COEF_NOW VALUE: 0.01 0.9672131147540983 11 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 78.3     |
+| eprewmean               | -1.53    |
+| fps                     | 71       |
+| loss/approxkl           | 0.154    |
+| loss/clipfrac           | 0.694    |
+| loss/policy_entropy     | 2.61     |
+| loss/policy_loss        | 0.0786   |
+| loss/value_loss         | 0.108    |
+| misc/explained_variance | 0.529    |
+| misc/nupdates           | 11       |
+| misc/serial_timesteps   | 2.82e+03 |
+| misc/time_elapsed       | 2.53e+03 |
+| misc/total_timesteps    | 1.8e+05  |
+--------------------------------------
+Saving to model-19-100/checkpoints/00011
+ENT_COEF_NOW VALUE: 0.01 0.9639344262295082 12 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 81.9     |
+| eprewmean               | -1.47    |
+| fps                     | 71       |
+| loss/approxkl           | 0.159    |
+| loss/clipfrac           | 0.704    |
+| loss/policy_entropy     | 2.6      |
+| loss/policy_loss        | 0.0776   |
+| loss/value_loss         | 0.0871   |
+| misc/explained_variance | 0.533    |
+| misc/nupdates           | 12       |
+| misc/serial_timesteps   | 3.07e+03 |
+| misc/time_elapsed       | 2.76e+03 |
+| misc/total_timesteps    | 1.97e+05 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00012
+ENT_COEF_NOW VALUE: 0.01 0.9606557377049181 13 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 81.4     |
+| eprewmean               | -0.94    |
+| fps                     | 71       |
+| loss/approxkl           | 0.158    |
+| loss/clipfrac           | 0.693    |
+| loss/policy_entropy     | 2.58     |
+| loss/policy_loss        | 0.0735   |
+| loss/value_loss         | 0.0767   |
+| misc/explained_variance | 0.531    |
+| misc/nupdates           | 13       |
+| misc/serial_timesteps   | 3.33e+03 |
+| misc/time_elapsed       | 2.99e+03 |
+| misc/total_timesteps    | 2.13e+05 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00013
+ENT_COEF_NOW VALUE: 0.01 0.9573770491803278 14 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 79.9     |
+| eprewmean               | -0.71    |
+| fps                     | 72       |
+| loss/approxkl           | 0.159    |
+| loss/clipfrac           | 0.693    |
+| loss/policy_entropy     | 2.57     |
+| loss/policy_loss        | 0.0786   |
+| loss/value_loss         | 0.0733   |
+| misc/explained_variance | 0.587    |
+| misc/nupdates           | 14       |
+| misc/serial_timesteps   | 3.58e+03 |
+| misc/time_elapsed       | 3.21e+03 |
+| misc/total_timesteps    | 2.29e+05 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00014
+ENT_COEF_NOW VALUE: 0.01 0.9540983606557377 15 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 80.7     |
+| eprewmean               | -1.27    |
+| fps                     | 72       |
+| loss/approxkl           | 0.178    |
+| loss/clipfrac           | 0.689    |
+| loss/policy_entropy     | 2.53     |
+| loss/policy_loss        | 0.0769   |
+| loss/value_loss         | 0.0741   |
+| misc/explained_variance | 0.628    |
+| misc/nupdates           | 15       |
+| misc/serial_timesteps   | 3.84e+03 |
+| misc/time_elapsed       | 3.44e+03 |
+| misc/total_timesteps    | 2.46e+05 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00015
+ENT_COEF_NOW VALUE: 0.01 0.9508196721311475 16 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 84.4     |
+| eprewmean               | -0.27    |
+| fps                     | 72       |
+| loss/approxkl           | 0.16     |
+| loss/clipfrac           | 0.681    |
+| loss/policy_entropy     | 2.51     |
+| loss/policy_loss        | 0.0731   |
+| loss/value_loss         | 0.0887   |
+| misc/explained_variance | 0.608    |
+| misc/nupdates           | 16       |
+| misc/serial_timesteps   | 4.1e+03  |
+| misc/time_elapsed       | 3.67e+03 |
+| misc/total_timesteps    | 2.62e+05 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00016
+ENT_COEF_NOW VALUE: 0.01 0.9475409836065574 17 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 81.9     |
+| eprewmean               | -0.5     |
+| fps                     | 72       |
+| loss/approxkl           | 0.164    |
+| loss/clipfrac           | 0.679    |
+| loss/policy_entropy     | 2.52     |
+| loss/policy_loss        | 0.0751   |
+| loss/value_loss         | 0.0955   |
+| misc/explained_variance | 0.536    |
+| misc/nupdates           | 17       |
+| misc/serial_timesteps   | 4.35e+03 |
+| misc/time_elapsed       | 3.89e+03 |
+| misc/total_timesteps    | 2.79e+05 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00017
+ENT_COEF_NOW VALUE: 0.01 0.9442622950819672 18 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 81.3     |
+| eprewmean               | -1.17    |
+| fps                     | 73       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0.51     |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | 0.61     |
+| misc/nupdates           | 18       |
+| misc/serial_timesteps   | 4.61e+03 |
+| misc/time_elapsed       | 4.12e+03 |
+| misc/total_timesteps    | 2.95e+05 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00018
+ENT_COEF_NOW VALUE: 0.01 0.940983606557377 19 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 75       |
+| eprewmean               | -1.06    |
+| fps                     | 76       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 19       |
+| misc/serial_timesteps   | 4.86e+03 |
+| misc/time_elapsed       | 4.33e+03 |
+| misc/total_timesteps    | 3.11e+05 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00019
+ENT_COEF_NOW VALUE: 0.01 0.9377049180327869 20 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 76.7     |
+| eprewmean               | -1.29    |
+| fps                     | 76       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 20       |
+| misc/serial_timesteps   | 5.12e+03 |
+| misc/time_elapsed       | 4.55e+03 |
+| misc/total_timesteps    | 3.28e+05 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00020
+ENT_COEF_NOW VALUE: 0.01 0.9344262295081968 21 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 71.5     |
+| eprewmean               | -1.26    |
+| fps                     | 77       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 21       |
+| misc/serial_timesteps   | 5.38e+03 |
+| misc/time_elapsed       | 4.76e+03 |
+| misc/total_timesteps    | 3.44e+05 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00021
+ENT_COEF_NOW VALUE: 0.01 0.9311475409836065 22 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 76.2     |
+| eprewmean               | -1.18    |
+| fps                     | 76       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 22       |
+| misc/serial_timesteps   | 5.63e+03 |
+| misc/time_elapsed       | 4.97e+03 |
+| misc/total_timesteps    | 3.6e+05  |
+--------------------------------------
+Saving to model-19-100/checkpoints/00022
+ENT_COEF_NOW VALUE: 0.01 0.9278688524590164 23 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 75.1     |
+| eprewmean               | -1.2     |
+| fps                     | 76       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 23       |
+| misc/serial_timesteps   | 5.89e+03 |
+| misc/time_elapsed       | 5.18e+03 |
+| misc/total_timesteps    | 3.77e+05 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00023
+ENT_COEF_NOW VALUE: 0.01 0.9245901639344263 24 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 72.8     |
+| eprewmean               | -1.06    |
+| fps                     | 77       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 24       |
+| misc/serial_timesteps   | 6.14e+03 |
+| misc/time_elapsed       | 5.4e+03  |
+| misc/total_timesteps    | 3.93e+05 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00024
+ENT_COEF_NOW VALUE: 0.01 0.921311475409836 25 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 75.8     |
+| eprewmean               | -0.91    |
+| fps                     | 77       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 25       |
+| misc/serial_timesteps   | 6.4e+03  |
+| misc/time_elapsed       | 5.61e+03 |
+| misc/total_timesteps    | 4.1e+05  |
+--------------------------------------
+Saving to model-19-100/checkpoints/00025
+ENT_COEF_NOW VALUE: 0.01 0.9180327868852459 26 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 71.8     |
+| eprewmean               | -0.92    |
+| fps                     | 77       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 26       |
+| misc/serial_timesteps   | 6.66e+03 |
+| misc/time_elapsed       | 5.82e+03 |
+| misc/total_timesteps    | 4.26e+05 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00026
+ENT_COEF_NOW VALUE: 0.01 0.9147540983606557 27 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 73.7     |
+| eprewmean               | -1.33    |
+| fps                     | 77       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 27       |
+| misc/serial_timesteps   | 6.91e+03 |
+| misc/time_elapsed       | 6.03e+03 |
+| misc/total_timesteps    | 4.42e+05 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00027
+ENT_COEF_NOW VALUE: 0.01 0.9114754098360656 28 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 74.4     |
+| eprewmean               | -0.65    |
+| fps                     | 77       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 28       |
+| misc/serial_timesteps   | 7.17e+03 |
+| misc/time_elapsed       | 6.24e+03 |
+| misc/total_timesteps    | 4.59e+05 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00028
+ENT_COEF_NOW VALUE: 0.01 0.9081967213114754 29 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 75.2     |
+| eprewmean               | -1.4     |
+| fps                     | 77       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 29       |
+| misc/serial_timesteps   | 7.42e+03 |
+| misc/time_elapsed       | 6.45e+03 |
+| misc/total_timesteps    | 4.75e+05 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00029
+ENT_COEF_NOW VALUE: 0.01 0.9049180327868852 30 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 76.8     |
+| eprewmean               | -0.99    |
+| fps                     | 77       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 30       |
+| misc/serial_timesteps   | 7.68e+03 |
+| misc/time_elapsed       | 6.66e+03 |
+| misc/total_timesteps    | 4.92e+05 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00030
+ENT_COEF_NOW VALUE: 0.01 0.9016393442622951 31 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 74.5     |
+| eprewmean               | -1.14    |
+| fps                     | 77       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 31       |
+| misc/serial_timesteps   | 7.94e+03 |
+| misc/time_elapsed       | 6.87e+03 |
+| misc/total_timesteps    | 5.08e+05 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00031
+ENT_COEF_NOW VALUE: 0.01 0.898360655737705 32 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 73       |
+| eprewmean               | -1       |
+| fps                     | 78       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 32       |
+| misc/serial_timesteps   | 8.19e+03 |
+| misc/time_elapsed       | 7.08e+03 |
+| misc/total_timesteps    | 5.24e+05 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00032
+ENT_COEF_NOW VALUE: 0.01 0.8950819672131147 33 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 74.3     |
+| eprewmean               | -1.13    |
+| fps                     | 77       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 33       |
+| misc/serial_timesteps   | 8.45e+03 |
+| misc/time_elapsed       | 7.29e+03 |
+| misc/total_timesteps    | 5.41e+05 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00033
+ENT_COEF_NOW VALUE: 0.01 0.8918032786885246 34 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 76.2     |
+| eprewmean               | -0.91    |
+| fps                     | 77       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 34       |
+| misc/serial_timesteps   | 8.7e+03  |
+| misc/time_elapsed       | 7.5e+03  |
+| misc/total_timesteps    | 5.57e+05 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00034
+ENT_COEF_NOW VALUE: 0.01 0.8885245901639345 35 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 76.5     |
+| eprewmean               | -0.67    |
+| fps                     | 77       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 35       |
+| misc/serial_timesteps   | 8.96e+03 |
+| misc/time_elapsed       | 7.72e+03 |
+| misc/total_timesteps    | 5.73e+05 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00035
+ENT_COEF_NOW VALUE: 0.01 0.8852459016393442 36 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 75       |
+| eprewmean               | -0.7     |
+| fps                     | 77       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 36       |
+| misc/serial_timesteps   | 9.22e+03 |
+| misc/time_elapsed       | 7.93e+03 |
+| misc/total_timesteps    | 5.9e+05  |
+--------------------------------------
+Saving to model-19-100/checkpoints/00036
+ENT_COEF_NOW VALUE: 0.01 0.8819672131147541 37 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 70.8     |
+| eprewmean               | -1       |
+| fps                     | 77       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 37       |
+| misc/serial_timesteps   | 9.47e+03 |
+| misc/time_elapsed       | 8.14e+03 |
+| misc/total_timesteps    | 6.06e+05 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00037
+ENT_COEF_NOW VALUE: 0.01 0.8786885245901639 38 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 71.7     |
+| eprewmean               | -1.28    |
+| fps                     | 77       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 38       |
+| misc/serial_timesteps   | 9.73e+03 |
+| misc/time_elapsed       | 8.35e+03 |
+| misc/total_timesteps    | 6.23e+05 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00038
+ENT_COEF_NOW VALUE: 0.01 0.8754098360655738 39 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 75.1     |
+| eprewmean               | -1.18    |
+| fps                     | 77       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 39       |
+| misc/serial_timesteps   | 9.98e+03 |
+| misc/time_elapsed       | 8.56e+03 |
+| misc/total_timesteps    | 6.39e+05 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00039
+ENT_COEF_NOW VALUE: 0.01 0.8721311475409836 40 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 77.3     |
+| eprewmean               | -1.17    |
+| fps                     | 77       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 40       |
+| misc/serial_timesteps   | 1.02e+04 |
+| misc/time_elapsed       | 8.77e+03 |
+| misc/total_timesteps    | 6.55e+05 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00040
+ENT_COEF_NOW VALUE: 0.01 0.8688524590163934 41 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 73.4     |
+| eprewmean               | -0.83    |
+| fps                     | 78       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 41       |
+| misc/serial_timesteps   | 1.05e+04 |
+| misc/time_elapsed       | 8.98e+03 |
+| misc/total_timesteps    | 6.72e+05 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00041
+ENT_COEF_NOW VALUE: 0.01 0.8655737704918033 42 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 77.7     |
+| eprewmean               | -1.27    |
+| fps                     | 78       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 42       |
+| misc/serial_timesteps   | 1.08e+04 |
+| misc/time_elapsed       | 9.19e+03 |
+| misc/total_timesteps    | 6.88e+05 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00042
+ENT_COEF_NOW VALUE: 0.01 0.862295081967213 43 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 71.3     |
+| eprewmean               | -1.26    |
+| fps                     | 78       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 43       |
+| misc/serial_timesteps   | 1.1e+04  |
+| misc/time_elapsed       | 9.4e+03  |
+| misc/total_timesteps    | 7.05e+05 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00043
+ENT_COEF_NOW VALUE: 0.01 0.8590163934426229 44 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 73.6     |
+| eprewmean               | -0.72    |
+| fps                     | 78       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 44       |
+| misc/serial_timesteps   | 1.13e+04 |
+| misc/time_elapsed       | 9.61e+03 |
+| misc/total_timesteps    | 7.21e+05 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00044
+ENT_COEF_NOW VALUE: 0.01 0.8557377049180328 45 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 75.2     |
+| eprewmean               | -0.88    |
+| fps                     | 78       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 45       |
+| misc/serial_timesteps   | 1.15e+04 |
+| misc/time_elapsed       | 9.82e+03 |
+| misc/total_timesteps    | 7.37e+05 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00045
+ENT_COEF_NOW VALUE: 0.01 0.8524590163934427 46 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 74.9     |
+| eprewmean               | -1.31    |
+| fps                     | 78       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 46       |
+| misc/serial_timesteps   | 1.18e+04 |
+| misc/time_elapsed       | 1e+04    |
+| misc/total_timesteps    | 7.54e+05 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00046
+ENT_COEF_NOW VALUE: 0.01 0.8491803278688524 47 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 71.8     |
+| eprewmean               | -1.51    |
+| fps                     | 78       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 47       |
+| misc/serial_timesteps   | 1.2e+04  |
+| misc/time_elapsed       | 1.02e+04 |
+| misc/total_timesteps    | 7.7e+05  |
+--------------------------------------
+Saving to model-19-100/checkpoints/00047
+ENT_COEF_NOW VALUE: 0.01 0.8459016393442623 48 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 74.7     |
+| eprewmean               | -0.84    |
+| fps                     | 78       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 48       |
+| misc/serial_timesteps   | 1.23e+04 |
+| misc/time_elapsed       | 1.04e+04 |
+| misc/total_timesteps    | 7.86e+05 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00048
+ENT_COEF_NOW VALUE: 0.01 0.8426229508196721 49 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 72.4     |
+| eprewmean               | -0.96    |
+| fps                     | 78       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 49       |
+| misc/serial_timesteps   | 1.25e+04 |
+| misc/time_elapsed       | 1.07e+04 |
+| misc/total_timesteps    | 8.03e+05 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00049
+ENT_COEF_NOW VALUE: 0.01 0.839344262295082 50 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 72.7     |
+| eprewmean               | -0.79    |
+| fps                     | 78       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 50       |
+| misc/serial_timesteps   | 1.28e+04 |
+| misc/time_elapsed       | 1.09e+04 |
+| misc/total_timesteps    | 8.19e+05 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00050
+ENT_COEF_NOW VALUE: 0.01 0.8360655737704918 51 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 72.6     |
+| eprewmean               | -0.53    |
+| fps                     | 78       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 51       |
+| misc/serial_timesteps   | 1.31e+04 |
+| misc/time_elapsed       | 1.11e+04 |
+| misc/total_timesteps    | 8.36e+05 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00051
+ENT_COEF_NOW VALUE: 0.01 0.8327868852459016 52 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 72       |
+| eprewmean               | -0.77    |
+| fps                     | 77       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 52       |
+| misc/serial_timesteps   | 1.33e+04 |
+| misc/time_elapsed       | 1.13e+04 |
+| misc/total_timesteps    | 8.52e+05 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00052
+ENT_COEF_NOW VALUE: 0.01 0.8295081967213115 53 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 75.4     |
+| eprewmean               | -0.55    |
+| fps                     | 77       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 53       |
+| misc/serial_timesteps   | 1.36e+04 |
+| misc/time_elapsed       | 1.15e+04 |
+| misc/total_timesteps    | 8.68e+05 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00053
+ENT_COEF_NOW VALUE: 0.01 0.8262295081967213 54 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 73       |
+| eprewmean               | -0.91    |
+| fps                     | 77       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 54       |
+| misc/serial_timesteps   | 1.38e+04 |
+| misc/time_elapsed       | 1.17e+04 |
+| misc/total_timesteps    | 8.85e+05 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00054
+ENT_COEF_NOW VALUE: 0.01 0.8229508196721311 55 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 75.5     |
+| eprewmean               | -0.67    |
+| fps                     | 77       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 55       |
+| misc/serial_timesteps   | 1.41e+04 |
+| misc/time_elapsed       | 1.19e+04 |
+| misc/total_timesteps    | 9.01e+05 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00055
+ENT_COEF_NOW VALUE: 0.01 0.819672131147541 56 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 73.6     |
+| eprewmean               | -0.77    |
+| fps                     | 77       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 56       |
+| misc/serial_timesteps   | 1.43e+04 |
+| misc/time_elapsed       | 1.21e+04 |
+| misc/total_timesteps    | 9.18e+05 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00056
+ENT_COEF_NOW VALUE: 0.01 0.8163934426229509 57 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 74.8     |
+| eprewmean               | -0.59    |
+| fps                     | 77       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 57       |
+| misc/serial_timesteps   | 1.46e+04 |
+| misc/time_elapsed       | 1.23e+04 |
+| misc/total_timesteps    | 9.34e+05 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00057
+ENT_COEF_NOW VALUE: 0.01 0.8131147540983606 58 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 74.2     |
+| eprewmean               | -1.17    |
+| fps                     | 78       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 58       |
+| misc/serial_timesteps   | 1.48e+04 |
+| misc/time_elapsed       | 1.25e+04 |
+| misc/total_timesteps    | 9.5e+05  |
+--------------------------------------
+Saving to model-19-100/checkpoints/00058
+ENT_COEF_NOW VALUE: 0.01 0.8098360655737705 59 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 71.3     |
+| eprewmean               | -1.3     |
+| fps                     | 78       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 59       |
+| misc/serial_timesteps   | 1.51e+04 |
+| misc/time_elapsed       | 1.28e+04 |
+| misc/total_timesteps    | 9.67e+05 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00059
+ENT_COEF_NOW VALUE: 0.01 0.8065573770491803 60 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 73.1     |
+| eprewmean               | -1.12    |
+| fps                     | 78       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 60       |
+| misc/serial_timesteps   | 1.54e+04 |
+| misc/time_elapsed       | 1.3e+04  |
+| misc/total_timesteps    | 9.83e+05 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00060
+ENT_COEF_NOW VALUE: 0.01 0.8032786885245902 61 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 76.6     |
+| eprewmean               | -1.21    |
+| fps                     | 78       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 61       |
+| misc/serial_timesteps   | 1.56e+04 |
+| misc/time_elapsed       | 1.32e+04 |
+| misc/total_timesteps    | 9.99e+05 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00061
+ENT_COEF_NOW VALUE: 0.01 0.8 62 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 76.1     |
+| eprewmean               | -1.35    |
+| fps                     | 78       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 62       |
+| misc/serial_timesteps   | 1.59e+04 |
+| misc/time_elapsed       | 1.34e+04 |
+| misc/total_timesteps    | 1.02e+06 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00062
+ENT_COEF_NOW VALUE: 0.01 0.7967213114754098 63 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 72.1     |
+| eprewmean               | -1.14    |
+| fps                     | 77       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 63       |
+| misc/serial_timesteps   | 1.61e+04 |
+| misc/time_elapsed       | 1.36e+04 |
+| misc/total_timesteps    | 1.03e+06 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00063
+ENT_COEF_NOW VALUE: 0.01 0.7934426229508197 64 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 76.1     |
+| eprewmean               | -1.39    |
+| fps                     | 76       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 64       |
+| misc/serial_timesteps   | 1.64e+04 |
+| misc/time_elapsed       | 1.38e+04 |
+| misc/total_timesteps    | 1.05e+06 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00064
+ENT_COEF_NOW VALUE: 0.01 0.7901639344262295 65 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 72.8     |
+| eprewmean               | -1.29    |
+| fps                     | 77       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 65       |
+| misc/serial_timesteps   | 1.66e+04 |
+| misc/time_elapsed       | 1.4e+04  |
+| misc/total_timesteps    | 1.06e+06 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00065
+ENT_COEF_NOW VALUE: 0.01 0.7868852459016393 66 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 74.2     |
+| eprewmean               | -1.17    |
+| fps                     | 77       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 66       |
+| misc/serial_timesteps   | 1.69e+04 |
+| misc/time_elapsed       | 1.42e+04 |
+| misc/total_timesteps    | 1.08e+06 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00066
+ENT_COEF_NOW VALUE: 0.01 0.7836065573770492 67 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 72.9     |
+| eprewmean               | -0.75    |
+| fps                     | 78       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 67       |
+| misc/serial_timesteps   | 1.72e+04 |
+| misc/time_elapsed       | 1.44e+04 |
+| misc/total_timesteps    | 1.1e+06  |
+--------------------------------------
+Saving to model-19-100/checkpoints/00067
+ENT_COEF_NOW VALUE: 0.01 0.7803278688524591 68 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 74.5     |
+| eprewmean               | -0.89    |
+| fps                     | 74       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 68       |
+| misc/serial_timesteps   | 1.74e+04 |
+| misc/time_elapsed       | 1.47e+04 |
+| misc/total_timesteps    | 1.11e+06 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00068
+ENT_COEF_NOW VALUE: 0.01 0.7770491803278688 69 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 74.1     |
+| eprewmean               | -1.31    |
+| fps                     | 76       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 69       |
+| misc/serial_timesteps   | 1.77e+04 |
+| misc/time_elapsed       | 1.49e+04 |
+| misc/total_timesteps    | 1.13e+06 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00069
+ENT_COEF_NOW VALUE: 0.01 0.7737704918032787 70 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 73.5     |
+| eprewmean               | -1.37    |
+| fps                     | 76       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 70       |
+| misc/serial_timesteps   | 1.79e+04 |
+| misc/time_elapsed       | 1.51e+04 |
+| misc/total_timesteps    | 1.15e+06 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00070
+ENT_COEF_NOW VALUE: 0.01 0.7704918032786885 71 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 74.1     |
+| eprewmean               | -0.82    |
+| fps                     | 74       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 71       |
+| misc/serial_timesteps   | 1.82e+04 |
+| misc/time_elapsed       | 1.53e+04 |
+| misc/total_timesteps    | 1.16e+06 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00071
+ENT_COEF_NOW VALUE: 0.01 0.7672131147540984 72 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 73.2     |
+| eprewmean               | -0.83    |
+| fps                     | 75       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 72       |
+| misc/serial_timesteps   | 1.84e+04 |
+| misc/time_elapsed       | 1.55e+04 |
+| misc/total_timesteps    | 1.18e+06 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00072
+ENT_COEF_NOW VALUE: 0.01 0.7639344262295082 73 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 75.7     |
+| eprewmean               | -1.15    |
+| fps                     | 75       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 73       |
+| misc/serial_timesteps   | 1.87e+04 |
+| misc/time_elapsed       | 1.57e+04 |
+| misc/total_timesteps    | 1.2e+06  |
+--------------------------------------
+Saving to model-19-100/checkpoints/00073
+ENT_COEF_NOW VALUE: 0.01 0.760655737704918 74 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 73.6     |
+| eprewmean               | -1.23    |
+| fps                     | 75       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 74       |
+| misc/serial_timesteps   | 1.89e+04 |
+| misc/time_elapsed       | 1.59e+04 |
+| misc/total_timesteps    | 1.21e+06 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00074
+ENT_COEF_NOW VALUE: 0.01 0.7573770491803279 75 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 74.4     |
+| eprewmean               | -1.19    |
+| fps                     | 76       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 75       |
+| misc/serial_timesteps   | 1.92e+04 |
+| misc/time_elapsed       | 1.62e+04 |
+| misc/total_timesteps    | 1.23e+06 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00075
+ENT_COEF_NOW VALUE: 0.01 0.7540983606557377 76 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 74.5     |
+| eprewmean               | -0.92    |
+| fps                     | 77       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 76       |
+| misc/serial_timesteps   | 1.95e+04 |
+| misc/time_elapsed       | 1.64e+04 |
+| misc/total_timesteps    | 1.25e+06 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00076
+ENT_COEF_NOW VALUE: 0.01 0.7508196721311475 77 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 78.3     |
+| eprewmean               | -1       |
+| fps                     | 77       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 77       |
+| misc/serial_timesteps   | 1.97e+04 |
+| misc/time_elapsed       | 1.66e+04 |
+| misc/total_timesteps    | 1.26e+06 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00077
+ENT_COEF_NOW VALUE: 0.01 0.7475409836065574 78 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 73.8     |
+| eprewmean               | -1.33    |
+| fps                     | 78       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 78       |
+| misc/serial_timesteps   | 2e+04    |
+| misc/time_elapsed       | 1.68e+04 |
+| misc/total_timesteps    | 1.28e+06 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00078
+ENT_COEF_NOW VALUE: 0.01 0.7442622950819673 79 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 77       |
+| eprewmean               | -1.11    |
+| fps                     | 78       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 79       |
+| misc/serial_timesteps   | 2.02e+04 |
+| misc/time_elapsed       | 1.7e+04  |
+| misc/total_timesteps    | 1.29e+06 |
+--------------------------------------
+Saving to model-19-100/checkpoints/00079
+ENT_COEF_NOW VALUE: 0.01 0.740983606557377 80 305
+Stepping environment...
+Done.

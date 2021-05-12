@@ -1,0 +1,974 @@
+Using piecewise Scheduler for Entropy Decay
+Saving to dir: model-22-10000-piecewise
+Using high entropy? False
+Piecewise Scheduler -- creating function...
+Logging to model-22-10000-piecewise
+creating environment
+creating tf session
+2021-05-11 23:39:19.872251: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2021-05-11 23:39:19.877718: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2299995000 Hz
+2021-05-11 23:39:19.878536: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x26ceda0 executing computations on platform Host. Devices:
+2021-05-11 23:39:19.878565: I tensorflow/compiler/xla/service/service.cc:175]   StreamExecutor device (0): <undefined>, <undefined>
+training
+2021-05-11 23:39:23.698061: W tensorflow/compiler/jit/mark_for_compilation_pass.cc:1412] (One-time warning): Not using XLA:CPU for cluster because envvar TF_XLA_FLAGS=--tf_xla_cpu_global_jit was not set.  If you want XLA:CPU, either set that envvar, or use experimental_jit_scope to enable XLA:CPU.  To confirm that XLA is active, pass --vmodule=xla_compilation_cache=1 (as a proper command-line flag, not via TF_XLA_FLAGS) or set the envvar XLA_FLAGS=--xla_hlo_profile.
+perturbing...
+perturbing...
+ENT_COEF VALUE: Tensor("Placeholder_7:0", shape=(), dtype=float32)
+ENT_COEF_NOW VALUE: 0.01 1.0 1 305
+Stepping environment...
+Done.
+2021-05-11 23:39:46.079830: W tensorflow/core/framework/allocator.cc:107] Allocation of 536870912 exceeds 10% of system memory.
+2021-05-11 23:39:56.470327: W tensorflow/core/framework/allocator.cc:107] Allocation of 536870912 exceeds 10% of system memory.
+2021-05-11 23:40:06.861701: W tensorflow/core/framework/allocator.cc:107] Allocation of 536870912 exceeds 10% of system memory.
+2021-05-11 23:40:17.241064: W tensorflow/core/framework/allocator.cc:107] Allocation of 536870912 exceeds 10% of system memory.
+2021-05-11 23:40:27.695709: W tensorflow/core/framework/allocator.cc:107] Allocation of 536870912 exceeds 10% of system memory.
+---------------------------------------
+| eplenmean               | 83.1      |
+| eprewmean               | -2.24     |
+| fps                     | 60        |
+| loss/approxkl           | 0.00174   |
+| loss/clipfrac           | 0.000977  |
+| loss/policy_entropy     | 2.71      |
+| loss/policy_loss        | -0.000759 |
+| loss/value_loss         | 0.313     |
+| misc/explained_variance | -0.00485  |
+| misc/nupdates           | 1         |
+| misc/serial_timesteps   | 256       |
+| misc/time_elapsed       | 272       |
+| misc/total_timesteps    | 1.64e+04  |
+---------------------------------------
+Saving to model-22-10000-piecewise/checkpoints/00001
+ENT_COEF_NOW VALUE: 0.01 0.9967213114754099 2 305
+Stepping environment...
+Done.
+---------------------------------------
+| eplenmean               | 86.5      |
+| eprewmean               | -3.06     |
+| fps                     | 60        |
+| loss/approxkl           | 0.00163   |
+| loss/clipfrac           | 0.000977  |
+| loss/policy_entropy     | 2.71      |
+| loss/policy_loss        | -0.000166 |
+| loss/value_loss         | 0.164     |
+| misc/explained_variance | 0.00831   |
+| misc/nupdates           | 2         |
+| misc/serial_timesteps   | 512       |
+| misc/time_elapsed       | 543       |
+| misc/total_timesteps    | 3.28e+04  |
+---------------------------------------
+Saving to model-22-10000-piecewise/checkpoints/00002
+ENT_COEF_NOW VALUE: 0.01 0.9934426229508196 3 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 83.8     |
+| eprewmean               | -2.25    |
+| fps                     | 60       |
+| loss/approxkl           | 0.00232  |
+| loss/clipfrac           | 0.00667  |
+| loss/policy_entropy     | 2.7      |
+| loss/policy_loss        | -0.00172 |
+| loss/value_loss         | 0.123    |
+| misc/explained_variance | 0.0579   |
+| misc/nupdates           | 3        |
+| misc/serial_timesteps   | 768      |
+| misc/time_elapsed       | 815      |
+| misc/total_timesteps    | 4.92e+04 |
+--------------------------------------
+Saving to model-22-10000-piecewise/checkpoints/00003
+ENT_COEF_NOW VALUE: 0.01 0.9901639344262295 4 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 82.3     |
+| eprewmean               | -1.74    |
+| fps                     | 60       |
+| loss/approxkl           | 0.00383  |
+| loss/clipfrac           | 0.0285   |
+| loss/policy_entropy     | 2.69     |
+| loss/policy_loss        | -0.00201 |
+| loss/value_loss         | 0.119    |
+| misc/explained_variance | 0.134    |
+| misc/nupdates           | 4        |
+| misc/serial_timesteps   | 1.02e+03 |
+| misc/time_elapsed       | 1.09e+03 |
+| misc/total_timesteps    | 6.55e+04 |
+--------------------------------------
+Saving to model-22-10000-piecewise/checkpoints/00004
+ENT_COEF_NOW VALUE: 0.01 0.9868852459016394 5 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 86.7     |
+| eprewmean               | -2.42    |
+| fps                     | 60       |
+| loss/approxkl           | 0.00329  |
+| loss/clipfrac           | 0.0214   |
+| loss/policy_entropy     | 2.69     |
+| loss/policy_loss        | -0.00234 |
+| loss/value_loss         | 0.129    |
+| misc/explained_variance | 0.277    |
+| misc/nupdates           | 5        |
+| misc/serial_timesteps   | 1.28e+03 |
+| misc/time_elapsed       | 1.35e+03 |
+| misc/total_timesteps    | 8.19e+04 |
+--------------------------------------
+Saving to model-22-10000-piecewise/checkpoints/00005
+ENT_COEF_NOW VALUE: 0.01 0.9836065573770492 6 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 82.5     |
+| eprewmean               | -1.79    |
+| fps                     | 60       |
+| loss/approxkl           | 0.00279  |
+| loss/clipfrac           | 0.0111   |
+| loss/policy_entropy     | 2.69     |
+| loss/policy_loss        | -0.00141 |
+| loss/value_loss         | 0.126    |
+| misc/explained_variance | 0.315    |
+| misc/nupdates           | 6        |
+| misc/serial_timesteps   | 1.54e+03 |
+| misc/time_elapsed       | 1.63e+03 |
+| misc/total_timesteps    | 9.83e+04 |
+--------------------------------------
+Saving to model-22-10000-piecewise/checkpoints/00006
+ENT_COEF_NOW VALUE: 0.01 0.980327868852459 7 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 90.3     |
+| eprewmean               | -2.83    |
+| fps                     | 60       |
+| loss/approxkl           | 0.00395  |
+| loss/clipfrac           | 0.0314   |
+| loss/policy_entropy     | 2.68     |
+| loss/policy_loss        | -0.00323 |
+| loss/value_loss         | 0.128    |
+| misc/explained_variance | 0.377    |
+| misc/nupdates           | 7        |
+| misc/serial_timesteps   | 1.79e+03 |
+| misc/time_elapsed       | 1.9e+03  |
+| misc/total_timesteps    | 1.15e+05 |
+--------------------------------------
+Saving to model-22-10000-piecewise/checkpoints/00007
+ENT_COEF_NOW VALUE: 0.01 0.9770491803278688 8 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 83.2     |
+| eprewmean               | -2.26    |
+| fps                     | 60       |
+| loss/approxkl           | 0.00378  |
+| loss/clipfrac           | 0.0302   |
+| loss/policy_entropy     | 2.68     |
+| loss/policy_loss        | -0.00251 |
+| loss/value_loss         | 0.105    |
+| misc/explained_variance | 0.479    |
+| misc/nupdates           | 8        |
+| misc/serial_timesteps   | 2.05e+03 |
+| misc/time_elapsed       | 2.17e+03 |
+| misc/total_timesteps    | 1.31e+05 |
+--------------------------------------
+Saving to model-22-10000-piecewise/checkpoints/00008
+ENT_COEF_NOW VALUE: 0.01 0.9737704918032787 9 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 87       |
+| eprewmean               | -1.57    |
+| fps                     | 60       |
+| loss/approxkl           | 0.0054   |
+| loss/clipfrac           | 0.0568   |
+| loss/policy_entropy     | 2.67     |
+| loss/policy_loss        | -0.00549 |
+| loss/value_loss         | 0.112    |
+| misc/explained_variance | 0.487    |
+| misc/nupdates           | 9        |
+| misc/serial_timesteps   | 2.3e+03  |
+| misc/time_elapsed       | 2.44e+03 |
+| misc/total_timesteps    | 1.47e+05 |
+--------------------------------------
+Saving to model-22-10000-piecewise/checkpoints/00009
+ENT_COEF_NOW VALUE: 0.01 0.9704918032786886 10 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 83.3     |
+| eprewmean               | -1.42    |
+| fps                     | 60       |
+| loss/approxkl           | 0.00511  |
+| loss/clipfrac           | 0.0529   |
+| loss/policy_entropy     | 2.66     |
+| loss/policy_loss        | -0.00486 |
+| loss/value_loss         | 0.108    |
+| misc/explained_variance | 0.527    |
+| misc/nupdates           | 10       |
+| misc/serial_timesteps   | 2.56e+03 |
+| misc/time_elapsed       | 2.71e+03 |
+| misc/total_timesteps    | 1.64e+05 |
+--------------------------------------
+Saving to model-22-10000-piecewise/checkpoints/00010
+ENT_COEF_NOW VALUE: 0.01 0.9672131147540983 11 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 83.8     |
+| eprewmean               | -1.11    |
+| fps                     | 60       |
+| loss/approxkl           | 0.0055   |
+| loss/clipfrac           | 0.0573   |
+| loss/policy_entropy     | 2.65     |
+| loss/policy_loss        | -0.00616 |
+| loss/value_loss         | 0.0851   |
+| misc/explained_variance | 0.515    |
+| misc/nupdates           | 11       |
+| misc/serial_timesteps   | 2.82e+03 |
+| misc/time_elapsed       | 2.98e+03 |
+| misc/total_timesteps    | 1.8e+05  |
+--------------------------------------
+Saving to model-22-10000-piecewise/checkpoints/00011
+ENT_COEF_NOW VALUE: 0.01 0.9639344262295082 12 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 83       |
+| eprewmean               | -1.18    |
+| fps                     | 60       |
+| loss/approxkl           | 0.00589  |
+| loss/clipfrac           | 0.064    |
+| loss/policy_entropy     | 2.64     |
+| loss/policy_loss        | -0.00649 |
+| loss/value_loss         | 0.0859   |
+| misc/explained_variance | 0.483    |
+| misc/nupdates           | 12       |
+| misc/serial_timesteps   | 3.07e+03 |
+| misc/time_elapsed       | 3.25e+03 |
+| misc/total_timesteps    | 1.97e+05 |
+--------------------------------------
+Saving to model-22-10000-piecewise/checkpoints/00012
+ENT_COEF_NOW VALUE: 0.01 0.9606557377049181 13 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 81.2     |
+| eprewmean               | -0.54    |
+| fps                     | 60       |
+| loss/approxkl           | 0.00546  |
+| loss/clipfrac           | 0.0591   |
+| loss/policy_entropy     | 2.65     |
+| loss/policy_loss        | -0.00804 |
+| loss/value_loss         | 0.072    |
+| misc/explained_variance | 0.507    |
+| misc/nupdates           | 13       |
+| misc/serial_timesteps   | 3.33e+03 |
+| misc/time_elapsed       | 3.52e+03 |
+| misc/total_timesteps    | 2.13e+05 |
+--------------------------------------
+Saving to model-22-10000-piecewise/checkpoints/00013
+ENT_COEF_NOW VALUE: 0.01 0.9573770491803278 14 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 78.1     |
+| eprewmean               | -0.6     |
+| fps                     | 60       |
+| loss/approxkl           | 0.00582  |
+| loss/clipfrac           | 0.0647   |
+| loss/policy_entropy     | 2.64     |
+| loss/policy_loss        | -0.00854 |
+| loss/value_loss         | 0.0551   |
+| misc/explained_variance | 0.527    |
+| misc/nupdates           | 14       |
+| misc/serial_timesteps   | 3.58e+03 |
+| misc/time_elapsed       | 3.79e+03 |
+| misc/total_timesteps    | 2.29e+05 |
+--------------------------------------
+Saving to model-22-10000-piecewise/checkpoints/00014
+ENT_COEF_NOW VALUE: 0.01 0.9540983606557377 15 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 79.3     |
+| eprewmean               | -0.51    |
+| fps                     | 60       |
+| loss/approxkl           | 0.00745  |
+| loss/clipfrac           | 0.0943   |
+| loss/policy_entropy     | 2.63     |
+| loss/policy_loss        | -0.0118  |
+| loss/value_loss         | 0.0643   |
+| misc/explained_variance | 0.5      |
+| misc/nupdates           | 15       |
+| misc/serial_timesteps   | 3.84e+03 |
+| misc/time_elapsed       | 4.06e+03 |
+| misc/total_timesteps    | 2.46e+05 |
+--------------------------------------
+Saving to model-22-10000-piecewise/checkpoints/00015
+ENT_COEF_NOW VALUE: 0.01 0.9508196721311475 16 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 78.5     |
+| eprewmean               | -0.19    |
+| fps                     | 60       |
+| loss/approxkl           | 0.00679  |
+| loss/clipfrac           | 0.0833   |
+| loss/policy_entropy     | 2.62     |
+| loss/policy_loss        | -0.0105  |
+| loss/value_loss         | 0.0672   |
+| misc/explained_variance | 0.494    |
+| misc/nupdates           | 16       |
+| misc/serial_timesteps   | 4.1e+03  |
+| misc/time_elapsed       | 4.34e+03 |
+| misc/total_timesteps    | 2.62e+05 |
+--------------------------------------
+Saving to model-22-10000-piecewise/checkpoints/00016
+ENT_COEF_NOW VALUE: 0.01 0.9475409836065574 17 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 85.6     |
+| eprewmean               | -1.16    |
+| fps                     | 60       |
+| loss/approxkl           | 0.00752  |
+| loss/clipfrac           | 0.0973   |
+| loss/policy_entropy     | 2.63     |
+| loss/policy_loss        | -0.0092  |
+| loss/value_loss         | 0.0731   |
+| misc/explained_variance | 0.521    |
+| misc/nupdates           | 17       |
+| misc/serial_timesteps   | 4.35e+03 |
+| misc/time_elapsed       | 4.61e+03 |
+| misc/total_timesteps    | 2.79e+05 |
+--------------------------------------
+Saving to model-22-10000-piecewise/checkpoints/00017
+ENT_COEF_NOW VALUE: 0.01 0.9442622950819672 18 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 81.3     |
+| eprewmean               | -0.51    |
+| fps                     | 60       |
+| loss/approxkl           | 0.00708  |
+| loss/clipfrac           | 0.09     |
+| loss/policy_entropy     | 2.62     |
+| loss/policy_loss        | -0.0115  |
+| loss/value_loss         | 0.0697   |
+| misc/explained_variance | 0.514    |
+| misc/nupdates           | 18       |
+| misc/serial_timesteps   | 4.61e+03 |
+| misc/time_elapsed       | 4.88e+03 |
+| misc/total_timesteps    | 2.95e+05 |
+--------------------------------------
+Saving to model-22-10000-piecewise/checkpoints/00018
+ENT_COEF_NOW VALUE: 0.01 0.940983606557377 19 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 79.5     |
+| eprewmean               | -0.09    |
+| fps                     | 60       |
+| loss/approxkl           | 0.00794  |
+| loss/clipfrac           | 0.0989   |
+| loss/policy_entropy     | 2.6      |
+| loss/policy_loss        | -0.0133  |
+| loss/value_loss         | 0.0585   |
+| misc/explained_variance | 0.546    |
+| misc/nupdates           | 19       |
+| misc/serial_timesteps   | 4.86e+03 |
+| misc/time_elapsed       | 5.15e+03 |
+| misc/total_timesteps    | 3.11e+05 |
+--------------------------------------
+Saving to model-22-10000-piecewise/checkpoints/00019
+ENT_COEF_NOW VALUE: 0.01 0.9377049180327869 20 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 80.3     |
+| eprewmean               | -0.02    |
+| fps                     | 60       |
+| loss/approxkl           | 0.00811  |
+| loss/clipfrac           | 0.107    |
+| loss/policy_entropy     | 2.59     |
+| loss/policy_loss        | -0.0149  |
+| loss/value_loss         | 0.0608   |
+| misc/explained_variance | 0.562    |
+| misc/nupdates           | 20       |
+| misc/serial_timesteps   | 5.12e+03 |
+| misc/time_elapsed       | 5.42e+03 |
+| misc/total_timesteps    | 3.28e+05 |
+--------------------------------------
+Saving to model-22-10000-piecewise/checkpoints/00020
+ENT_COEF_NOW VALUE: 0.01 0.9344262295081968 21 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 80.9     |
+| eprewmean               | 0.48     |
+| fps                     | 60       |
+| loss/approxkl           | 0.00883  |
+| loss/clipfrac           | 0.114    |
+| loss/policy_entropy     | 2.57     |
+| loss/policy_loss        | -0.0142  |
+| loss/value_loss         | 0.0598   |
+| misc/explained_variance | 0.557    |
+| misc/nupdates           | 21       |
+| misc/serial_timesteps   | 5.38e+03 |
+| misc/time_elapsed       | 5.7e+03  |
+| misc/total_timesteps    | 3.44e+05 |
+--------------------------------------
+Saving to model-22-10000-piecewise/checkpoints/00021
+ENT_COEF_NOW VALUE: 0.01 0.9311475409836065 22 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 77.3     |
+| eprewmean               | 0.48     |
+| fps                     | 61       |
+| loss/approxkl           | 0.0104   |
+| loss/clipfrac           | 0.143    |
+| loss/policy_entropy     | 2.55     |
+| loss/policy_loss        | -0.0141  |
+| loss/value_loss         | 0.0604   |
+| misc/explained_variance | 0.606    |
+| misc/nupdates           | 22       |
+| misc/serial_timesteps   | 5.63e+03 |
+| misc/time_elapsed       | 5.96e+03 |
+| misc/total_timesteps    | 3.6e+05  |
+--------------------------------------
+Saving to model-22-10000-piecewise/checkpoints/00022
+ENT_COEF_NOW VALUE: 0.01 0.9278688524590164 23 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 81.7     |
+| eprewmean               | 0.87     |
+| fps                     | 60       |
+| loss/approxkl           | 0.0101   |
+| loss/clipfrac           | 0.135    |
+| loss/policy_entropy     | 2.53     |
+| loss/policy_loss        | -0.0134  |
+| loss/value_loss         | 0.0516   |
+| misc/explained_variance | 0.594    |
+| misc/nupdates           | 23       |
+| misc/serial_timesteps   | 5.89e+03 |
+| misc/time_elapsed       | 6.23e+03 |
+| misc/total_timesteps    | 3.77e+05 |
+--------------------------------------
+Saving to model-22-10000-piecewise/checkpoints/00023
+ENT_COEF_NOW VALUE: 0.01 0.9245901639344263 24 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 79.1     |
+| eprewmean               | 1.09     |
+| fps                     | 60       |
+| loss/approxkl           | 0.0109   |
+| loss/clipfrac           | 0.149    |
+| loss/policy_entropy     | 2.53     |
+| loss/policy_loss        | -0.0171  |
+| loss/value_loss         | 0.0475   |
+| misc/explained_variance | 0.589    |
+| misc/nupdates           | 24       |
+| misc/serial_timesteps   | 6.14e+03 |
+| misc/time_elapsed       | 6.5e+03  |
+| misc/total_timesteps    | 3.93e+05 |
+--------------------------------------
+Saving to model-22-10000-piecewise/checkpoints/00024
+ENT_COEF_NOW VALUE: 0.01 0.921311475409836 25 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 82.9     |
+| eprewmean               | 0.5      |
+| fps                     | 60       |
+| loss/approxkl           | 0.0123   |
+| loss/clipfrac           | 0.161    |
+| loss/policy_entropy     | 2.51     |
+| loss/policy_loss        | -0.0132  |
+| loss/value_loss         | 0.0576   |
+| misc/explained_variance | 0.611    |
+| misc/nupdates           | 25       |
+| misc/serial_timesteps   | 6.4e+03  |
+| misc/time_elapsed       | 6.77e+03 |
+| misc/total_timesteps    | 4.1e+05  |
+--------------------------------------
+Saving to model-22-10000-piecewise/checkpoints/00025
+ENT_COEF_NOW VALUE: 0.01 0.9180327868852459 26 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 81.7     |
+| eprewmean               | 0.94     |
+| fps                     | 60       |
+| loss/approxkl           | 0.0116   |
+| loss/clipfrac           | 0.156    |
+| loss/policy_entropy     | 2.51     |
+| loss/policy_loss        | -0.016   |
+| loss/value_loss         | 0.0471   |
+| misc/explained_variance | 0.683    |
+| misc/nupdates           | 26       |
+| misc/serial_timesteps   | 6.66e+03 |
+| misc/time_elapsed       | 7.04e+03 |
+| misc/total_timesteps    | 4.26e+05 |
+--------------------------------------
+Saving to model-22-10000-piecewise/checkpoints/00026
+ENT_COEF_NOW VALUE: 0.01 0.9147540983606557 27 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 82.1     |
+| eprewmean               | 1.06     |
+| fps                     | 60       |
+| loss/approxkl           | 0.0127   |
+| loss/clipfrac           | 0.17     |
+| loss/policy_entropy     | 2.5      |
+| loss/policy_loss        | -0.0156  |
+| loss/value_loss         | 0.0635   |
+| misc/explained_variance | 0.613    |
+| misc/nupdates           | 27       |
+| misc/serial_timesteps   | 6.91e+03 |
+| misc/time_elapsed       | 7.31e+03 |
+| misc/total_timesteps    | 4.42e+05 |
+--------------------------------------
+Saving to model-22-10000-piecewise/checkpoints/00027
+ENT_COEF_NOW VALUE: 0.01 0.9114754098360656 28 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 86       |
+| eprewmean               | 1.35     |
+| fps                     | 60       |
+| loss/approxkl           | 0.0105   |
+| loss/clipfrac           | 0.143    |
+| loss/policy_entropy     | 2.49     |
+| loss/policy_loss        | -0.0162  |
+| loss/value_loss         | 0.055    |
+| misc/explained_variance | 0.681    |
+| misc/nupdates           | 28       |
+| misc/serial_timesteps   | 7.17e+03 |
+| misc/time_elapsed       | 7.58e+03 |
+| misc/total_timesteps    | 4.59e+05 |
+--------------------------------------
+Saving to model-22-10000-piecewise/checkpoints/00028
+ENT_COEF_NOW VALUE: 0.01 0.9081967213114754 29 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 87.5     |
+| eprewmean               | 1.38     |
+| fps                     | 60       |
+| loss/approxkl           | 0.0121   |
+| loss/clipfrac           | 0.162    |
+| loss/policy_entropy     | 2.49     |
+| loss/policy_loss        | -0.0168  |
+| loss/value_loss         | 0.0551   |
+| misc/explained_variance | 0.661    |
+| misc/nupdates           | 29       |
+| misc/serial_timesteps   | 7.42e+03 |
+| misc/time_elapsed       | 7.85e+03 |
+| misc/total_timesteps    | 4.75e+05 |
+--------------------------------------
+Saving to model-22-10000-piecewise/checkpoints/00029
+ENT_COEF_NOW VALUE: 0.01 0.9049180327868852 30 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 91.2     |
+| eprewmean               | 1.75     |
+| fps                     | 60       |
+| loss/approxkl           | 0.0102   |
+| loss/clipfrac           | 0.143    |
+| loss/policy_entropy     | 2.5      |
+| loss/policy_loss        | -0.0152  |
+| loss/value_loss         | 0.051    |
+| misc/explained_variance | 0.684    |
+| misc/nupdates           | 30       |
+| misc/serial_timesteps   | 7.68e+03 |
+| misc/time_elapsed       | 8.13e+03 |
+| misc/total_timesteps    | 4.92e+05 |
+--------------------------------------
+Saving to model-22-10000-piecewise/checkpoints/00030
+ENT_COEF_NOW VALUE: 0.01 0.9016393442622951 31 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 80.5     |
+| eprewmean               | 1.57     |
+| fps                     | 60       |
+| loss/approxkl           | 0.0136   |
+| loss/clipfrac           | 0.184    |
+| loss/policy_entropy     | 2.49     |
+| loss/policy_loss        | -0.0137  |
+| loss/value_loss         | 0.0443   |
+| misc/explained_variance | 0.746    |
+| misc/nupdates           | 31       |
+| misc/serial_timesteps   | 7.94e+03 |
+| misc/time_elapsed       | 8.39e+03 |
+| misc/total_timesteps    | 5.08e+05 |
+--------------------------------------
+Saving to model-22-10000-piecewise/checkpoints/00031
+ENT_COEF_NOW VALUE: 0.01 0.898360655737705 32 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 86       |
+| eprewmean               | 1.69     |
+| fps                     | 61       |
+| loss/approxkl           | 0.0144   |
+| loss/clipfrac           | 0.188    |
+| loss/policy_entropy     | 2.48     |
+| loss/policy_loss        | -0.0154  |
+| loss/value_loss         | 0.0588   |
+| misc/explained_variance | 0.699    |
+| misc/nupdates           | 32       |
+| misc/serial_timesteps   | 8.19e+03 |
+| misc/time_elapsed       | 8.66e+03 |
+| misc/total_timesteps    | 5.24e+05 |
+--------------------------------------
+Saving to model-22-10000-piecewise/checkpoints/00032
+ENT_COEF_NOW VALUE: 0.01 0.8950819672131147 33 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 93.2     |
+| eprewmean               | 1.92     |
+| fps                     | 61       |
+| loss/approxkl           | 0.0122   |
+| loss/clipfrac           | 0.165    |
+| loss/policy_entropy     | 2.47     |
+| loss/policy_loss        | -0.0194  |
+| loss/value_loss         | 0.0574   |
+| misc/explained_variance | 0.735    |
+| misc/nupdates           | 33       |
+| misc/serial_timesteps   | 8.45e+03 |
+| misc/time_elapsed       | 8.93e+03 |
+| misc/total_timesteps    | 5.41e+05 |
+--------------------------------------
+Saving to model-22-10000-piecewise/checkpoints/00033
+ENT_COEF_NOW VALUE: 0.01 0.8918032786885246 34 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 91.5     |
+| eprewmean               | 1.52     |
+| fps                     | 61       |
+| loss/approxkl           | 0.0119   |
+| loss/clipfrac           | 0.16     |
+| loss/policy_entropy     | 2.48     |
+| loss/policy_loss        | -0.0172  |
+| loss/value_loss         | 0.0602   |
+| misc/explained_variance | 0.687    |
+| misc/nupdates           | 34       |
+| misc/serial_timesteps   | 8.7e+03  |
+| misc/time_elapsed       | 9.19e+03 |
+| misc/total_timesteps    | 5.57e+05 |
+--------------------------------------
+Saving to model-22-10000-piecewise/checkpoints/00034
+ENT_COEF_NOW VALUE: 0.01 0.8885245901639345 35 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 108      |
+| eprewmean               | 2.64     |
+| fps                     | 61       |
+| loss/approxkl           | 0.0119   |
+| loss/clipfrac           | 0.169    |
+| loss/policy_entropy     | 2.45     |
+| loss/policy_loss        | -0.0174  |
+| loss/value_loss         | 0.0548   |
+| misc/explained_variance | 0.743    |
+| misc/nupdates           | 35       |
+| misc/serial_timesteps   | 8.96e+03 |
+| misc/time_elapsed       | 9.46e+03 |
+| misc/total_timesteps    | 5.73e+05 |
+--------------------------------------
+Saving to model-22-10000-piecewise/checkpoints/00035
+ENT_COEF_NOW VALUE: 0.01 0.8852459016393442 36 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 102      |
+| eprewmean               | 2.24     |
+| fps                     | 61       |
+| loss/approxkl           | 0.0123   |
+| loss/clipfrac           | 0.166    |
+| loss/policy_entropy     | 2.44     |
+| loss/policy_loss        | -0.0181  |
+| loss/value_loss         | 0.0476   |
+| misc/explained_variance | 0.747    |
+| misc/nupdates           | 36       |
+| misc/serial_timesteps   | 9.22e+03 |
+| misc/time_elapsed       | 9.72e+03 |
+| misc/total_timesteps    | 5.9e+05  |
+--------------------------------------
+Saving to model-22-10000-piecewise/checkpoints/00036
+ENT_COEF_NOW VALUE: 0.01 0.8819672131147541 37 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 101      |
+| eprewmean               | 2.44     |
+| fps                     | 63       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0.0154   |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | 0.755    |
+| misc/nupdates           | 37       |
+| misc/serial_timesteps   | 9.47e+03 |
+| misc/time_elapsed       | 9.98e+03 |
+| misc/total_timesteps    | 6.06e+05 |
+--------------------------------------
+Saving to model-22-10000-piecewise/checkpoints/00037
+ENT_COEF_NOW VALUE: 0.01 0.8786885245901639 38 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 73.2     |
+| eprewmean               | -1.28    |
+| fps                     | 64       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 38       |
+| misc/serial_timesteps   | 9.73e+03 |
+| misc/time_elapsed       | 1.02e+04 |
+| misc/total_timesteps    | 6.23e+05 |
+--------------------------------------
+Saving to model-22-10000-piecewise/checkpoints/00038
+ENT_COEF_NOW VALUE: 0.01 0.8754098360655738 39 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 76.8     |
+| eprewmean               | -1.09    |
+| fps                     | 64       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 39       |
+| misc/serial_timesteps   | 9.98e+03 |
+| misc/time_elapsed       | 1.05e+04 |
+| misc/total_timesteps    | 6.39e+05 |
+--------------------------------------
+Saving to model-22-10000-piecewise/checkpoints/00039
+ENT_COEF_NOW VALUE: 0.01 0.8721311475409836 40 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 75.7     |
+| eprewmean               | -1       |
+| fps                     | 64       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 40       |
+| misc/serial_timesteps   | 1.02e+04 |
+| misc/time_elapsed       | 1.07e+04 |
+| misc/total_timesteps    | 6.55e+05 |
+--------------------------------------
+Saving to model-22-10000-piecewise/checkpoints/00040
+ENT_COEF_NOW VALUE: 0.01 0.8688524590163934 41 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 76       |
+| eprewmean               | -1.02    |
+| fps                     | 63       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 41       |
+| misc/serial_timesteps   | 1.05e+04 |
+| misc/time_elapsed       | 1.1e+04  |
+| misc/total_timesteps    | 6.72e+05 |
+--------------------------------------
+Saving to model-22-10000-piecewise/checkpoints/00041
+ENT_COEF_NOW VALUE: 0.01 0.8655737704918033 42 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 74.3     |
+| eprewmean               | -0.59    |
+| fps                     | 63       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 42       |
+| misc/serial_timesteps   | 1.08e+04 |
+| misc/time_elapsed       | 1.13e+04 |
+| misc/total_timesteps    | 6.88e+05 |
+--------------------------------------
+Saving to model-22-10000-piecewise/checkpoints/00042
+ENT_COEF_NOW VALUE: 0.01 0.862295081967213 43 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 76       |
+| eprewmean               | -1.08    |
+| fps                     | 63       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 43       |
+| misc/serial_timesteps   | 1.1e+04  |
+| misc/time_elapsed       | 1.15e+04 |
+| misc/total_timesteps    | 7.05e+05 |
+--------------------------------------
+Saving to model-22-10000-piecewise/checkpoints/00043
+ENT_COEF_NOW VALUE: 0.01 0.8590163934426229 44 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 73.3     |
+| eprewmean               | -0.92    |
+| fps                     | 63       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 44       |
+| misc/serial_timesteps   | 1.13e+04 |
+| misc/time_elapsed       | 1.18e+04 |
+| misc/total_timesteps    | 7.21e+05 |
+--------------------------------------
+Saving to model-22-10000-piecewise/checkpoints/00044
+ENT_COEF_NOW VALUE: 0.01 0.8557377049180328 45 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 73.9     |
+| eprewmean               | -1.12    |
+| fps                     | 63       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 45       |
+| misc/serial_timesteps   | 1.15e+04 |
+| misc/time_elapsed       | 1.2e+04  |
+| misc/total_timesteps    | 7.37e+05 |
+--------------------------------------
+Saving to model-22-10000-piecewise/checkpoints/00045
+ENT_COEF_NOW VALUE: 0.01 0.8524590163934427 46 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 76.3     |
+| eprewmean               | -0.96    |
+| fps                     | 63       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 46       |
+| misc/serial_timesteps   | 1.18e+04 |
+| misc/time_elapsed       | 1.23e+04 |
+| misc/total_timesteps    | 7.54e+05 |
+--------------------------------------
+Saving to model-22-10000-piecewise/checkpoints/00046
+ENT_COEF_NOW VALUE: 0.01 0.8491803278688524 47 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 74.2     |
+| eprewmean               | -0.95    |
+| fps                     | 63       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 47       |
+| misc/serial_timesteps   | 1.2e+04  |
+| misc/time_elapsed       | 1.25e+04 |
+| misc/total_timesteps    | 7.7e+05  |
+--------------------------------------
+Saving to model-22-10000-piecewise/checkpoints/00047
+ENT_COEF_NOW VALUE: 0.01 0.8459016393442623 48 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 74.3     |
+| eprewmean               | -1.31    |
+| fps                     | 64       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 48       |
+| misc/serial_timesteps   | 1.23e+04 |
+| misc/time_elapsed       | 1.28e+04 |
+| misc/total_timesteps    | 7.86e+05 |
+--------------------------------------
+Saving to model-22-10000-piecewise/checkpoints/00048
+ENT_COEF_NOW VALUE: 0.01 0.8426229508196721 49 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 76.1     |
+| eprewmean               | -0.86    |
+| fps                     | 64       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 49       |
+| misc/serial_timesteps   | 1.25e+04 |
+| misc/time_elapsed       | 1.3e+04  |
+| misc/total_timesteps    | 8.03e+05 |
+--------------------------------------
+Saving to model-22-10000-piecewise/checkpoints/00049
+ENT_COEF_NOW VALUE: 0.01 0.839344262295082 50 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 72.9     |
+| eprewmean               | -0.96    |
+| fps                     | 64       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 50       |
+| misc/serial_timesteps   | 1.28e+04 |
+| misc/time_elapsed       | 1.33e+04 |
+| misc/total_timesteps    | 8.19e+05 |
+--------------------------------------
+Saving to model-22-10000-piecewise/checkpoints/00050
+ENT_COEF_NOW VALUE: 0.01 0.8360655737704918 51 305
+Stepping environment...
+Done.

@@ -75,6 +75,7 @@ def plot_values(ax, all_values, title=None, max_x=0, label=None, **kwargs):
     if ax is not None:
         plot_data_mean_std(ax, all_values, label=label, **kwargs)
         ax.set_title(title)
+        ax.set_ylim([0, 30])
 
     return all_values
 

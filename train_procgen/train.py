@@ -41,9 +41,16 @@ def zoh_interpolation(l, r, alpha):
     return l
 
 def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, timesteps_per_proc, scheduler, high_entropy, is_test_worker=False, log_dir='./model-11-high-entropy-linear', comm=None):
-    learning_rate = 5e-4
+    print("HIGH learning rate")
+    learning_rate = 5e-3 # HIGH
+    
+    #print("NORMAL learning rate")
+    #learning_rate = 5e-4
+
+    print("learning_rate:", learning_rate)
 
     if high_entropy == False:   # 0.01
+        print("Starting LOW at ent_coeff = 0.01")
         if scheduler == "none":
             print("Constant Entropy Coeff")
             ent_coef = 1e-2
@@ -67,6 +74,7 @@ def train_fn(env_name, num_envs, distribution_mode, num_levels, start_level, tim
                                                         (timesteps_per_proc, 1e-5)],
                                             interpolation = zoh_interpolation)
     else:   # 0.1
+        print("Starting HIGH at ent_coeff = 0.1")
         if scheduler == "none":
             print("Constant Entropy Coeff")
             ent_coef = 1e-1
