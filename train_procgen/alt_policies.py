@@ -89,7 +89,7 @@ class PolicyWithValue(object):
         # Take an action
         # print("LOGITS BEFORE:", self.pd.logits)
         # print("DOING PRETURBATION")
-        self.pd.preturb(0.01)
+        self.pd.preturb(100)
         # print("LOGITS AFTER:", self.pd.logits)
 
         self.action = self.pd.sample()
