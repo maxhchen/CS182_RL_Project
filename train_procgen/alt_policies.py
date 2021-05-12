@@ -2,8 +2,8 @@ import tensorflow as tf
 from baselines.common import tf_util
 from baselines.a2c.utils import fc
 #####################################################
-from baselines.common.distributions import make_pdtype
-# from alt_distributions import make_pdtype
+# from baselines.common.distributions import make_pdtype
+from alt_distributions import make_pdtype
 #####################################################
 from baselines.common.input import observation_placeholder, encode_observation
 from baselines.common.tf_util import adjust_shape
@@ -49,7 +49,7 @@ class PolicyWithValue(object):
         # Take an action
         # print("LOGITS BEFORE:", self.pd.logits)
         # print("DOING PRETURBATION")
-        # self.pd.preturb(0.01)
+        self.pd.preturb(0.025)
         # print("LOGITS AFTER:", self.pd.logits)
 
         self.action = self.pd.sample()
