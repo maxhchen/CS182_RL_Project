@@ -65,3 +65,5 @@ unattended-upgrades==0.1
 Werkzeug==1.0.1
 wrapt==1.12.1
 zipp==3.4.1
+
+tensorflow_probability==0.7
