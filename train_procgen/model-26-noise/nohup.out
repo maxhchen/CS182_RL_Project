@@ -1,0 +1,916 @@
+Using none Scheduler for Entropy Decay
+Saving to dir: model-26-noise
+Using high entropy? False
+NORMAL learning rate
+learning_rate: 0.0005
+Starting LOW at ent_coeff = 0.01
+Constant Entropy Coeff
+Logging to model-26-noise
+creating environment
+creating tf session
+2021-05-12 19:39:28.169258: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2021-05-12 19:39:28.172317: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2299995000 Hz
+2021-05-12 19:39:28.172777: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x5622b75d7180 executing computations on platform Host. Devices:
+2021-05-12 19:39:28.172814: I tensorflow/compiler/xla/service/service.cc:175]   StreamExecutor device (0): <undefined>, <undefined>
+training
+2021-05-12 19:39:32.579002: W tensorflow/compiler/jit/mark_for_compilation_pass.cc:1412] (One-time warning): Not using XLA:CPU for cluster because envvar TF_XLA_FLAGS=--tf_xla_cpu_global_jit was not set.  If you want XLA:CPU, either set that envvar, or use experimental_jit_scope to enable XLA:CPU.  To confirm that XLA is active, pass --vmodule=xla_compilation_cache=1 (as a proper command-line flag, not via TF_XLA_FLAGS) or set the envvar XLA_FLAGS=--xla_hlo_profile.
+perturbing...
+perturbing...
+ENT_COEF VALUE: Tensor("Placeholder_7:0", shape=(), dtype=float32)
+ENT_COEF_NOW VALUE: 0.01 1.0 1 305
+Stepping environment...
+Done.
+2021-05-12 19:39:56.369503: W tensorflow/core/framework/allocator.cc:107] Allocation of 536870912 exceeds 10% of system memory.
+tcmalloc: large alloc 1208008704 bytes == 0x56232b36e000 @  0x7f8631f5e1e7 0x7f8607c7ac05 0x7f860874f8fe 0x7f860ab2ba20 0x7f860b12eb00 0x7f860b1300ce 0x7f860b1a0ab1 0x7f860b1a4276 0x7f860b1a4c03 0x7f8604781136 0x7f86047715c5 0x7f860481b3ae 0x7f8604818228 0x7f8630840a50 0x7f8631d136db 0x7f8630e4871f
+tcmalloc: large alloc 1208008704 bytes == 0x56233336e000 @  0x7f8631f5e1e7 0x7f8607c7ac05 0x7f860874f8fe 0x7f860ab2ba20 0x7f860b11cf40 0x7f860b11e50e 0x7f860b1a0321 0x7f860b1a423e 0x7f860b1a4c03 0x7f8604781136 0x7f86047715c5 0x7f860481b3ae 0x7f8604818228 0x7f8630840a50 0x7f8631d136db 0x7f8630e4871f
+2021-05-12 19:40:07.033832: W tensorflow/core/framework/allocator.cc:107] Allocation of 536870912 exceeds 10% of system memory.
+2021-05-12 19:40:17.405787: W tensorflow/core/framework/allocator.cc:107] Allocation of 536870912 exceeds 10% of system memory.
+2021-05-12 19:40:27.722281: W tensorflow/core/framework/allocator.cc:107] Allocation of 536870912 exceeds 10% of system memory.
+2021-05-12 19:40:38.108046: W tensorflow/core/framework/allocator.cc:107] Allocation of 536870912 exceeds 10% of system memory.
+--------------------------------------
+| eplenmean               | 84.4     |
+| eprewmean               | -1.86    |
+| fps                     | 60       |
+| loss/approxkl           | 0.201    |
+| loss/clipfrac           | 0.676    |
+| loss/policy_entropy     | 2.64     |
+| loss/policy_loss        | 0.0694   |
+| loss/value_loss         | 0.414    |
+| misc/explained_variance | 0.00938  |
+| misc/nupdates           | 1        |
+| misc/serial_timesteps   | 256      |
+| misc/time_elapsed       | 271      |
+| misc/total_timesteps    | 1.64e+04 |
+--------------------------------------
+Saving to model-26-noise/checkpoints/00001
+ENT_COEF_NOW VALUE: 0.01 0.9967213114754099 2 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 83.3     |
+| eprewmean               | -2.25    |
+| fps                     | 60       |
+| loss/approxkl           | 0.196    |
+| loss/clipfrac           | 0.675    |
+| loss/policy_entropy     | 2.64     |
+| loss/policy_loss        | 0.0871   |
+| loss/value_loss         | 0.151    |
+| misc/explained_variance | 0.046    |
+| misc/nupdates           | 2        |
+| misc/serial_timesteps   | 512      |
+| misc/time_elapsed       | 542      |
+| misc/total_timesteps    | 3.28e+04 |
+--------------------------------------
+Saving to model-26-noise/checkpoints/00002
+ENT_COEF_NOW VALUE: 0.01 0.9934426229508196 3 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 88.2     |
+| eprewmean               | -2.95    |
+| fps                     | 53       |
+| loss/approxkl           | 0.201    |
+| loss/clipfrac           | 0.676    |
+| loss/policy_entropy     | 2.63     |
+| loss/policy_loss        | 0.0843   |
+| loss/value_loss         | 0.153    |
+| misc/explained_variance | 0.14     |
+| misc/nupdates           | 3        |
+| misc/serial_timesteps   | 768      |
+| misc/time_elapsed       | 848      |
+| misc/total_timesteps    | 4.92e+04 |
+--------------------------------------
+Saving to model-26-noise/checkpoints/00003
+ENT_COEF_NOW VALUE: 0.01 0.9901639344262295 4 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 84.3     |
+| eprewmean               | -2.88    |
+| fps                     | 60       |
+| loss/approxkl           | 0.197    |
+| loss/clipfrac           | 0.674    |
+| loss/policy_entropy     | 2.63     |
+| loss/policy_loss        | 0.0885   |
+| loss/value_loss         | 0.127    |
+| misc/explained_variance | 0.222    |
+| misc/nupdates           | 4        |
+| misc/serial_timesteps   | 1.02e+03 |
+| misc/time_elapsed       | 1.12e+03 |
+| misc/total_timesteps    | 6.55e+04 |
+--------------------------------------
+Saving to model-26-noise/checkpoints/00004
+ENT_COEF_NOW VALUE: 0.01 0.9868852459016394 5 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 91       |
+| eprewmean               | -2.5     |
+| fps                     | 59       |
+| loss/approxkl           | 0.199    |
+| loss/clipfrac           | 0.672    |
+| loss/policy_entropy     | 2.63     |
+| loss/policy_loss        | 0.0827   |
+| loss/value_loss         | 0.112    |
+| misc/explained_variance | 0.282    |
+| misc/nupdates           | 5        |
+| misc/serial_timesteps   | 1.28e+03 |
+| misc/time_elapsed       | 1.39e+03 |
+| misc/total_timesteps    | 8.19e+04 |
+--------------------------------------
+Saving to model-26-noise/checkpoints/00005
+ENT_COEF_NOW VALUE: 0.01 0.9836065573770492 6 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 79.4     |
+| eprewmean               | -2.28    |
+| fps                     | 60       |
+| loss/approxkl           | 0.202    |
+| loss/clipfrac           | 0.674    |
+| loss/policy_entropy     | 2.63     |
+| loss/policy_loss        | 0.0884   |
+| loss/value_loss         | 0.119    |
+| misc/explained_variance | 0.347    |
+| misc/nupdates           | 6        |
+| misc/serial_timesteps   | 1.54e+03 |
+| misc/time_elapsed       | 1.66e+03 |
+| misc/total_timesteps    | 9.83e+04 |
+--------------------------------------
+Saving to model-26-noise/checkpoints/00006
+ENT_COEF_NOW VALUE: 0.01 0.980327868852459 7 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 86       |
+| eprewmean               | -1.99    |
+| fps                     | 53       |
+| loss/approxkl           | 0.2      |
+| loss/clipfrac           | 0.673    |
+| loss/policy_entropy     | 2.63     |
+| loss/policy_loss        | 0.0899   |
+| loss/value_loss         | 0.117    |
+| misc/explained_variance | 0.333    |
+| misc/nupdates           | 7        |
+| misc/serial_timesteps   | 1.79e+03 |
+| misc/time_elapsed       | 1.97e+03 |
+| misc/total_timesteps    | 1.15e+05 |
+--------------------------------------
+Saving to model-26-noise/checkpoints/00007
+ENT_COEF_NOW VALUE: 0.01 0.9770491803278688 8 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 80.7     |
+| eprewmean               | -2.35    |
+| fps                     | 60       |
+| loss/approxkl           | 0.197    |
+| loss/clipfrac           | 0.67     |
+| loss/policy_entropy     | 2.63     |
+| loss/policy_loss        | 0.074    |
+| loss/value_loss         | 0.109    |
+| misc/explained_variance | 0.404    |
+| misc/nupdates           | 8        |
+| misc/serial_timesteps   | 2.05e+03 |
+| misc/time_elapsed       | 2.24e+03 |
+| misc/total_timesteps    | 1.31e+05 |
+--------------------------------------
+Saving to model-26-noise/checkpoints/00008
+ENT_COEF_NOW VALUE: 0.01 0.9737704918032787 9 305
+Stepping environment...
+Done.
+Done.
+--------------------------------------
+| eplenmean               | 85.3     |
+| eprewmean               | -1.09    |
+| fps                     | 59       |
+| loss/approxkl           | 0.223    |
+| loss/clipfrac           | 0.662    |
+| loss/policy_entropy     | 2.59     |
+| loss/policy_loss        | 0.0766   |
+| loss/value_loss         | 0.0757   |
+| misc/explained_variance | 0.496    |
+| misc/nupdates           | 12       |
+| misc/serial_timesteps   | 3.07e+03 |
+| misc/time_elapsed       | 3.38e+03 |
+| misc/total_timesteps    | 1.97e+05 |
+--------------------------------------
+Saving to model-26-noise/checkpoints/00012
+ENT_COEF_NOW VALUE: 0.01 0.9606557377049181 13 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 84       |
+| eprewmean               | -0.59    |
+| fps                     | 58       |
+| loss/approxkl           | 0.23     |
+| loss/clipfrac           | 0.652    |
+| loss/policy_entropy     | 2.58     |
+| loss/policy_loss        | 0.0714   |
+| loss/value_loss         | 0.0734   |
+| misc/explained_variance | 0.533    |
+| misc/nupdates           | 13       |
+| misc/serial_timesteps   | 3.33e+03 |
+| misc/time_elapsed       | 3.66e+03 |
+| misc/total_timesteps    | 2.13e+05 |
+--------------------------------------
+Saving to model-26-noise/checkpoints/00013
+ENT_COEF_NOW VALUE: 0.01 0.9573770491803278 14 305
+Stepping environment...
+Done.
+[74b1c497f033:00724] *** Process received signal ***
+[74b1c497f033:00724] Signal: Segmentation fault (11)
+[74b1c497f033:00724] Signal code: Address not mapped (1)
+[74b1c497f033:00724] Failing at address: 0x7f7b3b04620d
+[74b1c497f033:00724] [ 0] /lib/x86_64-linux-gnu/libpthread.so.0(+0x12980)[0x7f7b3daeb980]
+[74b1c497f033:00724] [ 1] /lib/x86_64-linux-gnu/libc.so.6(getenv+0xa5)[0x7f7b3d72a8a5]
+[74b1c497f033:00724] [ 2] /usr/lib/x86_64-linux-gnu/libtcmalloc.so.4(_ZN13TCMallocGuardD1Ev+0x34)[0x7f7b3df95e44]
+[74b1c497f033:00724] [ 3] /lib/x86_64-linux-gnu/libc.so.6(__cxa_finalize+0xf5)[0x7f7b3d72b735]
+[74b1c497f033:00724] [ 4] /usr/lib/x86_64-linux-gnu/libtcmalloc.so.4(+0x13cb3)[0x7f7b3df93cb3]
+[74b1c497f033:00724] *** End of error message ***
+Using none Scheduler for Entropy Decay
+Saving to dir: model-26-noise
+Using high entropy? False
+loading from model-26-noise/checkpoints/00013
+NORMAL learning rate
+learning_rate: 0.0005
+Starting LOW at ent_coeff = 0.01
+Constant Entropy Coeff
+Logging to model-26-noise
+creating environment
+creating tf session
+2021-05-12 20:55:03.732625: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2021-05-12 20:55:03.735914: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2299995000 Hz
+2021-05-12 20:55:03.736258: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x55e3eac99180 executing computations on platform Host. Devices:
+2021-05-12 20:55:03.736301: I tensorflow/compiler/xla/service/service.cc:175]   StreamExecutor device (0): <undefined>, <undefined>
+training
+2021-05-12 20:55:08.109125: W tensorflow/compiler/jit/mark_for_compilation_pass.cc:1412] (One-time warning): Not using XLA:CPU for cluster because envvar TF_XLA_FLAGS=--tf_xla_cpu_global_jit was not set.  If you want XLA:CPU, either set that envvar, or use experimental_jit_scope to enable XLA:CPU.  To confirm that XLA is active, pass --vmodule=xla_compilation_cache=1 (as a proper command-line flag, not via TF_XLA_FLAGS) or set the envvar XLA_FLAGS=--xla_hlo_profile.
+perturbing...
+perturbing...
+ENT_COEF VALUE: Tensor("Placeholder_7:0", shape=(), dtype=float32)
+ENT_COEF_NOW VALUE: 0.01 1.0 1 305
+Stepping environment...
+Done.
+2021-05-12 20:55:32.938786: W tensorflow/core/framework/allocator.cc:107] Allocation of 536870912 exceeds 10% of system memory.
+tcmalloc: large alloc 1208008704 bytes == 0x55e46256a000 @  0x7fb4e3c211e7 0x7fb4b993dc05 0x7fb4ba4128fe 0x7fb4bc7eea20 0x7fb4bcdf1b00 0x7fb4bcdf30ce 0x7fb4bce63ab1 0x7fb4bce67276 0x7fb4bce67c03 0x7fb4b6444136 0x7fb4b64345c5 0x7fb4b64de3ae 0x7fb4b64db228 0x7fb4e2503a50 0x7fb4e39d66db 0x7fb4e2b0b71f
+tcmalloc: large alloc 1208008704 bytes == 0x55e46a56a000 @  0x7fb4e3c211e7 0x7fb4b993dc05 0x7fb4ba4128fe 0x7fb4bc7eea20 0x7fb4bcddff40 0x7fb4bcde150e 0x7fb4bce63321 0x7fb4bce6723e 0x7fb4bce67c03 0x7fb4b6444136 0x7fb4b64345c5 0x7fb4b64de3ae 0x7fb4b64db228 0x7fb4e2503a50 0x7fb4e39d66db 0x7fb4e2b0b71f
+2021-05-12 20:55:34.639797: W tensorflow/core/framework/allocator.cc:107] Allocation of 268435456 exceeds 10% of system memory.
+2021-05-12 20:55:42.452911: W tensorflow/core/framework/allocator.cc:107] Allocation of 268435456 exceeds 10% of system memory.
+2021-05-12 20:55:43.699630: W tensorflow/core/framework/allocator.cc:107] Allocation of 536870912 exceeds 10% of system memory.
+2021-05-12 20:55:45.318448: W tensorflow/core/framework/allocator.cc:107] Allocation of 268435456 exceeds 10% of system memory.
+--------------------------------------
+| eplenmean               | 85.2     |
+| eprewmean               | -1.27    |
+| fps                     | 59       |
+| loss/approxkl           | 0.246    |
+| loss/clipfrac           | 0.648    |
+| loss/policy_entropy     | 2.55     |
+| loss/policy_loss        | 0.0558   |
+| loss/value_loss         | 0.173    |
+| misc/explained_variance | 0.353    |
+| misc/nupdates           | 1        |
+| misc/serial_timesteps   | 256      |
+| misc/time_elapsed       | 274      |
+| misc/total_timesteps    | 1.64e+04 |
+--------------------------------------
+Saving to model-26-noise/checkpoints/00001
+ENT_COEF_NOW VALUE: 0.01 0.9967213114754099 2 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 82       |
+| eprewmean               | -0.57    |
+| fps                     | 59       |
+| loss/approxkl           | 0.239    |
+| loss/clipfrac           | 0.642    |
+| loss/policy_entropy     | 2.54     |
+| loss/policy_loss        | 0.0671   |
+| loss/value_loss         | 0.083    |
+| misc/explained_variance | 0.467    |
+| misc/nupdates           | 2        |
+| misc/serial_timesteps   | 512      |
+| misc/time_elapsed       | 549      |
+| misc/total_timesteps    | 3.28e+04 |
+--------------------------------------
+Saving to model-26-noise/checkpoints/00002
+ENT_COEF_NOW VALUE: 0.01 0.9934426229508196 3 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 84.1     |
+| eprewmean               | -0.5     |
+| fps                     | 52       |
+| loss/approxkl           | 0.231    |
+| loss/clipfrac           | 0.639    |
+| loss/policy_entropy     | 2.52     |
+| loss/policy_loss        | 0.0648   |
+| loss/value_loss         | 0.0987   |
+| misc/explained_variance | 0.479    |
+| misc/nupdates           | 3        |
+| misc/serial_timesteps   | 768      |
+| misc/time_elapsed       | 861      |
+| misc/total_timesteps    | 4.92e+04 |
+--------------------------------------
+Saving to model-26-noise/checkpoints/00003
+ENT_COEF_NOW VALUE: 0.01 0.9901639344262295 4 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 79.3     |
+| eprewmean               | -0.3     |
+| fps                     | 59       |
+| loss/approxkl           | 0.242    |
+| loss/clipfrac           | 0.621    |
+| loss/policy_entropy     | 2.49     |
+| loss/policy_loss        | 0.0604   |
+| loss/value_loss         | 0.087    |
+| misc/explained_variance | 0.425    |
+| misc/nupdates           | 4        |
+| misc/serial_timesteps   | 1.02e+03 |
+| misc/time_elapsed       | 1.13e+03 |
+| misc/total_timesteps    | 6.55e+04 |
+--------------------------------------
+Saving to model-26-noise/checkpoints/00004
+ENT_COEF_NOW VALUE: 0.01 0.9868852459016394 5 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 79.5     |
+| eprewmean               | -0.53    |
+| fps                     | 59       |
+| loss/approxkl           | 0.238    |
+| loss/clipfrac           | 0.619    |
+| loss/policy_entropy     | 2.48     |
+| loss/policy_loss        | 0.0606   |
+| loss/value_loss         | 0.0815   |
+| misc/explained_variance | 0.528    |
+| misc/nupdates           | 5        |
+| misc/serial_timesteps   | 1.28e+03 |
+| misc/time_elapsed       | 1.41e+03 |
+| misc/total_timesteps    | 8.19e+04 |
+--------------------------------------
+Saving to model-26-noise/checkpoints/00005
+ENT_COEF_NOW VALUE: 0.01 0.9836065573770492 6 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 79.4     |
+| eprewmean               | -0.38    |
+| fps                     | 60       |
+| loss/approxkl           | 0.239    |
+| loss/clipfrac           | 0.614    |
+| loss/policy_entropy     | 2.46     |
+| loss/policy_loss        | 0.0575   |
+| loss/value_loss         | 0.0904   |
+| misc/explained_variance | 0.449    |
+| misc/nupdates           | 6        |
+| misc/serial_timesteps   | 1.54e+03 |
+| misc/time_elapsed       | 1.68e+03 |
+| misc/total_timesteps    | 9.83e+04 |
+--------------------------------------
+Saving to model-26-noise/checkpoints/00006
+ENT_COEF_NOW VALUE: 0.01 0.980327868852459 7 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 81.7     |
+| eprewmean               | -0.35    |
+| fps                     | 60       |
+| loss/approxkl           | 0.234    |
+| loss/clipfrac           | 0.597    |
+| loss/policy_entropy     | 2.44     |
+| loss/policy_loss        | 0.0635   |
+| loss/value_loss         | 0.0967   |
+| misc/explained_variance | 0.575    |
+| misc/nupdates           | 7        |
+| misc/serial_timesteps   | 1.79e+03 |
+| misc/time_elapsed       | 1.95e+03 |
+| misc/total_timesteps    | 1.15e+05 |
+--------------------------------------
+Saving to model-26-noise/checkpoints/00007
+ENT_COEF_NOW VALUE: 0.01 0.9770491803278688 8 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 81.1     |
+| eprewmean               | -0.6     |
+| fps                     | 61       |
+| loss/approxkl           | 0.23     |
+| loss/clipfrac           | 0.602    |
+| loss/policy_entropy     | 2.45     |
+| loss/policy_loss        | 0.0687   |
+| loss/value_loss         | 0.106    |
+| misc/explained_variance | 0.506    |
+| misc/nupdates           | 8        |
+| misc/serial_timesteps   | 2.05e+03 |
+| misc/time_elapsed       | 2.22e+03 |
+| misc/total_timesteps    | 1.31e+05 |
+--------------------------------------
+Saving to model-26-noise/checkpoints/00008
+ENT_COEF_NOW VALUE: 0.01 0.9737704918032787 9 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 79.8     |
+| eprewmean               | -0.49    |
+| fps                     | 61       |
+| loss/approxkl           | 0.244    |
+| loss/clipfrac           | 0.605    |
+| loss/policy_entropy     | 2.44     |
+| loss/policy_loss        | 0.0543   |
+| loss/value_loss         | 0.0973   |
+| misc/explained_variance | 0.533    |
+| misc/nupdates           | 9        |
+| misc/serial_timesteps   | 2.3e+03  |
+| misc/time_elapsed       | 2.49e+03 |
+| misc/total_timesteps    | 1.47e+05 |
+--------------------------------------
+Saving to model-26-noise/checkpoints/00009
+ENT_COEF_NOW VALUE: 0.01 0.9704918032786886 10 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 82.1     |
+| eprewmean               | -0.33    |
+| fps                     | 61       |
+| loss/approxkl           | 0.221    |
+| loss/clipfrac           | 0.578    |
+| loss/policy_entropy     | 2.41     |
+| loss/policy_loss        | 0.0553   |
+| loss/value_loss         | 0.0911   |
+| misc/explained_variance | 0.512    |
+| misc/nupdates           | 10       |
+| misc/serial_timesteps   | 2.56e+03 |
+| misc/time_elapsed       | 2.76e+03 |
+| misc/total_timesteps    | 1.64e+05 |
+--------------------------------------
+Saving to model-26-noise/checkpoints/00010
+ENT_COEF_NOW VALUE: 0.01 0.9672131147540983 11 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 83.1     |
+| eprewmean               | 0.05     |
+| fps                     | 61       |
+| loss/approxkl           | 0.217    |
+| loss/clipfrac           | 0.565    |
+| loss/policy_entropy     | 2.4      |
+| loss/policy_loss        | 0.0494   |
+| loss/value_loss         | 0.0694   |
+| misc/explained_variance | 0.549    |
+| misc/nupdates           | 11       |
+| misc/serial_timesteps   | 2.82e+03 |
+| misc/time_elapsed       | 3.02e+03 |
+| misc/total_timesteps    | 1.8e+05  |
+--------------------------------------
+Saving to model-26-noise/checkpoints/00011
+ENT_COEF_NOW VALUE: 0.01 0.9639344262295082 12 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 83.3     |
+| eprewmean               | -0.05    |
+| fps                     | 61       |
+| loss/approxkl           | 0.229    |
+| loss/clipfrac           | 0.573    |
+| loss/policy_entropy     | 2.39     |
+| loss/policy_loss        | 0.0499   |
+| loss/value_loss         | 0.091    |
+| misc/explained_variance | 0.518    |
+| misc/nupdates           | 12       |
+| misc/serial_timesteps   | 3.07e+03 |
+| misc/time_elapsed       | 3.29e+03 |
+| misc/total_timesteps    | 1.97e+05 |
+--------------------------------------
+Saving to model-26-noise/checkpoints/00012
+ENT_COEF_NOW VALUE: 0.01 0.9606557377049181 13 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 85.5     |
+| eprewmean               | -0.03    |
+| fps                     | 61       |
+| loss/approxkl           | 0.236    |
+| loss/clipfrac           | 0.573    |
+| loss/policy_entropy     | 2.38     |
+| loss/policy_loss        | 0.0659   |
+| loss/value_loss         | 0.0891   |
+| misc/explained_variance | 0.426    |
+| misc/nupdates           | 13       |
+| misc/serial_timesteps   | 3.33e+03 |
+| misc/time_elapsed       | 3.56e+03 |
+| misc/total_timesteps    | 2.13e+05 |
+--------------------------------------
+Saving to model-26-noise/checkpoints/00013
+ENT_COEF_NOW VALUE: 0.01 0.9573770491803278 14 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 84.8     |
+| eprewmean               | 0.22     |
+| fps                     | 62       |
+| loss/approxkl           | 0.23     |
+| loss/clipfrac           | 0.564    |
+| loss/policy_entropy     | 2.37     |
+| loss/policy_loss        | 0.0513   |
+| loss/value_loss         | 0.0995   |
+| misc/explained_variance | 0.558    |
+| misc/nupdates           | 14       |
+| misc/serial_timesteps   | 3.58e+03 |
+| misc/time_elapsed       | 3.82e+03 |
+| misc/total_timesteps    | 2.29e+05 |
+--------------------------------------
+Saving to model-26-noise/checkpoints/00014
+ENT_COEF_NOW VALUE: 0.01 0.9540983606557377 15 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 82.2     |
+| eprewmean               | -0.09    |
+| fps                     | 62       |
+| loss/approxkl           | 0.216    |
+| loss/clipfrac           | 0.569    |
+| loss/policy_entropy     | 2.4      |
+| loss/policy_loss        | 0.0613   |
+| loss/value_loss         | 0.105    |
+| misc/explained_variance | 0.491    |
+| misc/nupdates           | 15       |
+| misc/serial_timesteps   | 3.84e+03 |
+| misc/time_elapsed       | 4.08e+03 |
+| misc/total_timesteps    | 2.46e+05 |
+--------------------------------------
+Saving to model-26-noise/checkpoints/00015
+ENT_COEF_NOW VALUE: 0.01 0.9508196721311475 16 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 79.4     |
+| eprewmean               | 0.36     |
+| fps                     | 61       |
+| loss/approxkl           | 0.239    |
+| loss/clipfrac           | 0.568    |
+| loss/policy_entropy     | 2.34     |
+| loss/policy_loss        | 0.0583   |
+| loss/value_loss         | 0.0779   |
+| misc/explained_variance | 0.602    |
+| misc/nupdates           | 16       |
+| misc/serial_timesteps   | 4.1e+03  |
+| misc/time_elapsed       | 4.35e+03 |
+| misc/total_timesteps    | 2.62e+05 |
+--------------------------------------
+Saving to model-26-noise/checkpoints/00016
+ENT_COEF_NOW VALUE: 0.01 0.9475409836065574 17 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 85.4     |
+| eprewmean               | 0.63     |
+| fps                     | 61       |
+| loss/approxkl           | 0.23     |
+| loss/clipfrac           | 0.565    |
+| loss/policy_entropy     | 2.35     |
+| loss/policy_loss        | 0.0517   |
+| loss/value_loss         | 0.0758   |
+| misc/explained_variance | 0.544    |
+| misc/nupdates           | 17       |
+| misc/serial_timesteps   | 4.35e+03 |
+| misc/time_elapsed       | 4.62e+03 |
+| misc/total_timesteps    | 2.79e+05 |
+--------------------------------------
+Saving to model-26-noise/checkpoints/00017
+ENT_COEF_NOW VALUE: 0.01 0.9442622950819672 18 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 84.2     |
+| eprewmean               | 0.55     |
+| fps                     | 62       |
+| loss/approxkl           | 0.222    |
+| loss/clipfrac           | 0.554    |
+| loss/policy_entropy     | 2.34     |
+| loss/policy_loss        | 0.0476   |
+| loss/value_loss         | 0.0779   |
+| misc/explained_variance | 0.5      |
+| misc/nupdates           | 18       |
+| misc/serial_timesteps   | 4.61e+03 |
+| misc/time_elapsed       | 4.88e+03 |
+| misc/total_timesteps    | 2.95e+05 |
+--------------------------------------
+Saving to model-26-noise/checkpoints/00018
+ENT_COEF_NOW VALUE: 0.01 0.940983606557377 19 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 80.2     |
+| eprewmean               | 0.45     |
+| fps                     | 62       |
+| loss/approxkl           | 0.227    |
+| loss/clipfrac           | 0.551    |
+| loss/policy_entropy     | 2.33     |
+| loss/policy_loss        | 0.0532   |
+| loss/value_loss         | 0.0658   |
+| misc/explained_variance | 0.453    |
+| misc/nupdates           | 19       |
+| misc/serial_timesteps   | 4.86e+03 |
+| misc/time_elapsed       | 5.14e+03 |
+| misc/total_timesteps    | 3.11e+05 |
+--------------------------------------
+Saving to model-26-noise/checkpoints/00019
+ENT_COEF_NOW VALUE: 0.01 0.9377049180327869 20 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 79       |
+| eprewmean               | 0.6      |
+| fps                     | 62       |
+| loss/approxkl           | 0.226    |
+| loss/clipfrac           | 0.543    |
+| loss/policy_entropy     | 2.32     |
+| loss/policy_loss        | 0.051    |
+| loss/value_loss         | 0.078    |
+| misc/explained_variance | 0.522    |
+| misc/nupdates           | 20       |
+| misc/serial_timesteps   | 5.12e+03 |
+| misc/time_elapsed       | 5.4e+03  |
+| misc/total_timesteps    | 3.28e+05 |
+--------------------------------------
+Saving to model-26-noise/checkpoints/00020
+ENT_COEF_NOW VALUE: 0.01 0.9344262295081968 21 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 83.7     |
+| eprewmean               | 0.35     |
+| fps                     | 62       |
+| loss/approxkl           | 0.227    |
+| loss/clipfrac           | 0.548    |
+| loss/policy_entropy     | 2.31     |
+| loss/policy_loss        | 0.0507   |
+| loss/value_loss         | 0.074    |
+| misc/explained_variance | 0.508    |
+| misc/nupdates           | 21       |
+| misc/serial_timesteps   | 5.38e+03 |
+| misc/time_elapsed       | 5.67e+03 |
+| misc/total_timesteps    | 3.44e+05 |
+--------------------------------------
+Saving to model-26-noise/checkpoints/00021
+ENT_COEF_NOW VALUE: 0.01 0.9311475409836065 22 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 91.9     |
+| eprewmean               | 0.86     |
+| fps                     | 62       |
+| loss/approxkl           | 0.218    |
+| loss/clipfrac           | 0.534    |
+| loss/policy_entropy     | 2.3      |
+| loss/policy_loss        | 0.056    |
+| loss/value_loss         | 0.0617   |
+| misc/explained_variance | 0.496    |
+| misc/nupdates           | 22       |
+| misc/serial_timesteps   | 5.63e+03 |
+| misc/time_elapsed       | 5.93e+03 |
+| misc/total_timesteps    | 3.6e+05  |
+--------------------------------------
+Saving to model-26-noise/checkpoints/00022
+ENT_COEF_NOW VALUE: 0.01 0.9278688524590164 23 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 79.5     |
+| eprewmean               | 0.72     |
+| fps                     | 62       |
+| loss/approxkl           | 0.229    |
+| loss/clipfrac           | 0.534    |
+| loss/policy_entropy     | 2.28     |
+| loss/policy_loss        | 0.0487   |
+| loss/value_loss         | 0.069    |
+| misc/explained_variance | 0.526    |
+| misc/nupdates           | 23       |
+| misc/serial_timesteps   | 5.89e+03 |
+| misc/time_elapsed       | 6.19e+03 |
+| misc/total_timesteps    | 3.77e+05 |
+--------------------------------------
+Saving to model-26-noise/checkpoints/00023
+ENT_COEF_NOW VALUE: 0.01 0.9245901639344263 24 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 87.6     |
+| eprewmean               | 0.72     |
+| fps                     | 63       |
+| loss/approxkl           | 0.232    |
+| loss/clipfrac           | 0.544    |
+| loss/policy_entropy     | 2.27     |
+| loss/policy_loss        | 0.0561   |
+| loss/value_loss         | 0.0859   |
+| misc/explained_variance | 0.521    |
+| misc/nupdates           | 24       |
+| misc/serial_timesteps   | 6.14e+03 |
+| misc/time_elapsed       | 6.45e+03 |
+| misc/total_timesteps    | 3.93e+05 |
+--------------------------------------
+Saving to model-26-noise/checkpoints/00024
+ENT_COEF_NOW VALUE: 0.01 0.921311475409836 25 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 90.4     |
+| eprewmean               | 0.88     |
+| fps                     | 62       |
+| loss/approxkl           | 0.228    |
+| loss/clipfrac           | 0.548    |
+| loss/policy_entropy     | 2.3      |
+| loss/policy_loss        | 0.0503   |
+| loss/value_loss         | 0.0673   |
+| misc/explained_variance | 0.568    |
+| misc/nupdates           | 25       |
+| misc/serial_timesteps   | 6.4e+03  |
+| misc/time_elapsed       | 6.71e+03 |
+| misc/total_timesteps    | 4.1e+05  |
+--------------------------------------
+Saving to model-26-noise/checkpoints/00025
+ENT_COEF_NOW VALUE: 0.01 0.9180327868852459 26 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 92.3     |
+| eprewmean               | 0.82     |
+| fps                     | 62       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0.532    |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | 0.0632   |
+| misc/explained_variance | 0.636    |
+| misc/nupdates           | 26       |
+| misc/serial_timesteps   | 6.66e+03 |
+| misc/time_elapsed       | 6.97e+03 |
+| misc/total_timesteps    | 4.26e+05 |
+--------------------------------------
+Saving to model-26-noise/checkpoints/00026
+ENT_COEF_NOW VALUE: 0.01 0.9147540983606557 27 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 75.7     |
+| eprewmean               | -0.99    |
+| fps                     | 64       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 27       |
+| misc/serial_timesteps   | 6.91e+03 |
+| misc/time_elapsed       | 7.22e+03 |
+| misc/total_timesteps    | 4.42e+05 |
+--------------------------------------
+Saving to model-26-noise/checkpoints/00027
+ENT_COEF_NOW VALUE: 0.01 0.9114754098360656 28 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 73.9     |
+| eprewmean               | -1.41    |
+| fps                     | 64       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 28       |
+| misc/serial_timesteps   | 7.17e+03 |
+| misc/time_elapsed       | 7.48e+03 |
+| misc/total_timesteps    | 4.59e+05 |
+--------------------------------------
+Saving to model-26-noise/checkpoints/00028
+ENT_COEF_NOW VALUE: 0.01 0.9081967213114754 29 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 75.5     |
+| eprewmean               | -1.27    |
+| fps                     | 64       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 29       |
+| misc/serial_timesteps   | 7.42e+03 |
+| misc/time_elapsed       | 7.73e+03 |
+| misc/total_timesteps    | 4.75e+05 |
+--------------------------------------
+Saving to model-26-noise/checkpoints/00029
+ENT_COEF_NOW VALUE: 0.01 0.9049180327868852 30 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 74.9     |
+| eprewmean               | -1.45    |
+| fps                     | 65       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 30       |
+| misc/serial_timesteps   | 7.68e+03 |
+| misc/time_elapsed       | 7.98e+03 |
+| misc/total_timesteps    | 4.92e+05 |
+--------------------------------------
+Saving to model-26-noise/checkpoints/00030
+ENT_COEF_NOW VALUE: 0.01 0.9016393442622951 31 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 72.6     |
+| eprewmean               | -1.22    |
+| fps                     | 65       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 31       |
+| misc/serial_timesteps   | 7.94e+03 |
+| misc/time_elapsed       | 8.23e+03 |
+| misc/total_timesteps    | 5.08e+05 |
+--------------------------------------
+Saving to model-26-noise/checkpoints/00031
+ENT_COEF_NOW VALUE: 0.01 0.898360655737705 32 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 78.4     |
+| eprewmean               | -1.12    |
+| fps                     | 65       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 32       |
+| misc/serial_timesteps   | 8.19e+03 |
+| misc/time_elapsed       | 8.48e+03 |
+| misc/total_timesteps    | 5.24e+05 |
+--------------------------------------
+Saving to model-26-noise/checkpoints/00032
+ENT_COEF_NOW VALUE: 0.01 0.8950819672131147 33 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 73.5     |
+| eprewmean               | -1.08    |
+| fps                     | 65       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 33       |
+| misc/serial_timesteps   | 8.45e+03 |
+| misc/time_elapsed       | 8.73e+03 |
+| misc/total_timesteps    | 5.41e+05 |
+--------------------------------------
+Saving to model-26-noise/checkpoints/00033
+ENT_COEF_NOW VALUE: 0.01 0.8918032786885246 34 305
+Stepping environment...
+Done.
+--------------------------------------
+| eplenmean               | 75.4     |
+| eprewmean               | -1.24    |
+| fps                     | 65       |
+| loss/approxkl           | nan      |
+| loss/clipfrac           | 0        |
+| loss/policy_entropy     | nan      |
+| loss/policy_loss        | nan      |
+| loss/value_loss         | nan      |
+| misc/explained_variance | nan      |
+| misc/nupdates           | 34       |
+| misc/serial_timesteps   | 8.7e+03  |
+| misc/time_elapsed       | 8.98e+03 |
+| misc/total_timesteps    | 5.57e+05 |
+--------------------------------------
+Saving to model-26-noise/checkpoints/00034
+ENT_COEF_NOW VALUE: 0.01 0.8885245901639345 35 305
+Stepping environment...
+Done.
+[74b1c497f033:01129] *** Process received signal ***
+[74b1c497f033:01129] Signal: Segmentation fault (11)
+[74b1c497f033:01129] Signal code: Address not mapped (1)
+[74b1c497f033:01129] Failing at address: 0x7f5d0aa9e20d
+[74b1c497f033:01129] [ 0] /lib/x86_64-linux-gnu/libpthread.so.0(+0x12980)[0x7f5d0d543980]
+[74b1c497f033:01129] [ 1] /lib/x86_64-linux-gnu/libc.so.6(getenv+0xa5)[0x7f5d0d1828a5]
+[74b1c497f033:01129] [ 2] /usr/lib/x86_64-linux-gnu/libtcmalloc.so.4(_ZN13TCMallocGuardD1Ev+0x34)[0x7f5d0d9ede44]
+[74b1c497f033:01129] [ 3] /lib/x86_64-linux-gnu/libc.so.6(__cxa_finalize+0xf5)[0x7f5d0d183735]
+[74b1c497f033:01129] [ 4] /usr/lib/x86_64-linux-gnu/libtcmalloc.so.4(+0x13cb3)[0x7f5d0d9ebcb3]
+[74b1c497f033:01129] *** End of error message ***

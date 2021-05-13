@@ -107,7 +107,8 @@ def plot_values(ax, all_values, title=None, max_x=0, label=None, **kwargs):
         for i in range(len(all_values)):
             plot_data_mean_std(ax, all_values[i, :].reshape((1, len(all_values[0]))), label=label, id=i, **kwargs)
         ax.set_title(title)
-        ax.set_ylim([0, 30])
+        # ax.set_ylim([0, 30])
+        ax.set_ylim([1.5, 2.75])
 
     return all_values
 
@@ -154,7 +155,7 @@ def plot_experiment(run_directory_prefix, titles=None, suffixes=[''], normalizat
             raw_data = np.array([read_csv(file, key_name) for file in csv_files])
             if type(run_directory_prefix) is list:
                 print(raw_data.shape[0])
-                values = plot_values(curr_ax, raw_data, title="Baseline Runs", color_idx=suffix_idx, label=label, **kwargs)
+                values = plot_values(curr_ax, raw_data, title="All Runs", color_idx=suffix_idx, label=label, **kwargs)
             else:
                 print(raw_data.shape[0])
                 values = plot_values(curr_ax, raw_data, title=run_directory_prefix, color_idx=suffix_idx, label=label, **kwargs)

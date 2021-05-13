@@ -1,2 +1,0 @@
-eplenmean,eprewmean,fps,loss/approxkl,loss/clipfrac,loss/policy_entropy,loss/policy_loss,loss/value_loss,misc/explained_variance,misc/nupdates,misc/serial_timesteps,misc/time_elapsed,misc/total_timesteps
-130.66666666666666,2.944444417953491,31.0,0.006970804184675217,0.08319091796875,2.3708808422088623,-0.010222657583653927,0.20375017821788788,0.6217673718929291,1.0,256.0,520.1171708809998,16384.0
